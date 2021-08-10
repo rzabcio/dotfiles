@@ -1,0 +1,9 @@
+#!/bin/bash
+DOTFILES=~/dotfiles
+
+cd $DOTFILED
+git pull
+
+# Vim
+vim +'PlugClean --sync' +qa
+vim +'PlugInstall --sync' +qa

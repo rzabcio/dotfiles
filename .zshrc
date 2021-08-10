@@ -113,3 +113,4 @@ source /etc/bash_completion.d/kubectl
 
 export TERM=xterm-256color
 #alias tmux="TERM=screen-256color-bce tmux"
+cd

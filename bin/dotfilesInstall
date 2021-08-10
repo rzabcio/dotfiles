@@ -11,6 +11,6 @@ ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 
 # Vim
 ln -sf $DOTFILES/.vimrc ~/.vimrc
-mkdir -p ~/.vim
+mkdir -p ~/.vim/swapfiles
 ln -sf $DOTFILES/.vim/autoload ~/.vim/autoload
 vim +'PlugInstall --sync' +qa
