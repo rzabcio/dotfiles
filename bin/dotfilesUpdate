@@ -1,9 +1,14 @@
 #!/bin/bash
 DOTFILES=~/dotfiles
 
-cd $DOTFILED
+cd $DOTFILES
 git pull
 
 # Vim
 vim +'PlugClean --sync' +qa
 vim +'PlugInstall --sync' +qa
+
+#WSL
+if [ -d "/mnt/c/Users/jglazik/" ]; then
+  cp $DOTFILES/.vimrc /mnt/c/Users/jglazik
+fi

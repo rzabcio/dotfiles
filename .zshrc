@@ -112,5 +112,6 @@ source /usr/lib/google-cloud-sdk/completion.bash.inc
 source /etc/bash_completion.d/kubectl
 
 export TERM=xterm-256color
+#eval "$(dircolors ~/.dircolors)";
 #alias tmux="TERM=screen-256color-bce tmux"
 cd
