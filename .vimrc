@@ -2,28 +2,28 @@
 call plug#begin('~/.vim/plugged')
 Plug 'wikitopian/hardmode'
 Plug 'airblade/vim-gitgutter'
-"Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
-Plug 'pedrohdz/vim-yaml-folds'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
-"" lang plugins
-Plug 'preservim/tagbar'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'andviro/flake8-vim'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-"Plug 'modille/groovy.vim'
-Plug 'vim-scripts/groovy.vim'
+"" general syntax plugins
+Plug 'pedrohdz/vim-yaml-folds'
 Plug 'sheerun/vim-polyglot'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
+Plug 'preservim/tagbar'
+Plug 'godlygeek/tabular'
+"" language specific plugins
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'andviro/flake8-vim'
+"Plug 'plasticboy/vim-markdown'
+""Plug 'modille/groovy.vim'
+"Plug 'vim-scripts/groovy.vim'
 call plug#end()
 
 """ working dirs
