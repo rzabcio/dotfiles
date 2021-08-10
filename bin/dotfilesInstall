@@ -1,0 +1,16 @@
+#!/bin/bash
+DOTFILES=~/dotfiles
+
+mkdir -p ~/bin
+ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
+
+# Various
+ln -sf $DOTFILES/.zshrc ~/.zshrc
+ln -sf $DOTFILES/.ctags ~/.ctags
+ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+
+# Vim
+ln -sf $DOTFILES/.vimrc ~/.vimrc
+mkdir -p ~/.vim
+ln -sf $DOTFILES/.vim/autoload ~/.vim/autoload
+vim +'PlugInstall --sync' +qa
