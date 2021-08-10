@@ -16,6 +16,9 @@ ln -sf $DOTFILES/.vim/autoload ~/.vim/autoload
 vim +'PlugInstall --sync' +qa
 
 #WSL
-if [ -d "/mnt/c/Users/jglazik/" ]; then
-  cp $DOTFILES/.vimrc /mnt/c/Users/jglazik
+WIN_HOME_DIR=/mnt/c/Users/jglazik
+if [ -d "$WIN_HOME_DIR" ]; then
+  mkdir -p $WIN_HOME_DIR/.vim/autoload
+  cp $DOTFILES/.vim/autoload/plug.vim $WIN_HOME_DIR/.vim/autoload/plug.vim
+  cp $DOTFILES/.vimrc $WIN_HOME_DIR
 fi

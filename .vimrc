@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
@@ -18,6 +19,9 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'preservim/tagbar'
 Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'michaeljsmith/vim-indent-object'
 "" language specific plugins
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'andviro/flake8-vim'
@@ -108,7 +112,7 @@ colorscheme gruvbox
 """ Lightline
 let g:lightline = {
       \ 'mode_map': { 'n' : 'N', 'i' : 'I', 'R' : 'R', 'v' : 'V', 'V' : 'VL', "\<C-v>": 'VB', 'c' : 'C', 's' : 'S', 'S' : 'SL', "\<C-s>": 'SB', 't': 'T', },
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'] ],
