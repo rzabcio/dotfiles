@@ -1,17 +1,23 @@
-session_name: gojira-bnadg
+session_name: gmaster
 windows:
-- focus: 'true'
+- window_name: vim
+  focus: 'true'
   layout: b15d,211x51,0,0,0
   options: {}
   panes:
   - focus: 'true'
     shell_command: cd /mnt/c/work-gojira/atlscripts-bazanadgodzin; vim src/groovy/gojira/bnadgListener.groovy src/groovy/r2bucket/rest_axEndpoint.groovy
   start_directory: /mnt/c/work-gojira/atlscripts-bazanadgodzin
-  window_name: vim
-- layout: b160,211x51,0,0,3
+- window_name: shell
+  layout: b160,211x51,0,0,3
   options: {}
   panes:
   - focus: 'true'
     shell_command: cd /mnt/c/work-gojira/atlscripts-bazanadgodzin; clear
   start_directory: /mnt/c/work-gojira/atlscripts-bazanadgodzin
-  window_name: zsh
+- window_name: gojira
+  layout: b57f,211x51,0,0[211x10,0,0,15,211x40,0,11,17]
+  options: {}
+  panes:
+  - shell_command: ssh -t jglazik@gojira.sygnity.pl 'htop'
+  - shell_command: ssh -t jglazik@gojira.sygnity.pl 'gojiratail'
