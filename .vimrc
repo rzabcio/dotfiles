@@ -145,7 +145,7 @@ let g:lightline = {
       \ },
       \ }
 let g:lightline#bufferline#number_separator=':'
-let g:lightline#bufferline#show_number=2
+let g:lightline#bufferline#show_number=1
 set laststatus=2
 set showtabline=2
 
