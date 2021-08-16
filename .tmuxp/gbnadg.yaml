@@ -1,4 +1,4 @@
-session_name: gmaster
+session_name: scripts-bnadg
 windows:
 - window_name: vim
   focus: 'true'
