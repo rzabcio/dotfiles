@@ -111,6 +111,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 ### Completions
 source /usr/lib/google-cloud-sdk/completion.bash.inc
 source /etc/bash_completion.d/kubectl
+eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 export TERM=xterm-256color
 #eval "$(dircolors ~/.dircolors)";
