@@ -39,7 +39,8 @@ ZSH_THEME="rzabcio"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -114,4 +115,8 @@ source /etc/bash_completion.d/kubectl
 export TERM=xterm-256color
 #eval "$(dircolors ~/.dircolors)";
 #alias tmux="TERM=screen-256color-bce tmux"
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
 cd

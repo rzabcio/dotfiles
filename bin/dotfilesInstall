@@ -7,6 +7,7 @@ ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
 ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES/.tmuxp ~/.tmuxp
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 
 # Vim
