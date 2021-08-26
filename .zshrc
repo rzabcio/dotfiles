@@ -103,14 +103,22 @@ source $ZSH/oh-my-zsh.sh
 
 
 ### FZF SECTION
-export FZF_DEFAULT_COMMAND='fdfind --type f'
-alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
-bindkey -s '^e' 'vim $(fzf)\n'
-source /usr/share/doc/fzf/examples/completion.zsh
+if command -v fzf &> /dev/null; then
+	export FZF_DEFAULT_COMMAND='fdfind --type f'
+	alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
+	bindkey -s '^e' 'vim $(fzf)\n'
+fi
 
 ### Completions
-source /usr/lib/google-cloud-sdk/completion.bash.inc
-source /etc/bash_completion.d/kubectl
+if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
+	source /usr/share/doc/fzf/examples/completion.zsh
+fi
+if [ -f /usr/lib/google-cloud-sdk/completion.bash.inc ]; then
+	source /usr/lib/google-cloud-sdk/completion.bash.inc
+fi
+if [ -f /etc/bash_completion.d/kubectl ]; then
+	source /etc/bash_completion.d/kubectl
+fi
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 export TERM=xterm-256color

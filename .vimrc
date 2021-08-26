@@ -85,7 +85,9 @@ set relativenumber										"relative numbers
 set splitright												"new vertical split on the right
 set cursorline												"highlightin current line
 set scrolloff=8												"scroll screen before gettin to the end of file
-set signcolumn=yes										"extra column for info
+if v:version > 810
+	set signcolumn=yes										"extra column for info
+endif
 
 """ chars/formatting
 set nowrap 														"disable wrapping lines
@@ -174,6 +176,10 @@ let g:netrw_banner = 0								"disable annoying banner
 "let g:netrw_altv = 1									"open itself on the left
 let g:netrw_liststyle = 3							"tree view
 "let g:netrw_list_hide = netrw_gitignore#Hide()
+augroup ProjectDrawer
+	autocmd!
+	autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
 
 """ Tagbar
 nmap <F8> :TagbarToggle<CR>
