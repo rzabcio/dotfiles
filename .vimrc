@@ -88,6 +88,11 @@ set scrolloff=8												"scroll screen before gettin to the end of file
 if v:version > 810
 	set signcolumn=yes										"extra column for info
 endif
+if &term =~ '^xterm'
+	" 1 or 0 -> blinking block, 2 -> solid block, 3 -> blinking underscore, 4 -> solid underscore, 5 -> blinking vertical bar, 6 -> solid vertical bar
+	let &t_SI .= "\<Esc>[5 q"
+	let &t_EI .= "\<Esc>[1 q"
+endif
 
 """ chars/formatting
 set nowrap 														"disable wrapping lines
