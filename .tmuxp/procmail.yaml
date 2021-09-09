@@ -1,0 +1,16 @@
+session_name: procmail
+windows:
+- window_name: signthis@cpd1-signthistest-app:~/signthis-mails
+  focus: 'true'
+  layout: 0869,190x48,0,0[190x25,0,0{94x25,0,0,1,95x25,95,0,2},190x22,0,26,3]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command:
+    - vim ~/.procmailrc ~/bin/procmail-findmainatt ~/.getmail/getmailrc
+  - shell_command:
+    - cd ~/signthis-mails; cd "$(ls | tail -1)"
+    - ls | tail -1 | xargs ls -laR
+  - shell_command:
+    - multitail -f ~/logs/procmail.log ~/logs/procmail-processing.log
