@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'dense-analysis/ale'
@@ -22,6 +23,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'haya14busa/incsearch.vim'
 "" language specific plugins
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'andviro/flake8-vim'
@@ -113,8 +115,9 @@ au BufNewFile,BufRead *.groovy setf java
 
 """" Plugin settings ---------------------
 """ Gruvbox ccolor scheme
-colorscheme desert 										"hack for dark gruvbox
-colorscheme gruvbox
+" colorscheme desert 										"hack for dark gruvbox
+" colorscheme gruvbox
+colorscheme nord
 
 """ Lightline
 let g:lightline = {
@@ -188,3 +191,8 @@ augroup END
 
 """ Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+""" IncSearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
