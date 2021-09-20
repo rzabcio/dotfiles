@@ -3,21 +3,38 @@ DOTFILES=~/dotfiles
 mkdir -p ~/bin
 ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
 
-# Various
+### install packages
+PCKMGR='sudo apt -yq install'
+if [ -n "$(command -v yum)" ]; then
+  PCKMGR='sudo yum -y install'
+fi
+if [ ! -n "$(command -v zsh)" ]; then $PCKMGR zsh; fi
+if [ ! -n "$(command -v vim)" ]; then $PCKMGR vim; fi
+if [ ! -n "$(command -v tmux)" ]; then $PCKMGR tmux; fi
+
+### oh-my-zsh install
+if [ ! -d ~/.oh-my-zsh ]; then
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+### Various
 ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.dircolors ~/.dircolors
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.tmuxp ~/.tmuxp
 ln -sf $DOTFILES/.zshrc ~/.zshrc
+if [ -d ~/.oh-my-zsh ]; then
+  ln -sf $DOTFILES/.oh-my-zsh/themes/rzabcio.zsh-theme ~/.oh-my-zsh/themes/rzabcio.zsh-theme
+fi
 
-# Vim
+### Vim
 ln -sf $DOTFILES/.vimrc ~/.vimrc
 mkdir -p ~/.vim/swapfiles
 ln -sf $DOTFILES/.vim/autoload ~/.vim/autoload
 vim +'PlugInstall --sync' +qa
 
-#WSL
+### WSL
 WIN_HOME_DIR=/mnt/c/Users/jglazik
 if [ -d "$WIN_HOME_DIR" ]; then
   mkdir -p $WIN_HOME_DIR/.vim/autoload
