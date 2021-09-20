@@ -6,6 +6,7 @@ ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
 # Various
 ln -sf $DOTFILES/.bashrc ~/.bashrc
 ln -sf $DOTFILES/.ctags ~/.ctags
+ln -sf $DOTFILES/.dircolors ~/.dircolors
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.tmuxp ~/.tmuxp
 ln -sf $DOTFILES/.zshrc ~/.zshrc

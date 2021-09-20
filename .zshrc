@@ -73,6 +73,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git python pipenv docker docker-compose)
 
+eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -122,7 +123,6 @@ fi
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 export TERM=xterm-256color
-#eval "$(dircolors ~/.dircolors)";
 #alias tmux="TERM=screen-256color-bce tmux"
 alias t="tmux"
 alias ta="t a -t"
