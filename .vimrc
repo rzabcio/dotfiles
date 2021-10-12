@@ -28,7 +28,7 @@ Plug 'arcticicestudio/nord-vim'
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'andviro/flake8-vim'
 "Plug 'plasticboy/vim-markdown'
-""Plug 'modille/groovy.vim'
+Plug 'modille/groovy.vim'
 "Plug 'vim-scripts/groovy.vim'
 call plug#end()
 
@@ -122,14 +122,13 @@ colorscheme nord
 """ Lightline
 let g:lightline = {
       \ 'mode_map': { 'n' : 'N', 'i' : 'I', 'R' : 'R', 'v' : 'V', 'V' : 'VL', "\<C-v>": 'VB', 'c' : 'C', 's' : 'S', 'S' : 'SL', "\<C-s>": 'SB', 't': 'T', },
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'] ],
+      \ 'colorscheme': 'nord',
+      \ 'enable': {
+	    \   'tabline': 0
       \ },
-      \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], ['buffers'] ],
+      \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype'] ],
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
@@ -157,7 +156,7 @@ let g:lightline = {
 let g:lightline#bufferline#number_separator=':'
 let g:lightline#bufferline#show_number=1
 set laststatus=2
-set showtabline=2
+set showtabline=1
 
 """ Fuzzy Finder
 let g:fzf_layout = { 'down': '~40%' }
@@ -196,3 +195,18 @@ nmap <F8> :TagbarToggle<CR>
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" https://github.com/niklasl/vimheap/blob/master/after/syntax/groovy.vim
+" syn region foldBraces start=/{\s*$/ end=/}\s*$/ transparent fold keepend extend
+" syn region foldImports start=/\(^\s*\n^import\)\@<= .\+$/ end=+^\s*$+ transparent fold keepend
+" set foldmethod=syntax
+let g:tagbar_type_groovy = {
+    \ 'ctagstype' : 'groovy',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'c:class',
+        \ 'i:interface',
+        \ 'f:function',
+        \ 'v:variables',
+    \ ]
+\ }
