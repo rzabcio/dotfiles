@@ -123,13 +123,11 @@ colorscheme nord
 let g:lightline = {
       \ 'mode_map': { 'n' : 'N', 'i' : 'I', 'R' : 'R', 'v' : 'V', 'V' : 'VL', "\<C-v>": 'VB', 'c' : 'C', 's' : 'S', 'S' : 'SL', "\<C-s>": 'SB', 't': 'T', },
       \ 'colorscheme': 'nord',
-      \ 'enable': {
-	    \   'tabline': 0
-      \ },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], ['buffers'] ],
+      \   'left': [ [ 'mode', 'paste'], [ 'filename', 'modified' ] ],
       \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype'] ],
       \ },
+      \ 'tabline': { 'left': [ ['buffers'] ] },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers',
       \   'linter_checking': 'lightline#ale#checking',
@@ -151,12 +149,12 @@ let g:lightline = {
       \   'linter_warnings': 'LightlineLinterWarnings',
       \   'linter_errors': 'LightlineLinterErrors',
       \   'linter_ok': 'LightlineLinterOK'
-      \ },
+      \ }
       \ }
 let g:lightline#bufferline#number_separator=':'
 let g:lightline#bufferline#show_number=1
 set laststatus=2
-set showtabline=1
+set showtabline=2
 
 """ Fuzzy Finder
 let g:fzf_layout = { 'down': '~40%' }
