@@ -71,7 +71,7 @@ nnoremap <C-k> :m-2<CR>								"move line up
 nnoremap <C-j> :m+<CR>								"move line down
 nnoremap <C-h> :bp<CR>								"prev buffer
 nnoremap <C-l> :bn<CR>								"next buffer
-imap jj <Esc>													"exit insert mode
+inoremap jj <Esc>											"exit insert mode
 
 """ basic settings
 set exrc															"load local .vimrc if present

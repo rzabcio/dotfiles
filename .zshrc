@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -71,7 +71,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python pipenv docker docker-compose)
+plugins=(git sudo python pipenv docker kubectl gcloud fzf tmux)
 
 eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
@@ -111,15 +111,6 @@ if command -v fzf &> /dev/null; then
 fi
 
 ### Completions
-if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
-	source /usr/share/doc/fzf/examples/completion.zsh
-fi
-if [ -f /usr/lib/google-cloud-sdk/completion.bash.inc ]; then
-	source /usr/lib/google-cloud-sdk/completion.bash.inc
-fi
-if [ -f /etc/bash_completion.d/kubectl ]; then
-	source /etc/bash_completion.d/kubectl
-fi
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 export TERM=xterm-256color
