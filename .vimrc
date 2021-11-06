@@ -30,6 +30,8 @@ Plug 'arcticicestudio/nord-vim'
 "Plug 'plasticboy/vim-markdown'
 Plug 'modille/groovy.vim'
 "Plug 'vim-scripts/groovy.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 """ working dirs
@@ -208,3 +210,9 @@ let g:tagbar_type_groovy = {
         \ 'v:variables',
     \ ]
 \ }
+
+""" Linelight + Goyo
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
