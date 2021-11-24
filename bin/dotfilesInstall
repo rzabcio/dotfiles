@@ -16,6 +16,10 @@ if [ ! -n "$(command -v tmux)" ]; then $PCKMGR tmux; fi
 if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+if [ ! -d ~/.tmux/plugins ]; then
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 ### Various
 ln -sf $DOTFILES/.bashrc ~/.bashrc
