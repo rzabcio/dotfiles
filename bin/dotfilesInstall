@@ -11,6 +11,7 @@ fi
 if [ ! -n "$(command -v zsh)" ]; then $PCKMGR zsh; fi
 if [ ! -n "$(command -v vim)" ]; then $PCKMGR vim; fi
 if [ ! -n "$(command -v tmux)" ]; then $PCKMGR tmux; fi
+if [ ! -n "$(command -v fdfind)" ]; then $PCKMGR fd-find; fi
 
 ### oh-my-zsh install
 if [ ! -d ~/.oh-my-zsh ]; then
