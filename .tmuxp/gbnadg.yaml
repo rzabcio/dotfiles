@@ -15,9 +15,3 @@ windows:
   - focus: 'true'
     shell_command: cd /mnt/c/work-gojira/atlscripts-bazanadgodzin; clear
   start_directory: /mnt/c/work-gojira/atlscripts-bazanadgodzin
-- window_name: gojira
-  layout: b57f,211x51,0,0[211x10,0,0,15,211x40,0,11,17]
-  options: {}
-  panes:
-  - shell_command: ssh -t jglazik@gojira.sygnity.pl 'htop'
-  - shell_command: ssh -t jglazik@gojira.sygnity.pl 'gojiratail'
