@@ -24,12 +24,16 @@ Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'haya14busa/incsearch.vim'
 Plug 'arcticicestudio/nord-vim'
+
 "" language specific plugins
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'andviro/flake8-vim'
 "Plug 'plasticboy/vim-markdown'
 Plug 'modille/groovy.vim'
 "Plug 'vim-scripts/groovy.vim'
+Plug 'elixir-editors/vim-elixir'
+
+"" writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
@@ -105,7 +109,7 @@ set shiftwidth=2											"tab as 2 spaces (on >)
 set listchars=tab:▶·,trail:·					"set tabs and trails chars
 set list															"set visible special chars
 filetype plugin on
-filetype indent off
+filetype plugin indent on
 
 """ autoclosing omni
 set omnifunc=syntaxcomplete#Complete

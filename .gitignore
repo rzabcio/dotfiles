@@ -1,2 +1,4 @@
 .vim/autoload/autoload
 .tmuxp/.tmuxp
+nvim/plugged
+nvim/nvim
