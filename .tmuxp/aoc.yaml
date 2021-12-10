@@ -1,0 +1,15 @@
+session_name: aoc
+windows:
+- window_name: main
+  focus: 'true'
+  layout: 0869,190x48,0,0[190x25,0,0,190x22,0,26,1{94x25,0,0,2,95x25,95,0,3}]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command:
+    - cd ~/work-private/aoc2021/; vim
+  - shell_command:
+    - cd ~/work-private/aoc2021/
+  - shell_command:
+    - cd ~/work-private/aoc2021/
