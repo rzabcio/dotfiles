@@ -12,6 +12,7 @@ Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
+Plug 'itchyny/vim-gitbranch'
 "" general syntax plugins
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'sheerun/vim-polyglot'
@@ -109,7 +110,7 @@ set shiftwidth=2											"tab as 2 spaces (on >)
 set listchars=tab:▶·,trail:·					"set tabs and trails chars
 set list															"set visible special chars
 filetype plugin on
-filetype plugin indent on
+filetype plugin indent off
 
 """ autoclosing omni
 set omnifunc=syntaxcomplete#Complete
@@ -131,7 +132,7 @@ let g:lightline = {
       \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'], [ 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype'] ],
+      \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype', 'gitbranch'] ],
       \ },
       \ 'tabline': { 'left': [ ['buffers'] ] },
       \ 'component_expand': {
@@ -154,7 +155,8 @@ let g:lightline = {
       \ 'component_function': {
       \   'linter_warnings': 'LightlineLinterWarnings',
       \   'linter_errors': 'LightlineLinterErrors',
-      \   'linter_ok': 'LightlineLinterOK'
+      \   'linter_ok': 'LightlineLinterOK',
+      \   'gitbranch': 'gitbranch#name'
       \ }
       \ }
 let g:lightline#bufferline#number_separator=':'

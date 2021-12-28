@@ -126,6 +126,8 @@ fi
 eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
 export TERM=xterm-256color
+export LESS="-F -X $LESS"
+export HEADLINE_DO_GIT_STATUS_COUNTS='true'
 #alias tmux="TERM=screen-256color-bce tmux"
 alias t="tmux"
 alias ta="t a -t"
