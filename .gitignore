@@ -1,4 +1,5 @@
 .vim/autoload/autoload
+.vifm/vifminfo.json
 .tmuxp/.tmuxp
 nvim/plugged
 nvim/nvim

@@ -1,0 +1,25 @@
+- name: Default workspace configuration
+  hosts: all
+  vars:
+    dotfiles_dir: ~/dotfiles2
+  tasks:
+    - name: Install Git
+      package: name=git state=latest
+      become: yes
+    - name: Checkout '{{ dotfiles_dir }}'
+      ansible.builtin.git:
+        repo: 'https://github.com/rzabcio/dotfiles.git'
+        dest: '{{ dotfiles_dir }}'
+    - name: Install other tools
+      package:
+        name:
+          - vim
+          - vimfm
+          - zsh
+          - tmux
+          - fdfind
+        state: latest
+      become: yes
+    - name: Setting up dotfiles
+      command: 'sh {{ dotfiles_dir }}/bin/dotfilesInstall'
+
