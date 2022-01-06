@@ -10,6 +10,7 @@ if [ -n "$(command -v yum)" ]; then
 fi
 if [ ! -n "$(command -v zsh)" ]; then $PCKMGR zsh; fi
 if [ ! -n "$(command -v vim)" ]; then $PCKMGR vim; fi
+if [ ! -n "$(command -v vifm)" ]; then $PCKMGR vifm; fi
 if [ ! -n "$(command -v tmux)" ]; then $PCKMGR tmux; fi
 if [ ! -n "$(command -v fdfind)" ]; then $PCKMGR fd-find; fi
 
@@ -29,6 +30,7 @@ ln -sf $DOTFILES/.ctags ~/.ctags
 ln -sf $DOTFILES/.dircolors ~/.dircolors
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES/.tmuxp ~/.tmuxp
+ln -sf $DOTFILES/.vifm ~/.vifm
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 if [ -d ~/.oh-my-zsh ]; then
   ln -sf $DOTFILES/.oh-my-zsh/themes/rzabcio.zsh-theme ~/.oh-my-zsh/themes/rzabcio.zsh-theme

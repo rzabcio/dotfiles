@@ -6,12 +6,12 @@ windows:
   options: {}
   panes:
   - focus: 'true'
-    shell_command: cd /mnt/c/work-gojira/atlassian-apps-scripts-master; vim 
-  start_directory: /mnt/c/work-gojira/atlassian-apps-scripts-master
+    shell_command: cd ~/work/atl-scripts-master/; vim 
+  start_directory: ~/work/atl-scripts-master/
 - window_name: zsh
   layout: b160,211x51,0,0,3
   options: {}
   panes:
   - focus: 'true'
-    shell_command: cd /mnt/c/work-gojira/atlassian-apps-scripts-master; clear
-  start_directory: /mnt/c/work-gojira/atlassian-apps-scripts-master
+    shell_command: cd ~/work/atl-scripts-master/; clear
+  start_directory: ~/work/atl-scripts-master/
