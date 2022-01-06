@@ -1,7 +1,10 @@
 - name: Default workspace configuration
   hosts: all
   vars:
-    dotfiles_dir: ~/dotfiles2
+    dotfiles_dir: ~/dotfiles
+  environment:
+    http_proxy: http://proxy.corpnet.inside:8080
+    https_proxy: http://proxy.corpnet.inside:8080
   tasks:
     - name: Install Git
       package: name=git state=latest
@@ -13,13 +16,28 @@
     - name: Install other tools
       package:
         name:
-          - vim
-          - vimfm
-          - zsh
           - tmux
+          - vifm
+          - vim
+          - zsh
+        state: latest
+      become: yes
+      ignore_errors: yes
+    - name: Install other tools - RedHat/CentOS
+      package:
+        name:
+          - ctags
+        state: latest
+      become: yes
+      ignore_errors: yes
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+    - name: Install other tools - other
+      package:
+        name:
+          - exuberant-tags
           - fdfind
         state: latest
       become: yes
-    - name: Setting up dotfiles
-      command: 'sh {{ dotfiles_dir }}/bin/dotfilesInstall'
+      ignore_errors: yes
+      when: ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux'
 
