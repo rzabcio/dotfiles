@@ -23,6 +23,8 @@
         state: latest
       become: yes
       ignore_errors: yes
+    - name: Distribution
+      debug: msg='{{ ansible_distribution }}'
     - name: Install other tools - RedHat/CentOS
       package:
         name:
@@ -30,7 +32,7 @@
         state: latest
       become: yes
       ignore_errors: yes
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
     - name: Install other tools - other
       package:
         name:
@@ -39,5 +41,5 @@
         state: latest
       become: yes
       ignore_errors: yes
-      when: ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux'
+      when: ansible_distribution != 'CentOS' and ansible_distribution != 'RedHat'
 
