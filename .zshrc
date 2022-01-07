@@ -8,8 +8,17 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="rzabcio"
-ZSH_THEME="headline"
+hostname="$(hostname)"
+function choose_theme {
+	if [[ $hostname =~ 'gojira' ]]; then
+		echo 'rzabcio'
+	elif [[ $hostname =~ 'mrfluence' ]]; then
+		echo 'rzabcio'
+	else
+		echo 'headline'
+	fi
+}
+ZSH_THEME="$(choose_theme)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
