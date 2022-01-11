@@ -1,0 +1,17 @@
+session_name: scripts-dev
+windows:
+- window_name: vim
+  focus: 'true'
+  layout: b15d,211x51,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work/atl-scripts-dev/; vim 
+  start_directory: ~/work/atl-scripts-dev/
+- window_name: zsh
+  layout: b160,211x51,0,0,3
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work/atl-scripts-dev/; clear
+  start_directory: ~/work/atl-scripts-dev/
