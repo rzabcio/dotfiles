@@ -1,2 +1,7 @@
 colorscheme nord
 
+" always show git log in preview of files inside some repository
+au DirEnter '~/work/atl-scripts-*/**/*' setl previewprg='git log --color --pretty=short --stat --graph -- %c 2>&1'
+
+nnoremap w :view<cr>
+

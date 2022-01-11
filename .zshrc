@@ -20,6 +20,18 @@ function choose_theme {
 }
 ZSH_THEME="$(choose_theme)"
 
+function set_proxy {
+	if [[ $hostname =~ 'gojira' ]]; then
+		echo 'proxy-dmz.corpnet.inside:8080'
+	elif [[ $hostname =~ 'mrfluence' ]]; then
+		echo 'proxy-dmz.corpnet.inside:8080'
+	else
+		echo ''
+	fi
+}
+export HTTP_PROXY="$(set_proxy)"
+export HTTPS_PROXY="$(set_proxy)"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
