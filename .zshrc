@@ -106,6 +106,11 @@ plugins=(
 	tmux
 )
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jglazik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jglazik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/completion.zsh.inc'; fi
+
 eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
 
@@ -155,3 +160,4 @@ alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
+
