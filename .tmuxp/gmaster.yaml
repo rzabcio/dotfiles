@@ -6,7 +6,7 @@ windows:
   options: {}
   panes:
   - focus: 'true'
-    shell_command: cd ~/work-gojira/atl-scripts-master/; vim 
+    shell_command: cd ~/work-gojira/atl-scripts-master/; nvim 
   start_directory: ~/work-gojira/atl-scripts-master/
 - window_name: zsh
   layout: b160,211x51,0,0,3
