@@ -1,7 +1,7 @@
 --------------------------------------
 -- basic options
 vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
-vim.opt.colorcolumn='110'                 -- column limit
+vim.opt.colorcolumn='111'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 vim.opt.hidden=true                     -- Enable background buffers
 vim.opt.list=true                       -- Show some invisible characters
@@ -19,9 +19,6 @@ vim.opt.splitright=true                 -- Put new windows right of current
 vim.opt.tabstop=2                       -- Number of spaces tabs count for
 vim.opt.wildmode={'list', 'longest'}    -- Command-line completion mode
 vim.opt.wrap=false                      -- Disable line wrap
-vim.opt.dir='~/.vim/swapfiles'          -- 
-vim.opt.directory='~/.vim/swapfiles'
-vim.opt.backupdir='~/.vim/swapfiles'
 
 
 --------------------------------------
@@ -31,8 +28,8 @@ local function map(mode, lhs, rhs, opts)
 	if opts then options = vim.tbl_extend('force', options, opts) end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-map('n', '<C-j>', ':m-2<CR>')
-map('n', '<C-k>', ':m+<CR>')
+map('n', '<C-k>', ':m-2<CR>')
+map('n', '<C-j>', ':m+<CR>')
 map('n', '<C-h>', ':bp<CR>')
 map('n', '<C-l>', ':bn<CR>')
 map('i', 'jj', '<Esc>')

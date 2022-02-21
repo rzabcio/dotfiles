@@ -26,23 +26,23 @@ map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 
 --------------------------------------
 -- treesitter
-require('nvim-treesitter.configs').setup {
-	ensure_installed='maintained',
-	highlight={enable=true},
-	textobjects={
-		select={
-			enable=true,
-			keymaps={
-				['aa']='@parameter.outer', ['ia']='@parameter.inner',
-				['af']='@function.outer', ['if']='@function.inner',
-			},
-		},
-		move={
-			enable=true,
-			goto_next_start={[']a']='@parameter.inner', [']f']='@function.outer'},
-			goto_next_end={[']A']='@parameter.inner', [']F']='@function.outer'},
-			goto_previous_start={['[a']='@parameter.inner', ['[f']='@function.outer'},
-			goto_previous_end={['[A']='@parameter.inner', ['[F']='@function.outer'},
-		},
-	},
-}
+-- require('nvim-treesitter.configs').setup {
+-- 	ensure_installed='maintained',
+-- 	highlight={enable=true},
+-- 	textobjects={
+-- 		select={
+-- 			enable=true,
+-- 			keymaps={
+-- 				['aa']='@parameter.outer', ['ia']='@parameter.inner',
+-- 				['af']='@function.outer', ['if']='@function.inner',
+-- 			},
+-- 		},
+-- 		move={
+-- 			enable=true,
+-- 			goto_next_start={[']a']='@parameter.inner', [']f']='@function.outer'},
+-- 			goto_next_end={[']A']='@parameter.inner', [']F']='@function.outer'},
+-- 			goto_previous_start={['[a']='@parameter.inner', ['[f']='@function.outer'},
+-- 			goto_previous_end={['[A']='@parameter.inner', ['[F']='@function.outer'},
+-- 		},
+-- 	},
+-- }

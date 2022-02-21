@@ -3,4 +3,4 @@
 .tmuxp/.tmuxp
 nvim/plugged
 nvim/nvim
-.vifm/vifminfo
+.vifm/vifminfo*

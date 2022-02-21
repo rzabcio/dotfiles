@@ -12,18 +12,24 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/nvim-cmp'
-	use 'nvim-treesitter/nvim-treesitter'
-	use 'nvim-treesitter/nvim-treesitter-textobjects'
+	-- use 'nvim-treesitter/nvim-treesitter'
+	-- use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
 	use 'ojroques/nvim-lspfuzzy'
 	use 'nvim-lua/plenary.nvim'
-	use 'lewis6991/gitsigns.nvim'
 	use 'ojroques/nvim-hardline'
 	use 'ojroques/nvim-bufbar'
 	use 'tpope/vim-commentary'
+
+	-- git plugins
+	use 'lewis6991/gitsigns.nvim'
 	use 'tpope/vim-fugitive'
+
+	-- lang plugins
+	use 'stephpy/vim-yaml'
+	use 'pedrohdz/vim-yaml-folds'
 
 	--- color schemes
 	use 'arcticicestudio/nord-vim'
