@@ -19,6 +19,7 @@ vim.opt.splitright=true                 -- Put new windows right of current
 vim.opt.tabstop=2                       -- Number of spaces tabs count for
 vim.opt.wildmode={'list', 'longest'}    -- Command-line completion mode
 vim.opt.wrap=false                      -- Disable line wrap
+vim.g.mapleader=' '
 
 
 --------------------------------------
@@ -28,11 +29,16 @@ local function map(mode, lhs, rhs, opts)
 	if opts then options = vim.tbl_extend('force', options, opts) end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-map('n', '<C-k>', ':m-2<CR>')
-map('n', '<C-j>', ':m+<CR>')
-map('n', '<C-h>', ':bp<CR>')
-map('n', '<C-l>', ':bn<CR>')
+map('n', '<C-k>', ':m-2<cr>')
+map('n', '<C-j>', ':m+<cr>')
+map('n', '<C-h>', ':bp<cr>')
+map('n', '<C-l>', ':bn<cr>')
+map('n', '<Tab>', '<C-w><C-w>')
 map('i', 'jj', '<Esc>')
+map('n', '<leader>/', ':Lines<cr>')
+map('n', '<leader>o', ':Files<cr>')
+map('n', '<leader>H', ':Rg<cr>')
+-- map('n', '<leader>f', ':Lines<cr>')
 
 
 --------------------------------------

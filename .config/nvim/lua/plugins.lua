@@ -22,6 +22,7 @@ return require('packer').startup(function()
 	use 'ojroques/nvim-hardline'
 	use 'ojroques/nvim-bufbar'
 	use 'tpope/vim-commentary'
+	use 'tpope/vim-surround'
 
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'
