@@ -103,12 +103,16 @@ plugins=(
 	pipenv
 	python
 	sudo
+	terraform
 	tmux
+	zsh-autosuggestions
 )
 
-# The next line updates PATH for the Google Cloud SDK.
+### Completions
+if command -v tmuxp &> /dev/null; then
+	eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
+fi
 if [ -f '/home/jglazik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
 if [ -f '/home/jglazik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(dircolors ~/.dircolors)";
@@ -141,17 +145,32 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+### HISTORY SIZE AND DEFAULT EDITOR
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+if command -v nvim &> /dev/null; then
+	export EDITOR=nvim
+else
+	export EDITOR=vim
+fi
+
+
 ### FZF SECTION
 if command -v fzf &> /dev/null; then
 	export FZF_DEFAULT_COMMAND='fdfind --type f'
 	export FZF_DEFAULT_COMMAND='fd --type f'
 	alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
-	bindkey -s '^e' 'vim $(fzf)\n'
+	bindkey -s '^e' '$EDITOR $(fzf)\n'
 fi
 
-### Completions
-eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 
+### AUTO SUGGEST SECTION
+bindkey '^k' autosuggest-fetch
+# bindkey '^k' autosuggest-accept
+
+
+### exports/aliases
 export TERM=xterm-256color
 export LESS="-F -X $LESS"
 export HEADLINE_DO_GIT_STATUS_COUNTS='true'
@@ -162,3 +181,4 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 
+eval "$(thefuck --alias)"

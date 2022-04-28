@@ -1,6 +1,9 @@
 .vim/autoload/autoload
 .vifm/vifminfo.json
+.vifm/.vifm
 .tmuxp/.tmuxp
 nvim/plugged
 nvim/nvim
 .vifm/vifminfo*
+.config/nvim/nvim
+.config/ranger/ranger

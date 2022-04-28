@@ -9,6 +9,9 @@ PCKMGR='sudo apt -yq install'
 if [ -n "$(command -v yum)" ]; then
   PCKMGR='sudo yum -y install'
 fi
+if [ -n "$(command -v pacman)" ]; then
+  PCKMGR='sudo pacman -Sy --noconfirm'
+fi
 if [ ! -n "$(command -v zsh)" ]; then $PCKMGR zsh; fi
 if [ ! -n "$(command -v vim)" ]; then $PCKMGR vim; fi
 if [ ! -n "$(command -v vifm)" ]; then $PCKMGR vifm; fi
@@ -18,6 +21,12 @@ if [ ! -n "$(command -v fdfind)" ]; then $PCKMGR fd-find; fi
 ### oh-my-zsh install
 if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+if [ ! -d ~/.oh-my-zsh/plugins ]; then
+  mkdir -p ~/.oh-my-zsh/plugins
+fi
+if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 wget https://raw.githubusercontent.com/moarram/headline/main/headline.zsh-theme -O ~/.oh-my-zsh/themes/headline.zsh-theme
 if [ ! -d ~/.tmux/plugins ]; then
