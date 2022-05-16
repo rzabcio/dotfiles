@@ -83,21 +83,23 @@ nnoremap <leader>g :GFiles!?<CR>
 nnoremap <leader>H :Rg<CR>
 
 """ basic settings
-set exrc															"load local .vimrc if present
-set nocompatible											"disable Vi-compatibility
-set noerrorbells											"disable error sounds/notification
-syntax enable													"syntax detection and coloring
-set backspace=2												"???
-set path+=**													"tab-completion for all file-related tasks
-set complete-=i												"complete does not work well with above, so remove 'includes'
-set wildmenu													"display all matching files when tab-complete
-set number														"current line number
-set relativenumber										"relative numbers
-set splitright												"new vertical split on the right
-set cursorline												"highlightin current line
-set scrolloff=8												"scroll screen before gettin to the end of file
+set backspace=2         "???
+set complete-=i         "complete does not work well with above, so remove 'includes'
+set cursorline          "highlightin current line
+set exrc                "load local .vimrc if present
+set hlsearch            "highlight search
+set incsearch           "highlight search while typing
+set nocompatible        "disable Vi-compatibility
+set noerrorbells        "disable error sounds/notification
+set number              "current line number
+set path+=**            "tab-completion for all file-related tasks
+set relativenumber      "relative numbers
+set scrolloff=8         "scroll screen before gettin to the end of file
+set splitright          "new vertical split on the right
+set wildmenu            "display all matching files when tab-complete
+syntax enable           "syntax detection and coloring
 if v:version > 810
-	set signcolumn=yes										"extra column for info
+	set signcolumn=yes    "extra column for info
 endif
 if &term =~ '^xterm'
 	" 1 or 0 -> blinking block, 2 -> solid block, 3 -> blinking underscore, 4 -> solid underscore, 5 -> blinking vertical bar, 6 -> solid vertical bar

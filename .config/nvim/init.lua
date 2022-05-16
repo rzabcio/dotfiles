@@ -20,7 +20,8 @@ vim.opt.tabstop=2                       -- Number of spaces tabs count for
 vim.opt.wildmenu=true                   -- Display all matching files when tab-complete
 vim.opt.wildmode={'list','full'}        -- Command-line completion mode
 vim.opt.wrap=false                      -- Disable line wrap
-vim.g.mapleader=' '
+vim.wo.cursorline=true                  -- Visible cursor line
+vim.g.mapleader=' '                     -- Changing leader key
 
 
 --------------------------------------
