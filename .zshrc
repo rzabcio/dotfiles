@@ -159,7 +159,7 @@ fi
 ### FZF SECTION
 if command -v fzf &> /dev/null; then
 	export FZF_DEFAULT_COMMAND='fdfind --type f'
-	export FZF_DEFAULT_COMMAND='fd --type f'
+	export FZF_DEFAULT_COMMAND='fd --type f -H'
 	alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
 	bindkey -s '^e' '$EDITOR $(fzf)\n'
 fi

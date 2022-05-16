@@ -28,6 +28,7 @@ return require('packer').startup(function()
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'
 	use 'tpope/vim-fugitive'
+	use 'junegunn/gv.vim'
 
 	-- lang plugins
 	use 'stephpy/vim-yaml'
