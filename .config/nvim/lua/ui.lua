@@ -33,3 +33,17 @@ require('bufbar').setup {
 	modifier=':t',           -- the buffer name modifier
 	separator='|',           -- the buffer separator
 }
+
+--------------------------------------
+-- fzf
+vim.g.fzf_layout={down="40%"}
+
+--------------------------------------
+-- smoothscroll
+local function map(mode, lhs, rhs, opts)
+	local options = {noremap = true}
+	if opts then options = vim.tbl_extend('force', options, opts) end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+map('n', '<C-u>', ':call smooth_scroll#up(&scroll, 7, 2)<CR>')
+map('n', '<C-d>', ':call smooth_scroll#down(&scroll, 7, 2)<CR>')

@@ -23,7 +23,6 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'haya14busa/incsearch.vim'
 Plug 'arcticicestudio/nord-vim'
 
 "" language specific plugins
@@ -32,7 +31,6 @@ Plug 'arcticicestudio/nord-vim'
 "Plug 'plasticboy/vim-markdown'
 Plug 'modille/groovy.vim'
 "Plug 'vim-scripts/groovy.vim'
-Plug 'elixir-editors/vim-elixir'
 
 "" writing plugins
 Plug 'junegunn/goyo.vim'
@@ -74,11 +72,15 @@ endif
 
 "" key mappings
 "" source $VIMRUNTIME/mswin.vim	"windows keys
-nnoremap <C-k> :m-2<CR>								"move line up
-nnoremap <C-j> :m+<CR>								"move line down
+let mapleader = " "
+nnoremap <Tab> <C-w><C-w>
 nnoremap <C-h> :bp<CR>								"prev buffer
 nnoremap <C-l> :bn<CR>								"next buffer
 inoremap jj <Esc>											"exit insert mode
+nnoremap <leader>/ :BLines<CR>
+nnoremap <leader>o :Files<CR>
+nnoremap <leader>g :GFiles!?<CR>
+nnoremap <leader>H :Rg<CR>
 
 """ basic settings
 set exrc															"load local .vimrc if present
@@ -196,11 +198,6 @@ augroup END
 
 """ Tagbar
 nmap <F8> :TagbarToggle<CR>
-
-""" IncSearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " https://github.com/niklasl/vimheap/blob/master/after/syntax/groovy.vim
 " syn region foldBraces start=/{\s*$/ end=/}\s*$/ transparent fold keepend extend

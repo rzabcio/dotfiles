@@ -21,6 +21,7 @@ return require('packer').startup(function()
 	use 'nvim-lua/plenary.nvim'
 	use 'ojroques/nvim-hardline'
 	use 'ojroques/nvim-bufbar'
+	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
 
