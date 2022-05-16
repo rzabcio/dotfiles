@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'wikitopian/hardmode'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
@@ -193,10 +194,10 @@ let g:netrw_banner = 0								"disable annoying banner
 "let g:netrw_altv = 1									"open itself on the left
 let g:netrw_liststyle = 3							"tree view
 "let g:netrw_list_hide = netrw_gitignore#Hide()
-augroup ProjectDrawer
-	autocmd!
-	autocmd VimEnter * if argc() == 0 | Explore! | endif
-augroup END
+" augroup ProjectDrawer
+" 	autocmd!
+" 	autocmd VimEnter * if argc() == 0 | Explore! | endif
+" augroup END
 
 """ Tagbar
 nmap <F8> :TagbarToggle<CR>
