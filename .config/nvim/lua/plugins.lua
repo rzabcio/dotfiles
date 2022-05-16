@@ -24,7 +24,13 @@ return require('packer').startup(function()
 	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+
+	-- vimwiki
+	use 'godlygeek/tabular'
+	use 'preservim/vim-markdown'
 	use 'vimwiki/vimwiki'
+	use 'junegunn/goyo.vim'
+	use 'junegunn/limelight.vim'
 
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'

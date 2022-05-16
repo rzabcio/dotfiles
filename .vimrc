@@ -85,17 +85,21 @@ nnoremap <leader>H :Rg<CR>
 
 """ basic settings
 set backspace=2         "???
+set breakindent         "Envable indentation at break line
+set breakindentopt=shift:4,min:40,sbr
 set complete-=i         "complete does not work well with above, so remove 'includes'
 set cursorline          "highlightin current line
 set exrc                "load local .vimrc if present
 set hlsearch            "highlight search
 set incsearch           "highlight search while typing
+set linebreak           "does not break line in the middle of the word
 set nocompatible        "disable Vi-compatibility
 set noerrorbells        "disable error sounds/notification
 set number              "current line number
 set path+=**            "tab-completion for all file-related tasks
 set relativenumber      "relative numbers
 set scrolloff=8         "scroll screen before gettin to the end of file
+set showbreak=⪢         "Show break line
 set splitright          "new vertical split on the right
 set wildmenu            "display all matching files when tab-complete
 syntax enable           "syntax detection and coloring
@@ -133,37 +137,37 @@ colorscheme nord
 
 """ Lightline
 let g:lightline = {
-      \ 'mode_map': { 'n' : 'N', 'i' : 'I', 'R' : 'R', 'v' : 'V', 'V' : 'VL', "\<C-v>": 'VB', 'c' : 'C', 's' : 'S', 'S' : 'SL', "\<C-s>": 'SB', 't': 'T', },
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste'], [ 'filename', 'modified' ] ],
-      \   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype', 'gitbranch'] ],
-      \ },
-      \ 'tabline': { 'left': [ ['buffers'] ] },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors': 'lightline#ale#errors',
-      \   'linter_ok': 'lightline#ale#ok',
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel',
-      \   'readonly': 'error',
-      \   'linter_checking': 'right',
-      \   'linter_infos': 'right',
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
-      \   'linter_ok': 'right',
-      \ },
-      \ 'component_function': {
-      \   'linter_warnings': 'LightlineLinterWarnings',
-      \   'linter_errors': 'LightlineLinterErrors',
-      \   'linter_ok': 'LightlineLinterOK',
-      \   'gitbranch': 'gitbranch#name'
-      \ }
-      \ }
+	\ 'mode_map': { 'n' : 'N', 'i' : 'I', 'R' : 'R', 'v' : 'V', 'V': 'VL', "\<C-v>": 'VB', 'c' : 'C', 's' : 'S', 'S' : 'SL', "\<C-s>": 'SB', 't': 'T', },
+	\ 'colorscheme': 'nord',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste'], [ 'filename', 'modified' ] ],
+	\   'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'readonly', 'linter_checking', 'linter_warnings', 'linter_errors', 'linter_infos', 'linter_ok'], ['filetype', 'gitbranch'] ],
+	\ },
+	\ 'tabline': { 'left': [ ['buffers'] ] },
+	\ 'component_expand': {
+	\   'buffers': 'lightline#bufferline#buffers',
+	\   'linter_checking': 'lightline#ale#checking',
+	\   'linter_infos': 'lightline#ale#infos',
+	\   'linter_warnings': 'lightline#ale#warnings',
+	\   'linter_errors': 'lightline#ale#errors',
+	\   'linter_ok': 'lightline#ale#ok',
+	\ },
+	\ 'component_type': {
+	\   'buffers': 'tabsel',
+	\   'readonly': 'error',
+	\   'linter_checking': 'right',
+	\   'linter_infos': 'right',
+	\   'linter_warnings': 'warning',
+	\   'linter_errors': 'error',
+	\   'linter_ok': 'right',
+	\ },
+	\ 'component_function': {
+	\   'linter_warnings': 'LightlineLinterWarnings',
+	\   'linter_errors': 'LightlineLinterErrors',
+	\   'linter_ok': 'LightlineLinterOK',
+	\   'gitbranch': 'gitbranch#name'
+	\ }
+	\ }
 let g:lightline#bufferline#number_separator=':'
 let g:lightline#bufferline#show_number=1
 set laststatus=2
@@ -207,14 +211,14 @@ nmap <F8> :TagbarToggle<CR>
 " syn region foldImports start=/\(^\s*\n^import\)\@<= .\+$/ end=+^\s*$+ transparent fold keepend
 " set foldmethod=syntax
 let g:tagbar_type_groovy = {
-    \ 'ctagstype' : 'groovy',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'c:class',
-        \ 'i:interface',
-        \ 'f:function',
-        \ 'v:variables',
-    \ ]
+	\ 'ctagstype': 'groovy',
+	\ 'kinds': [
+		\ 'p:package',
+		\ 'c:class',
+		\ 'i:interface',
+		\ 'f:function',
+		\ 'v:variables',
+	\ ]
 \ }
 
 """ Linelight + Goyo
@@ -222,3 +226,4 @@ let g:limelight_conceal_ctermfg = 240
 let g:limelight_conceal_guifg = 'DarkGray'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+autocmd BufRead,BufNewFile *.md :set wrap

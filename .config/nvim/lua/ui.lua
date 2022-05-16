@@ -50,4 +50,14 @@ map('n', '<C-d>', ':call smooth_scroll#down(&scroll, 7, 2)<CR>')
 
 -------------------------------------
 -- vim wiki
-vim.g.vimwiki_list = {{path = '~/vimwiki', syntax = 'markdown', ext = '.md'}}
+vim.g.vimwiki_list = {{path='~/vimwiki', index='README', syntax='markdown', ext='.md', auto_toc=1}}
+
+-------------------------------------
+-- Goyo
+vim.g.limelight_conceal_ctermfg = 240
+vim.g.limelight_conceal_guifg = 'DarkGray'
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 80')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⪢')
+-- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
+-- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
