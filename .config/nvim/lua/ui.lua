@@ -25,7 +25,7 @@ require('hardline').setup {
 --------------------------------------
 -- bufline
 require('bufbar').setup {
-	theme='nordic',            -- the theme in 'lua/bufbar/themes' to use
+	theme='nordic',          -- the theme in 'lua/bufbar/themes' to use
 	show_tabs=true,          -- show tabs
 	show_bufname='all',      -- show full buffer name ('current', 'visible' or 'all')
 	show_flags=true,         -- show buffer flags
@@ -47,3 +47,7 @@ local function map(mode, lhs, rhs, opts)
 end
 map('n', '<C-u>', ':call smooth_scroll#up(&scroll, 7, 2)<CR>')
 map('n', '<C-d>', ':call smooth_scroll#down(&scroll, 7, 2)<CR>')
+
+-------------------------------------
+-- vim wiki
+vim.g.vimwiki_list = {{path = '~/vimwiki', syntax = 'markdown', ext = '.md'}}

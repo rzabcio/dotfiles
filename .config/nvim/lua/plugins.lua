@@ -24,6 +24,7 @@ return require('packer').startup(function()
 	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+	use 'vimwiki/vimwiki'
 
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'
