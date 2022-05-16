@@ -51,6 +51,7 @@ map('n', '<C-d>', ':call smooth_scroll#down(&scroll, 7, 2)<CR>')
 -------------------------------------
 -- vim wiki
 vim.g.vimwiki_list = {{path='~/vimwiki', index='README', syntax='markdown', ext='.md', auto_toc=1}}
+map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
 
 -------------------------------------
 -- Goyo

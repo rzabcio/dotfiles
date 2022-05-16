@@ -181,5 +181,6 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 alias wiki="nvim -c VimwikiIndex"
+alias wikipush="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ push"
 
 eval "$(thefuck --alias)"

@@ -26,8 +26,8 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'
 
 	-- vimwiki
-	use 'godlygeek/tabular'
-	use 'preservim/vim-markdown'
+	-- use 'godlygeek/tabular'
+	-- use 'preservim/vim-markdown'
 	use 'vimwiki/vimwiki'
 	use 'junegunn/goyo.vim'
 	use 'junegunn/limelight.vim'
