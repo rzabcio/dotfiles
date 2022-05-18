@@ -166,21 +166,22 @@ fi
 
 
 ### AUTO SUGGEST SECTION
-bindkey '^k' autosuggest-fetch
-# bindkey '^k' autosuggest-accept
+# bindkey '^k' autosuggest-fetch
+bindkey '^k' autosuggest-accept
 
 
 ### exports/aliases
 export TERM=xterm-256color
 export LESS="-F -X $LESS"
 export HEADLINE_DO_GIT_STATUS_COUNTS='true'
+export BAT_THEME="Nord"
 #alias tmux="TERM=screen-256color-bce tmux"
 alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
-alias wiki="nvim -c VimwikiIndex"
-alias wikipush="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ push"
+alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
+alias wikisync="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ pull; git -C ~/vimwiki/ push"
 
 eval "$(thefuck --alias)"
