@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.emacs.d/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,7 +15,9 @@ function choose_theme {
 	elif [[ $hostname =~ 'mrfluence' ]]; then
 		echo 'rzabcio'
 	else
-		echo 'headline'
+		# echo 'headline'
+		echo 'oxide'
+		# echo 'spaceship'
 	fi
 }
 ZSH_THEME="$(choose_theme)"

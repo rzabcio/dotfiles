@@ -26,7 +26,7 @@ vim.opt.wrap=false                      -- Disable line wrap
 vim.wo.breakindent=true                 -- Envable indentation at break line
 vim.wo.breakindentopt='shift:4,min:40,sbr'
 vim.wo.cursorline=true                  -- Visible cursor line
-vim.wo.showbreak='⪢'                    -- Show break line
+vim.wo.showbreak='⎣'                    -- Show break line
 vim.g.mapleader=' '                     -- Changing leader key
 
 
