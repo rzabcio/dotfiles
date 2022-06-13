@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.emacs.d/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
@@ -10,23 +17,24 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 hostname="$(hostname)"
 function choose_theme {
-	if [[ $hostname =~ 'gojira' ]]; then
+	if [[ $hostname =~ 'gojira|mrfluence' ]]; then
 		echo 'rzabcio'
-	elif [[ $hostname =~ 'mrfluence' ]]; then
+	elif [[ $hostname =~ 'sygnity|corpnet|cpd' ]]; then
 		echo 'rzabcio'
 	else
 		# echo 'headline'
-		echo 'oxide'
+		# echo 'murilasso'
 		# echo 'spaceship'
+		echo 'powerlevel10k/powerlevel10k'
 	fi
 }
 ZSH_THEME="$(choose_theme)"
 
 function set_proxy {
-	if [[ $hostname =~ 'gojira' ]]; then
+	if [[ $hostname =~ 'gojira|mrfluence' ]]; then
 		echo 'proxy-dmz.corpnet.inside:8080'
-	elif [[ $hostname =~ 'mrfluence' ]]; then
-		echo 'proxy-dmz.corpnet.inside:8080'
+	elif [[ $hostname =~ 'sygnity|corpnet|cpd' ]]; then
+		echo 'proxy.corpnet.inside:8080'
 	else
 		echo ''
 	fi
@@ -187,3 +195,6 @@ alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
 alias wikisync="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ pull; git -C ~/vimwiki/ push"
 
 eval "$(thefuck --alias)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

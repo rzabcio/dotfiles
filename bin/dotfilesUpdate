@@ -8,6 +8,10 @@ git pull
 vim +'PlugClean --sync' +qa
 vim +'PlugInstall --sync' +qa
 
+# NeoVim
+nvim +'PackerSync' +qa
+nvim +'PackerUpdate' +qa
+
 #WSL
 if [ -d "/mnt/c/Users/jglazik/" ]; then
   cp $DOTFILES/.vimrc /mnt/c/Users/jglazik
