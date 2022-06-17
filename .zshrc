@@ -194,7 +194,9 @@ alias tl="tmuxp load"
 alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
 alias wikisync="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ pull; git -C ~/vimwiki/ push"
 
-eval "$(thefuck --alias)"
+if command -v thefuck &> /dev/null; then
+	eval "$(thefuck --alias)"
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
