@@ -12,8 +12,8 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/nvim-cmp'
-	-- use 'nvim-treesitter/nvim-treesitter'
-	-- use 'nvim-treesitter/nvim-treesitter-textobjects'
+	use 'nvim-treesitter/nvim-treesitter'
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
@@ -24,6 +24,11 @@ return require('packer').startup(function()
 	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+
+	-- telescope
+	use 'nvim-telescope/telescope.nvim'
+	use 'nvim-telescope/telescope-file-browser.nvim'
+	use 'nvim-telescope/telescope-ui-select.nvim'
 
 	-- vimwiki
 	-- use 'godlygeek/tabular'
@@ -42,6 +47,7 @@ return require('packer').startup(function()
 	use 'pedrohdz/vim-yaml-folds'
 
 	--- color schemes
-	use 'arcticicestudio/nord-vim'
+	-- use 'arcticicestudio/nord-vim'
+	use 'shaunsingh/nord.nvim'
 end)
 

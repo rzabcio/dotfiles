@@ -1,3 +1,10 @@
+local function map(mode, lhs, rhs, opts)
+	local options = {noremap = true}
+	if opts then options = vim.tbl_extend('force', options, opts) end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+
 --------------------------------------
 -- hardline
 require('hardline').setup {
@@ -21,7 +28,6 @@ require('hardline').setup {
 	},
 }
 
-
 --------------------------------------
 -- bufline
 require('bufbar').setup {
@@ -35,18 +41,41 @@ require('bufbar').setup {
 }
 
 --------------------------------------
--- fzf
-vim.g.fzf_layout={down="40%"}
-
---------------------------------------
 -- smoothscroll
-local function map(mode, lhs, rhs, opts)
-	local options = {noremap = true}
-	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 map('n', '<C-u>', ':call smooth_scroll#up(&scroll, 7, 2)<CR>')
 map('n', '<C-d>', ':call smooth_scroll#down(&scroll, 7, 2)<CR>')
+
+--------------------------------------
+-- fzf
+vim.g.fzf_layout={down="40%"}
+-- map('n', '<leader>/', ':BLines<cr>')
+-- map('n', '<leader>o', ':Files<cr>')
+-- map('n', '<leader>g', ':GFiles!?<cr>')
+-- map('n', '<leader>H', ':Rg<cr>')
+-- map('n', '<leader>f', ':Lines<cr>')
+
+--------------------------------------
+-- telescope
+require('telescope').setup {
+	extensions = {
+		['ui-select'] = {
+			require('telescope.themes').get_dropdown {
+				-- even more opts
+			}
+		}
+	}
+}
+require("telescope").load_extension("file_browser")
+require("telescope").load_extension("ui-select")
+
+map('n', '<leader>ff', ':Telescope<CR>')
+map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find<cr>')
+map('n', '<leader>o', ':Telescope find_files<CR>')
+map('n', '<leader>g', ':Telescope git_files<cr>')
+map('n', '<leader>H', ':Telescope live_grep<CR>')
+map('n', '<leader>fb', ':Telescope buffers<CR>')
+map('n', '<leader>fh', ':Telescope help_tags<CR>')
+map('n', '<leader>p', ':Telescope file_browser<CR>')
 
 -------------------------------------
 -- vim wiki
@@ -62,3 +91,10 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⪢')
 -- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
 -- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
+
+-- Nord
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = true
+vim.g.nord_italic = false
+require('nord').set()

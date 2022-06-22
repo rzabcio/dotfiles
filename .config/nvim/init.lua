@@ -1,6 +1,6 @@
 --------------------------------------
 -- basic options
-vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
+-- vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
 vim.opt.colorcolumn='101'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 vim.opt.hidden=true                     -- Enable background buffers
@@ -41,11 +41,6 @@ map('n', '<C-h>', ':bp<cr>')
 map('n', '<C-l>', ':bn<cr>')
 map('n', '<Tab>', '<C-w><C-w>')
 map('i', 'jj', '<Esc>')
-map('n', '<leader>/', ':BLines<cr>')
-map('n', '<leader>o', ':Files<cr>')
-map('n', '<leader>g', ':GFiles!?<cr>')
-map('n', '<leader>H', ':Rg<cr>')
--- map('n', '<leader>f', ':Lines<cr>')
 
 
 --------------------------------------
