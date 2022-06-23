@@ -1,6 +1,6 @@
 --------------------------------------
 -- basic options
--- vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
+vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
 vim.opt.colorcolumn='101'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 vim.opt.hidden=true                     -- Enable background buffers

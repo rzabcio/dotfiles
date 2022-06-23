@@ -69,13 +69,19 @@ require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
 
 map('n', '<leader>ff', ':Telescope<CR>')
-map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find<cr>')
-map('n', '<leader>o', ':Telescope find_files<CR>')
-map('n', '<leader>g', ':Telescope git_files<cr>')
+map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find theme=ivy<cr>')
+-- map('n', '<leader>o', ':Telescope find_files theme=dropdown<CR>')
+-- map('n', '<leader>gf', ':Telescope git_files theme=dropdown<cr>')
+map('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
+map('n', '<leader>gf', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
+map('n', '<leader>gs', ':Telescope git_status<cr>')
 map('n', '<leader>H', ':Telescope live_grep<CR>')
-map('n', '<leader>fb', ':Telescope buffers<CR>')
+map('n', '<leader>fg', ':Telescope grep_string theme=ivy<CR>')
+map('n', '<leader>fb', ':Telescope buffers theme=ivy<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
-map('n', '<leader>p', ':Telescope file_browser<CR>')
+map('n', '<leader>ft', ':Telescope tags<CR>')
+-- map('n', '<leader>p', ':Telescope file_browser<CR>')
+map('n', '<leader>p', "<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 
 -------------------------------------
 -- vim wiki
@@ -88,13 +94,13 @@ vim.g.limelight_conceal_ctermfg = 240
 vim.g.limelight_conceal_guifg = 'DarkGray'
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 80')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⪢')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⎣')
 -- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
 -- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
 
 -- Nord
-vim.g.nord_contrast = true
-vim.g.nord_borders = false
-vim.g.nord_disable_background = true
-vim.g.nord_italic = false
-require('nord').set()
+-- vim.g.nord_contrast = true
+-- vim.g.nord_borders = false
+-- vim.g.nord_disable_background = true
+-- vim.g.nord_italic = false
+-- require('nord').set()

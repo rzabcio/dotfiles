@@ -1,12 +1,64 @@
+local function map(mode, lhs, rhs, opts)
+	local options = {noremap = true}
+	if opts then options = vim.tbl_extend('force', options, opts) end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+
 --------------------------------------
 -- cmp
 local cmp = require('cmp')
-local menu = {buffer = '[Buf]', nvim_lsp = '[LSP]', omni = '[Omni]', path = '[Path]'}
-local widths = {abbr = 80, kind = 40, menu = 40}
+local menu = {
+	buffer = '[Buf]',
+	nvim_lsp = '[LSP]',
+	omni = '[Omni]',
+	path = '[Path]',
+	luasnip = '[Snippet]'
+}
+local kind_icons = {
+	Text = "",
+	Method = "m",
+	Function = "",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+}
+local widths = {
+	abbr = 80,
+	kind = 40,
+	menu = 40
+}
+
 cmp.setup {
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body) -- for 'luasnip'
+		end,
+	},
 	completion = {keyword_length = 2},
 	formatting = {
+		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
+			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = vim_item.menu or menu[entry.source.name]
 			for k, width in pairs(widths) do
 				if #vim_item[k] > width then
@@ -19,13 +71,16 @@ cmp.setup {
 	mapping = {
 		['<Tab>'] = function(fb) if cmp.visible() then cmp.select_next_item() else fb() end end,
 		['<S-Tab>'] = function(fb) if cmp.visible() then cmp.select_prev_item() else fb() end end,
+		['<CR>'] = cmp.mapping.confirm {select=true},
 	},
 	preselect = require('cmp.types').cmp.PreselectMode.None,
 	sources = cmp.config.sources({
+		{name = 'luasnip'},
+		{name = 'buffer'},
 		{name = 'nvim_lsp'},
 		{name = 'omni'},
 		{name = 'path'},
-		{name = 'buffer'},
+		{name = 'cmdline'},
 	}),
 }
 
@@ -35,16 +90,15 @@ cmp.setup {
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 -- lsp.groovyls.setup{ cmd = { "java", "-jar", "/home/jglazik/.config/lsp-servers/groovy-language-server/build/libs/groovy-language-server-all.jar" }, }
+-- require'lspconfig'.groovyls.setup{}
+-- lsp.groovyls.setup{ cmd = { "/home/jglazik/.config/lsp-servers/groovy-language-server/groovy-language-server" }, }
+lsp.gopls.setup{}
 lsp.jedi_language_server.setup{}
 lspfuzzy.setup{}
 
+
 --------------------------------------
 -- mappings
-local function map(mode, lhs, rhs, opts)
-	local options = {noremap = true}
-	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
@@ -78,14 +132,6 @@ map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 -- 		},
 -- 	},
 -- }
-
-
---------------------------------------
-local function map(mode, lhs, rhs, opts)
-	local options = {noremap = true}
-	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 
 
 --------------------------------------

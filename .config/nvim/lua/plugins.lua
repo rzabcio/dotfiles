@@ -7,14 +7,8 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager
 	-- use 'shougo/deoplete-lsp'
 	-- use 'shougo/deoplete.nvim'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-omni'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/nvim-cmp'
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'nvim-treesitter/nvim-treesitter-textobjects'
-	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
 	use 'ojroques/nvim-lspfuzzy'
@@ -24,6 +18,18 @@ return require('packer').startup(function()
 	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+
+	-- cmp
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-omni'
+	use 'hrsh7th/cmp-path'
+	use 'L3MON4D3/LuaSnip'
+
+	-- lsp
+	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client]
 
 	-- telescope
 	use 'nvim-telescope/telescope.nvim'
@@ -47,7 +53,7 @@ return require('packer').startup(function()
 	use 'pedrohdz/vim-yaml-folds'
 
 	--- color schemes
-	-- use 'arcticicestudio/nord-vim'
+	use 'arcticicestudio/nord-vim'
 	use 'shaunsingh/nord.nvim'
 end)
 
