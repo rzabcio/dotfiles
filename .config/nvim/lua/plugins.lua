@@ -7,8 +7,6 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim' -- Package manager
 	-- use 'shougo/deoplete-lsp'
 	-- use 'shougo/deoplete.nvim'
-	use 'nvim-treesitter/nvim-treesitter'
-	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use 'junegunn/fzf'
 	use 'junegunn/fzf.vim'
 	use 'ojroques/nvim-lspfuzzy'
@@ -27,9 +25,17 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
 	use 'L3MON4D3/LuaSnip'
+	use 'akinsho/toggleterm.nvim'
 
-	-- lsp
+	-- lsp + treesitter
 	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client]
+	use { 
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
+	use 'nvim-treesitter/playground'
+	use 'p00f/nvim-ts-rainbow'
 
 	-- telescope
 	use 'nvim-telescope/telescope.nvim'

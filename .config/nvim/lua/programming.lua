@@ -112,26 +112,44 @@ map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 
 --------------------------------------
 -- treesitter
--- require('nvim-treesitter.configs').setup {
--- 	ensure_installed='maintained',
--- 	highlight={enable=true},
--- 	textobjects={
--- 		select={
--- 			enable=true,
--- 			keymaps={
--- 				['aa']='@parameter.outer', ['ia']='@parameter.inner',
--- 				['af']='@function.outer', ['if']='@function.inner',
--- 			},
--- 		},
--- 		move={
--- 			enable=true,
--- 			goto_next_start={[']a']='@parameter.inner', [']f']='@function.outer'},
--- 			goto_next_end={[']A']='@parameter.inner', [']F']='@function.outer'},
--- 			goto_previous_start={['[a']='@parameter.inner', ['[f']='@function.outer'},
--- 			goto_previous_end={['[A']='@parameter.inner', ['[F']='@function.outer'},
--- 		},
--- 	},
--- }
+require('nvim-treesitter.configs').setup {
+	ensure_installed = {
+		'go',
+		'java',
+		'json',
+		'python',
+		'yaml'
+	},
+	sync_install = false,
+	ignore_install = { '' },
+	highlight = {
+		enable = true,
+		disable = { '' },
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
+	rainbow = {
+		enable = true,
+	},
+	-- textobjects={
+	-- 	select={
+	-- 		enable=true,
+	-- 		keymaps={
+	-- 			['aa']='@parameter.outer', ['ia']='@parameter.inner',
+	-- 			['af']='@function.outer', ['if']='@function.inner',
+	-- 		},
+	-- 	},
+	-- 	move={
+	-- 		enable=true,
+	-- 		goto_next_start={[']a']='@parameter.inner', [']f']='@function.outer'},
+	-- 		goto_next_end={[']A']='@parameter.inner', [']F']='@function.outer'},
+	-- 		goto_previous_start={['[a']='@parameter.inner', ['[f']='@function.outer'},
+	-- 		goto_previous_end={['[A']='@parameter.inner', ['[F']='@function.outer'},
+	-- 	},
+	-- },
+}
 
 
 --------------------------------------
@@ -158,3 +176,29 @@ require('gitsigns').setup{
 		-- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 	end
 }
+
+
+--------------------------------------
+-- toggleterm
+require('toggleterm').setup({
+	size = 20,
+	open_mapping = [[<c-\>]],
+	hide_numbers = true,
+	shade_filetypes = {},
+	shade_terminals = true,
+	shading_factor = 2,
+	start_in_insert = true,
+	insert_mappings = true,
+	persist_size = true,
+	direction = 'float',
+	close_on_exit = true,
+	shell = vim.o.shell,
+	float_opts = {
+		border = 'curved',
+		winblend = 0,
+		highlights = {
+			border = 'Normal',
+			background = 'Normal',
+		},
+	},
+})
