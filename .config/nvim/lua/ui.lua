@@ -31,7 +31,7 @@ require('hardline').setup {
 --------------------------------------
 -- bufline
 require('bufbar').setup {
-	theme='nordic',          -- the theme in 'lua/bufbar/themes' to use
+	theme='default',         -- the theme in 'lua/bufbar/themes' to use
 	show_tabs=true,          -- show tabs
 	show_bufname='all',      -- show full buffer name ('current', 'visible' or 'all')
 	show_flags=true,         -- show buffer flags
@@ -79,7 +79,8 @@ map('n', '<leader>H', ':Telescope live_grep<CR>')
 map('n', '<leader>fg', ':Telescope grep_string theme=ivy<CR>')
 map('n', '<leader>fb', ':Telescope buffers theme=ivy<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
-map('n', '<leader>ft', ':Telescope tags<CR>')
+-- map('n', '<leader>ft', ':Telescope tags<CR>')
+map('n', '<leader>ft', ':TodoTelescope<CR>')
 -- map('n', '<leader>p', ':Telescope file_browser<CR>')
 map('n', '<leader>p', "<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 
@@ -98,9 +99,21 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⎣')
 -- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
 -- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
 
+-- Colorizer
+require('colorizer').setup()
+
 -- Nord
--- vim.g.nord_contrast = true
--- vim.g.nord_borders = false
--- vim.g.nord_disable_background = true
--- vim.g.nord_italic = false
--- require('nord').set()
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = true
+vim.g.nord_italic = false
+require('nord').set()
+
+-- Onedark
+-- require('onedark').setup({
+-- 	style = 'darker',
+-- 	-- transparent = true,
+-- 	comments = none,
+-- })
+-- require('onedark').load()
+

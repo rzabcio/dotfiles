@@ -16,6 +16,8 @@ return require('packer').startup(function()
 	use 'terryma/vim-smooth-scroll'
 	use 'tpope/vim-commentary'
 	use 'tpope/vim-surround'
+	use 'norcalli/nvim-colorizer.lua'
+	use 'folke/todo-comments.nvim'
 
 	-- cmp
 	use 'hrsh7th/nvim-cmp'
@@ -59,7 +61,8 @@ return require('packer').startup(function()
 	use 'pedrohdz/vim-yaml-folds'
 
 	--- color schemes
-	use 'arcticicestudio/nord-vim'
 	use 'shaunsingh/nord.nvim'
+	use 'morhetz/gruvbox'
+	use 'navarasu/onedark.nvim'
 end)
 

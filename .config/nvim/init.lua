@@ -1,6 +1,6 @@
 --------------------------------------
 -- basic options
-vim.cmd 'colorscheme nord'              -- Put your favorite colorscheme here
+-- vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
 vim.opt.colorcolumn='101'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 vim.opt.hidden=true                     -- Enable background buffers
@@ -20,6 +20,7 @@ vim.opt.smartindent=true                -- Insert indents automatically
 vim.opt.splitbelow=true                 -- Put new windows lower of current
 vim.opt.splitright=true                 -- Put new windows right of current
 vim.opt.tabstop=2                       -- Number of spaces tabs count for
+vim.opt.termguicolors = true            -- needed for colorized and todo plugins
 vim.opt.wildmenu=true                   -- Display all matching files when tab-complete
 vim.opt.wildmode={'list','full'}        -- Command-line completion mode
 vim.opt.wrap=false                      -- Disable line wrap
