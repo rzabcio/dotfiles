@@ -50,6 +50,7 @@ require('plugins')
 require('programming')
 require('ui')
 require('cmp')
+require('snippets')
 
 
 --------------------------------------

@@ -26,7 +26,12 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
-	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+	use {
+		'L3MON4D3/LuaSnip',
+		after = 'nvim-cmp',
+		-- config = function() require('config.snippets') end,
+	}
 	use 'akinsho/toggleterm.nvim'
 
 	-- lsp + treesitter

@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   fzf = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/fzf",
@@ -119,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/goyo.vim",
     url = "https://github.com/junegunn/goyo.vim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["gv.vim"] = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/gv.vim",
@@ -128,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/limelight.vim",
     url = "https://github.com/junegunn/limelight.vim"
-  },
-  ["nord-vim"] = {
-    loaded = true,
-    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nord-vim",
-    url = "https://github.com/arcticicestudio/nord-vim"
   },
   ["nord.nvim"] = {
     loaded = true,
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-hardline"] = {
     loaded = true,
@@ -178,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

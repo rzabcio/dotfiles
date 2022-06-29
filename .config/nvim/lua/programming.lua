@@ -8,6 +8,12 @@ end
 --------------------------------------
 -- cmp
 local cmp = require('cmp')
+local luasnip = require('luasnip')
+require("luasnip/loaders/from_vscode").lazy_load()
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
 local menu = {
 	buffer = '[Buf]',
 	nvim_lsp = '[LSP]',
@@ -51,7 +57,7 @@ local widths = {
 cmp.setup {
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- for 'luasnip'
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	completion = {keyword_length = 2},
@@ -69,9 +75,34 @@ cmp.setup {
 		end,
 	},
 	mapping = {
-		['<Tab>'] = function(fb) if cmp.visible() then cmp.select_next_item() else fb() end end,
-		['<S-Tab>'] = function(fb) if cmp.visible() then cmp.select_prev_item() else fb() end end,
 		['<CR>'] = cmp.mapping.confirm {select=true},
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-p>'] = cmp.mapping.select_prev_item(),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expandable() then
+				luasnip.expand()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			-- elseif has_words_before() then
+			-- 	cmp.complete()
+			elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	},
 	preselect = require('cmp.types').cmp.PreselectMode.None,
 	sources = cmp.config.sources({
