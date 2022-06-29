@@ -29,14 +29,14 @@ return require('packer').startup(function()
 	use 'saadparwaiz1/cmp_luasnip'
 	use {
 		'L3MON4D3/LuaSnip',
-		after = 'nvim-cmp',
+		-- after = 'nvim-cmp',
 		-- config = function() require('config.snippets') end,
 	}
 	use 'akinsho/toggleterm.nvim'
 
 	-- lsp + treesitter
 	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client]
-	use { 
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
