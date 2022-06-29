@@ -7,38 +7,80 @@ end
 
 --------------------------------------
 -- hardline
-require('hardline').setup {
-	bufferline=false,  -- enable bufferline
-	bufferline_settings={
-		exclude_terminal=false,  -- don't show terminal buffers in bufferline
-		show_index=false,        -- show buffer indexes (not the actual buffer numbers) in bufferline
-	},
-	theme='nordic',            -- change theme
-	sections={                 -- define sections
-		{class='mode', item=require('hardline.parts.mode').get_item},
-		{class='high', item=require('hardline.parts.git').get_item, hide=100},
-		{class='med', item=require('hardline.parts.filename').get_item},
-		'%<',
-		{class='med', item='%='},
-		{class='error', item=require('hardline.parts.lsp').get_error},
-		{class='warning', item=require('hardline.parts.lsp').get_warning},
-		{class='warning', item=require('hardline.parts.whitespace').get_item},
-		{class='high', item=require('hardline.parts.filetype').get_item, hide=80},
-		{class='mode', item=require('hardline.parts.line').get_item},
-	},
-}
+-- require('hardline').setup {
+-- 	bufferline=false,  -- enable bufferline
+-- 	bufferline_settings={
+-- 		exclude_terminal=false,  -- don't show terminal buffers in bufferline
+-- 		show_index=false,        -- show buffer indexes (not the actual buffer numbers) in bufferline
+-- 	},
+-- 	theme='nordic',            -- change theme
+-- 	sections={                 -- define sections
+-- 		{class='mode', item=require('hardline.parts.mode').get_item},
+-- 		{class='high', item=require('hardline.parts.git').get_item, hide=100},
+-- 		{class='med', item=require('hardline.parts.filename').get_item},
+-- 		'%<',
+-- 		{class='med', item='%='},
+-- 		{class='error', item=require('hardline.parts.lsp').get_error},
+-- 		{class='warning', item=require('hardline.parts.lsp').get_warning},
+-- 		{class='warning', item=require('hardline.parts.whitespace').get_item},
+-- 		{class='high', item=require('hardline.parts.filetype').get_item, hide=80},
+-- 		{class='mode', item=require('hardline.parts.line').get_item},
+-- 	},
+-- }
+
 
 --------------------------------------
--- bufline
-require('bufbar').setup {
-	theme='default',         -- the theme in 'lua/bufbar/themes' to use
-	show_tabs=true,          -- show tabs
-	show_bufname='all',      -- show full buffer name ('current', 'visible' or 'all')
-	show_flags=true,         -- show buffer flags
-	show_alternate=false,    -- show alternate buffer
-	modifier=':t',           -- the buffer name modifier
-	separator='|',           -- the buffer separator
-}
+-- lualine
+require('lualine').setup({
+	options = {
+		icons_enabled = true,
+		theme = 'codedark',
+		component_separators = { left = '', right = '' },
+		section_separators = { left = '', right = '' },
+		disabled_filetypes = {},
+		always_divide_middle = true,
+		globalstatus = false,
+	},
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch', 'diff', },
+		lualine_c = {'filename', 'fugitive'},
+		lualine_x = {'diagnostics', 'encoding', 'filetype'},
+		lualine_y = {'progress'},
+		lualine_z = {'location'}
+	},
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {'filename'},
+		lualine_x = {'location'},
+		lualine_y = {},
+		lualine_z = {}
+	},
+	tabline = {
+		lualine_a = {
+			{
+				'buffers',
+				component_separators = { left = '|', right = '|' },
+				section_separators = { left = '', right = '' },
+				mode = 4,
+				symbols = {
+					alternate_file = '',
+					modified = '[+]',
+				},
+			},
+		},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {'tabs'}
+	},
+	extensions = {
+		'toggleterm',
+		'fugitive',
+	}
+})
 
 --------------------------------------
 -- smoothscroll
@@ -103,11 +145,13 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⎣')
 require('colorizer').setup()
 
 -- Nord
-vim.g.nord_contrast = true
+vim.g.nord_contrast = false
 vim.g.nord_borders = false
 vim.g.nord_disable_background = true
+vim.g.cursorline_transparent = true
 vim.g.nord_italic = false
 require('nord').set()
+vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
 
 -- Onedark
 -- require('onedark').setup({

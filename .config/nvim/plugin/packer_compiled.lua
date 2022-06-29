@@ -139,15 +139,15 @@ _G.packer_plugins = {
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/limelight.vim",
     url = "https://github.com/junegunn/limelight.vim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nord.nvim"] = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
-  },
-  ["nvim-bufbar"] = {
-    loaded = true,
-    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-bufbar",
-    url = "https://github.com/ojroques/nvim-bufbar"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -158,11 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
-  },
-  ["nvim-hardline"] = {
-    loaded = true,
-    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-hardline",
-    url = "https://github.com/ojroques/nvim-hardline"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -188,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/jglazik/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     loaded = true,
