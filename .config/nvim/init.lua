@@ -3,6 +3,7 @@
 -- vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
 vim.opt.colorcolumn='101'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
+vim.opt.guifont="JetBrains Mono NL:h12" -- font for gui apps (mostly for Windows' Neovide)
 vim.opt.hidden=true                     -- Enable background buffers
 vim.opt.ignorecase=true
 vim.opt.linebreak=true                  -- Does not break line in the middle of the word
