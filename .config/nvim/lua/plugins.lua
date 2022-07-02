@@ -44,6 +44,7 @@ return require('packer').startup(function()
 	use 'nvim-treesitter/nvim-treesitter-textobjects'
 	use 'nvim-treesitter/playground'
 	use 'p00f/nvim-ts-rainbow'
+	use 'folke/trouble.nvim'
 
 	-- telescope
 	use 'nvim-telescope/telescope.nvim'
