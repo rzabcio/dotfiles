@@ -1,0 +1,17 @@
+session_name: scripts-bz
+windows:
+- window_name: nvim
+  focus: 'true'
+  layout: b15d,211x51,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work-gojira/atl-scripts-bz/; nvim src/groovy/gojira/bzListener.groovy src/groovy/gojira/bzCmdbListener.groovy
+  start_directory: ~/work-gojira/atl-scripts-bz/
+- window_name: shell
+  layout: b160,211x51,0,0,3
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work-gojira/atl-scripts-bz/; clear
+  start_directory: ~/work-gojira/atl-scripts-bz/

@@ -107,6 +107,7 @@ plugins=(
 	ansible
 	docker
 	fzf
+	fzf-tab
 	gcloud
 	git
 	kubectl
