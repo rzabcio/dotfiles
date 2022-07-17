@@ -69,7 +69,11 @@ vim +'PlugInstall --sync' +qa
 
 ### NVim
 ln -sf $DOTFILES/.config/nvim ~/.config/nvim
-if [ -n "$(command -v zsh)" ]; then
+if [ -n "$(command -v nvim)" ]; then
+	if [ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
+		mkdir -p ~/.local/share/nvim/site/pack/packer/start
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	fi
 	nvim +'PackerLoad' +qa
 	nvim +'PackerInstall' +qa
 fi

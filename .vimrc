@@ -75,9 +75,9 @@ endif
 "" source $VIMRUNTIME/mswin.vim	"windows keys
 let mapleader = " "
 nnoremap <Tab> <C-w><C-w>
-nnoremap <C-h> :bp<CR>								"prev buffer
-nnoremap <C-l> :bn<CR>								"next buffer
-inoremap jj <Esc>											"exit insert mode
+nnoremap <C-h> :bp<CR>                "prev buffer
+nnoremap <C-l> :bn<CR>                "next buffer
+inoremap jj <Esc>                     "exit insert mode
 nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>g :GFiles!?<CR>
@@ -113,11 +113,11 @@ if &term =~ '^xterm'
 endif
 
 """ chars/formatting
-set nowrap 														"disable wrapping lines
-set tabstop=2													"tab as 2 spaces
-set shiftwidth=2											"tab as 2 spaces (on >)
-set listchars=tab:▶·,trail:·					"set tabs and trails chars
-set list															"set visible special chars
+set nowrap                   "disable wrapping lines
+set tabstop=2                "tab as 2 spaces
+set shiftwidth=2             "tab as 2 spaces (on >)
+set listchars=tab:▶·,trail:· "set tabs and trails chars
+set list                     "set visible special chars
 filetype plugin on
 filetype plugin indent off
 
@@ -131,7 +131,7 @@ au BufNewFile,BufRead *.groovy setf java
 
 """" Plugin settings ---------------------
 """ Gruvbox ccolor scheme
-" colorscheme desert 										"hack for dark gruvbox
+" colorscheme desert                     "hack for dark gruvbox
 " colorscheme gruvbox
 colorscheme nord
 

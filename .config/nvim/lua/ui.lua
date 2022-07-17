@@ -112,8 +112,6 @@ require("telescope").load_extension("ui-select")
 
 map('n', '<leader>ff', ':Telescope<CR>')
 map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find theme=ivy<cr>')
--- map('n', '<leader>o', ':Telescope find_files theme=dropdown<CR>')
--- map('n', '<leader>gf', ':Telescope git_files theme=dropdown<cr>')
 map('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 map('n', '<leader>gf', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 map('n', '<leader>gs', ':Telescope git_status<cr>')
@@ -123,19 +121,22 @@ map('n', '<leader>fb', ':Telescope buffers theme=ivy<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
 -- map('n', '<leader>ft', ':Telescope tags<CR>')
 map('n', '<leader>ft', ':TodoTelescope<CR>')
--- map('n', '<leader>p', ':Telescope file_browser<CR>')
-map('n', '<leader>p', "<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 
 -------------------------------------
 -- vim wiki
-vim.g.vimwiki_list = {{path='~/vimwiki', index='README', syntax='markdown', ext='.md', auto_toc=1}}
+vim.g.vimwiki_list = {
+	{path='~/vimwiki/default', index='README', syntax='markdown', ext='.md', auto_toc=1},
+	{path='~/vimwiki/gcp', index='README', syntax='markdown', ext='.md', auto_toc=1},
+	{path='~/vimwiki/k8s', index='README', syntax='markdown', ext='.md', auto_toc=1},
+}
 map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
 
 -------------------------------------
 -- Goyo
+map('n', '<leader>gg', ':Goyo 120<CR>')
 vim.g.limelight_conceal_ctermfg = 240
 vim.g.limelight_conceal_guifg = 'DarkGray'
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 80')
+-- vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 120')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⎣')
 -- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# NeoVim
-nvim +'PlugClean --sync' +qa
-nvim +'PlugInstall --sync' +qa
-nvim +'UpdateRemotePlugins' +qa
-
-

@@ -193,7 +193,12 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
-alias wikisync="git -C ~/vimwiki/ add .; git -C ~/vimwiki/ commit -m \"auto-update\"; git -C ~/vimwiki/ pull; git -C ~/vimwiki/ push"
+alias wikisync="
+git -C ~/vimwiki/default add .; git -C ~/vimwiki/default commit -m \"auto-update\"; git -C ~/vimwiki/default pull; git -C ~/vimwiki/default push;
+git -C ~/vimwiki/gcp add .; git -C ~/vimwiki/gcp commit -m \"auto-update\"; git -C ~/vimwiki/gcp pull; git -C ~/vimwiki/gcp push;
+git -C ~/vimwiki/k8s add .; git -C ~/vimwiki/k8s commit -m \"auto-update\"; git -C ~/vimwiki/k8s pull; git -C ~/vimwiki/k8s push;
+"
+
 
 if command -v thefuck &> /dev/null; then
 	eval "$(thefuck --alias)"
