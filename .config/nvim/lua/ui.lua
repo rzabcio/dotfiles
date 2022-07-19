@@ -138,7 +138,7 @@ vim.g.limelight_conceal_ctermfg = 240
 vim.g.limelight_conceal_guifg = 'DarkGray'
 -- vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 120')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=⎣')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
 -- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
 -- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
 

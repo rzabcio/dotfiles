@@ -1,7 +1,7 @@
 --------------------------------------
 -- basic options
 -- vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
-vim.opt.colorcolumn='101'               -- column limit
+-- vim.opt.colorcolumn='101'               -- column limit
 vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 vim.opt.guifont="JetBrains Mono NL:h12" -- font for gui apps (mostly for Windows' Neovide)
 vim.opt.hidden=true                     -- Enable background buffers
@@ -9,7 +9,7 @@ vim.opt.ignorecase=true
 vim.opt.linebreak=true                  -- Does not break line in the middle of the word
 vim.opt.list=true                       -- Show some invisible characters
 -- vim.opt.listchars='tab:▶‒,trail:■'      -- set tabs and trails chars
-vim.opt.listchars='tab:├─,trail:═'      -- set tabs and trails chars
+vim.opt.listchars='tab:┊ ,trail:●'      -- set tabs and trails chars
 vim.opt.number=true                     -- show line numbers
 vim.opt.path=vim.opt.path + ".,**"      -- tab-completion for all file-related tasks
 vim.opt.relativenumber=true             -- relative line numbers
@@ -29,7 +29,7 @@ vim.opt.wrap=false                      -- Disable line wrap
 vim.wo.breakindent=true                 -- Envable indentation at break line
 vim.wo.breakindentopt='shift:4,min:40,sbr'
 -- vim.wo.cursorline=true                  -- Visible cursor line
-vim.wo.showbreak='⎣'                    -- Show break line
+vim.wo.showbreak='↳ '                    -- Show break line
 vim.g.mapleader=' '                     -- Changing leader key
 
 
