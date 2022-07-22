@@ -17,9 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 hostname="$(hostname)"
 function choose_theme {
-	if [[ $hostname =~ 'gojira|mrfluence' ]]; then
-		echo 'rzabcio'
-	elif [[ $hostname =~ 'sygnity|corpnet|cpd' ]]; then
+	if [[ $hostname =~ 'sygnity|corpnet|cpd' ]]; then
 		echo 'rzabcio'
 	else
 		# echo 'headline'
@@ -123,8 +121,8 @@ plugins=(
 if command -v tmuxp &> /dev/null; then
 	eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 fi
-if [ -f '/home/jglazik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/home/jglazik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
@@ -193,12 +191,6 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
-alias wikisync="
-git -C ~/vimwiki/default add .; git -C ~/vimwiki/default commit -m \"auto-update\"; git -C ~/vimwiki/default pull; git -C ~/vimwiki/default push;
-git -C ~/vimwiki/gcp add .; git -C ~/vimwiki/gcp commit -m \"auto-update\"; git -C ~/vimwiki/gcp pull; git -C ~/vimwiki/gcp push;
-git -C ~/vimwiki/k8s add .; git -C ~/vimwiki/k8s commit -m \"auto-update\"; git -C ~/vimwiki/k8s pull; git -C ~/vimwiki/k8s push;
-"
-
 
 if command -v thefuck &> /dev/null; then
 	eval "$(thefuck --alias)"

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+WIKI_NAME=default
+if [ -d ~/vimwiki/$WIKI_NAME ]; then
+	git -C ~/vimwiki/$WIKI_NAME add .
+	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
+	git -C ~/vimwiki/$WIKI_NAME pull
+	git -C ~/vimwiki/$WIKI_NAME push
+fi
+
+WIKI_NAME=gcp
+if [ -d ~/vimwiki/$WIKI_NAME ]; then
+	git -C ~/vimwiki/$WIKI_NAME add .
+	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
+	git -C ~/vimwiki/$WIKI_NAME pull
+	git -C ~/vimwiki/$WIKI_NAME push
+fi
+
+WIKI_NAME=k8s
+if [ -d ~/vimwiki/$WIKI_NAME ]; then
+	git -C ~/vimwiki/$WIKI_NAME add .
+	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
+	git -C ~/vimwiki/$WIKI_NAME pull
+	git -C ~/vimwiki/$WIKI_NAME push
+fi
+
