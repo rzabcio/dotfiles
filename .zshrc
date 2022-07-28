@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 hostname="$(hostname)"
 function choose_theme {
-	if [[ $hostname =~ 'sygnity|corpnet|cpd' ]]; then
+	if [[ $hostname =~ 'sygnity|corpnet|cpd|gojira|mrfluence' ]]; then
 		echo 'rzabcio'
 	else
 		# echo 'headline'
