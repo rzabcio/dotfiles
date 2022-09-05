@@ -123,6 +123,8 @@ if command -v tmuxp &> /dev/null; then
 fi
 if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jglazik/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc'; fi
 
 eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
