@@ -40,10 +40,10 @@ local function map(mode, lhs, rhs, opts)
 	if opts then options = vim.tbl_extend('force', options, opts) end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-map('n', '<C-h>', ':bp<cr>')
-map('n', '<C-l>', ':bn<cr>')
-map('n', '<Tab>', '<C-w><C-w>')
-map('i', 'jj', '<Esc>')
+vim.keymap.set('n', '<C-h>', ':bp<cr>')
+vim.keymap.set('n', '<C-l>', ':bn<cr>')
+vim.keymap.set('n', '<Tab>', '<C-w><C-w>')
+vim.keymap.set('i', 'jj', '<Esc>')
 
 
 --------------------------------------
