@@ -103,6 +103,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	ansible
+	brew
 	docker
 	fzf
 	fzf-tab
@@ -196,3 +197,7 @@ alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Homebrew
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi

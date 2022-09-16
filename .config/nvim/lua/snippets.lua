@@ -31,7 +31,15 @@ ls.add_snippets('groovy', {
 		ri(1),
 		t({'', 'dev_end*/', ''}),
 	}),
-})
+}),
+
+ls.add_snippets('go', {
+	s('iferr', {
+		t({'if err != nil {', '\t'}),
+		i(1),
+		t({'', '}', ''}),
+	}),
+}),
 
 -- ls.snippets = {
 -- 	all = {

@@ -303,3 +303,11 @@ require("todo-comments").setup({
 		-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 	},
 })
+
+
+--------------------------------------
+-- go
+require("go").setup()
+-- Run gofmt on save
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').gofmt() ]], false)
+

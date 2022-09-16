@@ -74,5 +74,9 @@ return require('packer').startup(function()
 	use 'shaunsingh/nord.nvim'
 	use 'morhetz/gruvbox'
 	use 'navarasu/onedark.nvim'
+
+	--- Go
+	use 'ray-x/go.nvim'
+	use 'ray-x/guihua.lua'
 end)
 
