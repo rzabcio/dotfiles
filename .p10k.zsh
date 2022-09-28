@@ -39,7 +39,7 @@
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
-    gcloud                  # google cloud cli account and project (https://cloud.google.com/)
+    # gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     terraform               # terraform workspace (https://www.terraform.io)
     # =========================[ Line #2 ]=========================
     newline                 # \n
