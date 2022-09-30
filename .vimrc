@@ -75,9 +75,9 @@ endif
 "" source $VIMRUNTIME/mswin.vim	"windows keys
 let mapleader = " "
 nnoremap <Tab> <C-w><C-w>
-nnoremap <C-h> :bp<CR>                "prev buffer
-nnoremap <C-l> :bn<CR>                "next buffer
-inoremap jj <Esc>                     "exit insert mode
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
+inoremap jj <Esc>
 nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>g :GFiles!?<CR>
