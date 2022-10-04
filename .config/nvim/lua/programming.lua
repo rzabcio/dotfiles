@@ -66,11 +66,12 @@ cmp.setup {
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			vim_item.menu = vim_item.menu or menu[entry.source.name]
-			for k, width in pairs(widths) do
-				if #vim_item[k] > width then
-					vim_item[k] = fmt('%s...', string.sub(vim_item[k], 1, width))
-				end
-			end
+			-- 2022-10-03: jglazik: commented because there were some errors
+			-- for k, width in pairs(widths) do
+			-- 	if #vim_item[k] > width then
+			-- 		vim_item[k] = fmt('%s...', string.sub(vim_item[k], 1, width))
+			-- 	end
+			-- end
 			return vim_item
 		end,
 	},
