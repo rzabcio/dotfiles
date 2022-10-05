@@ -63,6 +63,7 @@ return require('packer').startup(function()
 	use 'lewis6991/gitsigns.nvim'
 	use 'tpope/vim-fugitive'
 	use 'junegunn/gv.vim'
+	use 'ThePrimeagen/git-worktree.nvim'
 
 	-- lang plugins
 	use 'stephpy/vim-yaml'

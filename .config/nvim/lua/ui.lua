@@ -109,12 +109,15 @@ require('telescope').setup {
 }
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
+require("telescope").load_extension("git_worktree")
 
 map('n', '<leader>ff', ':Telescope<CR>')
 map('n', '<leader>/', ':Telescope current_buffer_fuzzy_find theme=ivy<cr>')
 map('n', '<leader>o', "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 map('n', '<leader>gf', "<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({previewer=false}))<CR>")
 map('n', '<leader>gs', ':Telescope git_status<cr>')
+map('n', '<leader>gw', "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
+map('n', '<leader>gc', "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
 map('n', '<leader>H', ':Telescope live_grep<CR>')
 map('n', '<leader>fg', ':Telescope grep_string theme=ivy<CR>')
 map('n', '<leader>fb', ':Telescope buffers theme=ivy<CR>')
