@@ -1,4 +1,4 @@
-session_name: scripts-bnadg
+session_name: scr-bn
 windows:
 - window_name: vim
   focus: 'true'

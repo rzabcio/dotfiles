@@ -10,6 +10,7 @@ vim.opt.linebreak=true                  -- Does not break line in the middle of 
 vim.opt.list=true                       -- Show some invisible characters
 -- vim.opt.listchars='tab:▶‒,trail:■'      -- set tabs and trails chars
 vim.opt.listchars='tab:┊ ,trail:●'      -- set tabs and trails chars
+vim.opt.mouse=''                        -- Disable mouse
 vim.opt.number=true                     -- show line numbers
 vim.opt.path=vim.opt.path + ".,**"      -- tab-completion for all file-related tasks
 vim.opt.relativenumber=true             -- relative line numbers

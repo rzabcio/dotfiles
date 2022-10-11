@@ -1,12 +1,12 @@
-session_name: scripts-master
+session_name: scr-master
 windows:
-- window_name: vim
+- window_name: nvim
   focus: 'true'
   layout: b15d,211x51,0,0,0
   options: {}
   panes:
   - focus: 'true'
-    shell_command: cd ~/work-gojira/atl-scripts-master/; nvim 
+    shell_command: cd ~/work-gojira/atl-scripts-master/; nvim
   start_directory: ~/work-gojira/atl-scripts-master/
 - window_name: zsh
   layout: b160,211x51,0,0,3
