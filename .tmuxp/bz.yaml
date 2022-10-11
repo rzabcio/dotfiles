@@ -1,4 +1,4 @@
-session_name: scr-bz
+session_name: g-bz
 windows:
 - window_name: nvim
   focus: 'true'

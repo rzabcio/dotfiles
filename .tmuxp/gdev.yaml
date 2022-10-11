@@ -1,4 +1,4 @@
-session_name: scr-dev
+session_name: g-dev
 windows:
 - window_name: nvim
   focus: 'true'

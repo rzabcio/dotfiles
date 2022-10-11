@@ -1,4 +1,4 @@
-session_name: scr-bn
+session_name: g-bn
 windows:
 - window_name: vim
   focus: 'true'

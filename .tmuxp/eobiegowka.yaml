@@ -1,4 +1,4 @@
-session_name: scr-eob
+session_name: g-eob
 windows:
 - window_name: nvim
   focus: 'true'

@@ -1,4 +1,4 @@
-session_name: scr-master
+session_name: g-main
 windows:
 - window_name: nvim
   focus: 'true'

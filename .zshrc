@@ -112,7 +112,6 @@ plugins=(
 	pipenv
 	python
 	sudo
-	terraform
 	tmux
 	zsh-autosuggestions
 )
@@ -193,10 +192,6 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
-
-if command -v thefuck &> /dev/null; then
-	eval "$(thefuck --alias)"
-fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
