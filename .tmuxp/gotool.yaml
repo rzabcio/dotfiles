@@ -1,0 +1,17 @@
+session_name: gotool
+windows:
+- window_name: nvim
+  focus: 'true'
+  layout: b15d,211x51,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work-gojira/gotool/; nvim migrate.py
+  start_directory: ~/work-gojira/gotool/
+- window_name: shell
+  layout: b160,211x51,0,0,3
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: cd ~/work-gojira/gotool/; clear
+  start_directory: ~/work-gojira/gotool/
