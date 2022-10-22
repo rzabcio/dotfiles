@@ -15,6 +15,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
 Plug 'itchyny/vim-gitbranch'
 "" general syntax plugins
+Plug 'stephpy/vim-yaml'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'sheerun/vim-polyglot'
 Plug 'xolox/vim-misc'
@@ -91,15 +92,17 @@ set complete-=i         "complete does not work well with above, so remove 'incl
 set cursorline          "highlightin current line
 set exrc                "load local .vimrc if present
 set hlsearch            "highlight search
+set ignorecase          "in searches
 set incsearch           "highlight search while typing
 set linebreak           "does not break line in the middle of the word
+set mouse               "disable mouse actions
 set nocompatible        "disable Vi-compatibility
 set noerrorbells        "disable error sounds/notification
 set number              "current line number
 set path+=**            "tab-completion for all file-related tasks
 set relativenumber      "relative numbers
 set scrolloff=8         "scroll screen before gettin to the end of file
-set showbreak=⪢         "Show break line
+set showbreak=↳·        "Show break line
 set splitright          "new vertical split on the right
 set wildmenu            "display all matching files when tab-complete
 syntax enable           "syntax detection and coloring
@@ -116,7 +119,7 @@ endif
 set nowrap                   "disable wrapping lines
 set tabstop=2                "tab as 2 spaces
 set shiftwidth=2             "tab as 2 spaces (on >)
-set listchars=tab:▶·,trail:· "set tabs and trails chars
+set listchars=tab:┊·,trail:· "set tabs and trails chars
 set list                     "set visible special chars
 filetype plugin on
 filetype plugin indent off
