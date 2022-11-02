@@ -23,9 +23,9 @@ return require('packer').startup(function()
 	-- cmp
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-cmdline'
+	-- use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-omni'
+	-- use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
 	use 'saadparwaiz1/cmp_luasnip'
 	use {
@@ -36,6 +36,8 @@ return require('packer').startup(function()
 	use 'akinsho/toggleterm.nvim'
 
 	-- lsp + treesitter
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
 	use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client]
 	use {
 		'nvim-treesitter/nvim-treesitter',

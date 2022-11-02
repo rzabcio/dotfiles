@@ -1,4 +1,4 @@
-session_name: g-main
+session_name: master
 windows:
 - window_name: nvim
   focus: 'true'

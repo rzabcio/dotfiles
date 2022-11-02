@@ -11,11 +11,12 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 require("luasnip/loaders/from_vscode").lazy_load()
 local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+	local col = vim.fn.col "." - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 local menu = {
 	buffer = '[Buf]',
+	buffer_lines = '[Buf]',
 	nvim_lsp = '[LSP]',
 	omni = '[Omni]',
 	path = '[Path]',
@@ -82,60 +83,76 @@ cmp.setup {
 		['<C-p>'] = cmp.mapping.select_prev_item(),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm {select=true},
-		-- ["<Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_next_item()
-		-- 	elseif luasnip.expandable() then
-		-- 		luasnip.expand()
-		-- 	elseif luasnip.expand_or_jumpable() then
-		-- 		luasnip.expand_or_jump()
-		-- 	-- elseif has_words_before() then
-		-- 	-- 	cmp.complete()
-		-- 	elseif check_backspace() then
-		-- 		fallback()
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, { "i", "s" }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expandable() then
+				luasnip.expand()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			-- elseif has_words_before() then
+			-- 	cmp.complete()
+			elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 
-		-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-		-- 	if cmp.visible() then
-		-- 		cmp.select_prev_item()
-		-- 	elseif luasnip.jumpable(-1) then
-		-- 		luasnip.jump(-1)
-		-- 	else
-		-- 		fallback()
-		-- 	end
-		-- end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	}),
 	preselect = require('cmp.types').cmp.PreselectMode.None,
 	sources = cmp.config.sources({
 		{name = 'luasnip'},
-		{name = 'buffer'},
 		{name = 'nvim_lsp'},
 		{name = 'omni'},
 		{name = 'path'},
-		{name = 'cmdline'},
+		{name = 'buffer'},
+		-- {name = 'cmdline'},
 	}),
 }
 
 
 --------------------------------------
 -- lsp configs
+require("mason").setup()
+require("mason-lspconfig").setup()
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 -- lsp.groovyls.setup{ cmd = { "java", "-jar", "/home/jglazik/.config/lsp-servers/groovy-language-server/build/libs/groovy-language-server-all.jar" }, }
--- require'lspconfig'.groovyls.setup{}
+lsp.groovyls.setup{}
 -- lsp.groovyls.setup{ cmd = { "/home/jglazik/.config/lsp-servers/groovy-language-server/groovy-language-server" }, }
 lsp.gopls.setup{}
-lsp.jedi_language_server.setup{}
+-- lsp.lua.setup{}
+-- lsp.sumneko_lua.setup{}
+lsp.pylsp.setup{
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = {'W391', 'W503'},
+					maxLineLength = 60
+				}
+			}
+		}
+	}
+}
+lsp.pyright.setup{}
 lspfuzzy.setup{}
 
 
 --------------------------------------
 -- mappings
-map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-map('n', '<space>;', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+map('n', '<space>,', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+map('n', '<space>;', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')

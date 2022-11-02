@@ -117,6 +117,14 @@ plugins=(
 	zsh-autosuggestions
 )
 
+### fzf-tab
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-k:accept'
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat ${(Q)realpath}'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
+
 ### Completions
 # if command -v tmuxp &> /dev/null; then
 # 	eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
@@ -174,6 +182,11 @@ if command -v fzf &> /dev/null; then
 	alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
 	bindkey -s '^e' '$EDITOR $(fzf)\n'
 fi
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:-1,bg:-1,hl:#81a1c1
+ --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+ --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+ --color=marker:#eacb8a,spinner:#b48dac,header:#a3be8b'
 
 
 ### AUTO SUGGEST SECTION

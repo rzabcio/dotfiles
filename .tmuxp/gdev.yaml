@@ -1,4 +1,4 @@
-session_name: g-dev
+session_name: dev
 windows:
 - window_name: nvim
   focus: 'true'
