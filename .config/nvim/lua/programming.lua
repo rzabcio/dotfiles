@@ -128,7 +128,6 @@ require("mason-lspconfig").setup()
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 -- lsp.groovyls.setup{ cmd = { "java", "-jar", "/home/jglazik/.config/lsp-servers/groovy-language-server/build/libs/groovy-language-server-all.jar" }, }
-lsp.groovyls.setup{}
 -- lsp.groovyls.setup{ cmd = { "/home/jglazik/.config/lsp-servers/groovy-language-server/groovy-language-server" }, }
 lsp.gopls.setup{}
 -- lsp.lua.setup{}
@@ -139,7 +138,7 @@ lsp.pylsp.setup{
 			plugins = {
 				pycodestyle = {
 					ignore = {'W391', 'W503'},
-					maxLineLength = 60
+					maxLineLength = 160
 				}
 			}
 		}
@@ -320,6 +319,12 @@ require("todo-comments").setup({
 		-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 	},
 })
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
 
 
 --------------------------------------
