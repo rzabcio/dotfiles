@@ -95,7 +95,6 @@ set hlsearch            "highlight search
 set ignorecase          "in searches
 set incsearch           "highlight search while typing
 set linebreak           "does not break line in the middle of the word
-set mouse               "disable mouse actions
 set nocompatible        "disable Vi-compatibility
 set noerrorbells        "disable error sounds/notification
 set number              "current line number
