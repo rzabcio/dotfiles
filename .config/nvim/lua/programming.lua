@@ -207,7 +207,9 @@ require('nvim-treesitter.configs').setup {
 
 --------------------------------------
 -- symbols
+if vim.fn.has("nvim-0.8") == 1 then
 require('aerial').setup({})
+end
 
 
 --------------------------------------
@@ -264,6 +266,7 @@ require('toggleterm').setup({
 
 --------------------------------------
 -- todo
+if vim.fn.has("nvim-0.8") == 1 then
 require("todo-comments").setup({
 	signs = true, -- show icons in the signs column
 	sign_priority = 8, -- sign priority
@@ -325,7 +328,7 @@ end, { desc = "Next todo comment" })
 vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
-
+end
 
 --------------------------------------
 -- go

@@ -14,7 +14,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
 Plug 'itchyny/vim-gitbranch'
-"" general syntax plugins
+""" general syntax plugins
 Plug 'stephpy/vim-yaml'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'sheerun/vim-polyglot'
@@ -27,14 +27,14 @@ Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'arcticicestudio/nord-vim'
 
-"" language specific plugins
+""" language specific plugins
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'andviro/flake8-vim'
 "Plug 'plasticboy/vim-markdown'
 Plug 'modille/groovy.vim'
 "Plug 'vim-scripts/groovy.vim'
 
-"" writing plugins
+""" writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
@@ -72,7 +72,7 @@ if has("win64") || has("win32") || has("win16")
 	behave mswin
 endif
 
-"" key mappings
+""" key mappings
 "" source $VIMRUNTIME/mswin.vim	"windows keys
 let mapleader = " "
 nnoremap <Tab> <C-w><C-w>
@@ -83,6 +83,7 @@ nnoremap <leader>/ :BLines<CR>
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>g :GFiles!?<CR>
 nnoremap <leader>H :Rg<CR>
+nnoremap <leader>b :Buffers<CR>
 
 """ basic settings
 set backspace=2         "???

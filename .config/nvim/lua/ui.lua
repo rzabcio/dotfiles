@@ -120,7 +120,7 @@ map('n', '<leader>gw', "<cmd>lua require('telescope').extensions.git_worktree.gi
 map('n', '<leader>gc', "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
 map('n', '<leader>H', ':Telescope live_grep<CR>')
 map('n', '<leader>fg', ':Telescope grep_string theme=ivy<CR>')
-map('n', '<leader>fb', ':Telescope buffers theme=ivy<CR>')
+map('n', '<leader>b', ':Telescope buffers theme=ivy<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
 -- map('n', '<leader>ft', ':Telescope tags<CR>')
 map('n', '<leader>ft', ':TodoTelescope<CR>')
