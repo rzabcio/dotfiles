@@ -148,20 +148,21 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
 -- Colorizer
 require('colorizer').setup()
 
--- Nord
-vim.g.nord_contrast = false
-vim.g.nord_borders = false
-vim.g.nord_disable_background = true
-vim.g.cursorline_transparent = true
-vim.g.nord_italic = false
-require('nord').set()
-vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
-
--- Onedark
--- require('onedark').setup({
--- 	style = 'darker',
--- 	-- transparent = true,
--- 	comments = none,
--- })
--- require('onedark').load()
-
+if vim.fn.has("nvim-0.8") == 1 then
+	-- Nord
+	vim.g.nord_contrast = false
+	vim.g.nord_borders = false
+	vim.g.nord_disable_background = true
+	vim.g.cursorline_transparent = true
+	vim.g.nord_italic = false
+	require('nord').set()
+	vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
+else
+	-- Onedark
+	require('onedark').setup({
+		style = 'darker',
+		-- transparent = true,
+		comments = none,
+	})
+	require('onedark').load()
+end
