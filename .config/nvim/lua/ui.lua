@@ -156,13 +156,18 @@ if vim.fn.has("nvim-0.8") == 1 then
 	vim.g.cursorline_transparent = true
 	vim.g.nord_italic = false
 	require('nord').set()
-	vim.cmd 'colorscheme nord'             -- Put your favorite colorscheme here
+	vim.cmd[[colorscheme nord]]             -- Put your favorite colorscheme here
 else
 	-- Onedark
-	require('onedark').setup({
-		style = 'darker',
-		-- transparent = true,
-		comments = none,
-	})
-	require('onedark').load()
+	-- require('onedark').setup({
+	-- 	style = 'darker',
+	-- 	transparent = true,
+	-- 	comments = none,
+	-- })
+	-- require('onedark').load()
+
+	-- Everforest
+	vim.g.everforest_transparent_background=1
+	vim.g.everforest_disable_italic_comment=1
+	vim.cmd[[colorscheme everforest]]
 end
