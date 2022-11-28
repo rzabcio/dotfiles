@@ -148,26 +148,33 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
 -- Colorizer
 require('colorizer').setup()
 
-if vim.fn.has("nvim-0.8") == 1 then
-	-- Nord
+------------------------------------
+-- Nord (only on newer neovim versions)
+if (vim.fn.has("nvim-0.8") == 1) then
 	vim.g.nord_contrast = false
 	vim.g.nord_borders = false
 	vim.g.nord_disable_background = true
 	vim.g.cursorline_transparent = true
 	vim.g.nord_italic = false
 	require('nord').set()
-	vim.cmd[[colorscheme nord]]             -- Put your favorite colorscheme here
-else
-	-- Onedark
-	-- require('onedark').setup({
-	-- 	style = 'darker',
-	-- 	transparent = true,
-	-- 	comments = none,
-	-- })
-	-- require('onedark').load()
-
-	-- Everforest
-	vim.g.everforest_transparent_background=1
-	vim.g.everforest_disable_italic_comment=1
-	vim.cmd[[colorscheme everforest]]
 end
+
+-- Onedark
+require('onedark').setup({
+	style = 'darker',
+	transparent = true,
+	code_style = {
+		comments = none,
+	}
+})
+vim.g.onedark_terminal_italics = false
+-- require('onedark').load()
+
+-- Everforest
+vim.g.everforest_transparent_background = 1
+vim.g.everforest_disable_italic_comment = 1
+
+-- uncomment default colorscheme below (or change in command mode)
+-- vim.cmd[[colorscheme nord]]
+-- vim.cmd[[colorscheme onedark]]
+vim.cmd[[colorscheme everforest]]
