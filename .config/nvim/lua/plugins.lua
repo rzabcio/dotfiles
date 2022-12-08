@@ -77,6 +77,10 @@ return require('packer').startup(function()
 	use 'morhetz/gruvbox'
 	use 'navarasu/onedark.nvim'
 	use 'sainnhe/everforest'
+	use {
+		"mcchrish/zenbones.nvim",
+		requires = "rktjmp/lush.nvim"
+}
 
 	--- Go
 	use 'ray-x/go.nvim'

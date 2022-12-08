@@ -174,6 +174,9 @@ vim.g.onedark_terminal_italics = false
 vim.g.everforest_transparent_background = 1
 vim.g.everforest_disable_italic_comment = 1
 
+-- Zenbones
+vim.g.zenbones_italic_comments = false
+
 -- uncomment default colorscheme below (or change in command mode)
 -- vim.cmd[[colorscheme nord]]
 -- vim.cmd[[colorscheme onedark]]

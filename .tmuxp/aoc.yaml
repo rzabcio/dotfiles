@@ -2,14 +2,13 @@ session_name: aoc
 windows:
 - window_name: main
   focus: 'true'
-  layout: 0869,190x48,0,0[190x25,0,0,190x22,0,26,1{94x25,0,0,2,95x25,95,0,3}]
-  options:
-    automatic-rename: 'off'
+  layout: 549b,211x53,0,0[211x36,0,0,8,211x16,0,37,9]
+  options: {}
   panes:
   - focus: 'true'
     shell_command:
-    - cd ~/work-private/aoc2021/; vim
+    - cd /home/jglazik/work-private/adventofcode-2022
+    - nvim
   - shell_command:
-    - cd ~/work-private/aoc2021/
-  - shell_command:
-    - cd ~/work-private/aoc2021/
+    - cd /home/jglazik/dotfiles/.tmuxp
+    - zsh

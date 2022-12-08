@@ -184,9 +184,9 @@ require('nvim-treesitter.configs').setup {
 	indent = {
 		enable = true,
 	},
-	rainbow = {
-		enable = true,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- },
 	-- textobjects={
 	-- 	select={
 	-- 		enable=true,
