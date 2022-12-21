@@ -22,7 +22,7 @@ function choose_theme {
 	else
 		# echo 'headline'
 		# echo 'murilasso'
-		# echo 'spaceship'
+		# echo 'rzabcio'
 		echo 'powerlevel10k/powerlevel10k'
 	fi
 }

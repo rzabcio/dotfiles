@@ -34,7 +34,8 @@ end
 require('lualine').setup({
 	options = {
 		icons_enabled = true,
-		theme = 'codedark',
+		-- theme = 'codedark',
+		theme = 'everforest',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = {},
@@ -61,12 +62,13 @@ require('lualine').setup({
 		lualine_a = {
 			{
 				'buffers',
+				show_filename_only = false,
 				component_separators = { left = '|', right = '|' },
 				section_separators = { left = '', right = '' },
 				mode = 4,
 				symbols = {
 					alternate_file = '',
-					modified = '[+]',
+					modified = ' ●',
 				},
 			},
 		},

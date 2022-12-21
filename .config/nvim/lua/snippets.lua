@@ -39,6 +39,17 @@ ls.add_snippets('go', {
 		i(1),
 		t({'', '}', ''}),
 	}),
+	s('iferrnew', {
+		t({'if err := '}),
+		i(1),
+		t({'; err != nil {', '\t'}),
+		t({'', '}', ''}),
+	}),
+	s('ifok', {
+		t({'if ok {', '\t'}),
+		i(1),
+		t({'', '}', ''}),
+	}),
 }),
 
 -- ls.snippets = {
