@@ -186,9 +186,9 @@ noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 
 """ Hard Mode
-let g:HardMode_level = 'wannabe'
-let g:HardMode_hardmodeMsg = 'Don''t use this!'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" let g:HardMode_level = 'wannabe'
+" let g:HardMode_hardmodeMsg = 'Don''t use this!'
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 """ Flake8
 let g:PyFlakeOnWrite = 1
