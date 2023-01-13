@@ -156,10 +156,12 @@ map('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 map('n', '<space>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', '<space>m', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<space>r', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 map('n', '<space>xx', '<cmd>TroubleToggle<CR>')
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = '[K] Hover documentation' })
 
 
 --------------------------------------
@@ -187,22 +189,40 @@ require('nvim-treesitter.configs').setup {
 	-- rainbow = {
 	-- 	enable = true,
 	-- },
-	-- textobjects={
-	-- 	select={
-	-- 		enable=true,
-	-- 		keymaps={
-	-- 			['aa']='@parameter.outer', ['ia']='@parameter.inner',
-	-- 			['af']='@function.outer', ['if']='@function.inner',
-	-- 		},
-	-- 	},
-	-- 	move={
-	-- 		enable=true,
-	-- 		goto_next_start={[']a']='@parameter.inner', [']f']='@function.outer'},
-	-- 		goto_next_end={[']A']='@parameter.inner', [']F']='@function.outer'},
-	-- 		goto_previous_start={['[a']='@parameter.inner', ['[f']='@function.outer'},
-	-- 		goto_previous_end={['[A']='@parameter.inner', ['[F']='@function.outer'},
-	-- 	},
-	-- },
+	textobjects={
+		select={
+			enable=true,
+			lookahead=true,
+			keymaps={
+				['aa']='@parameter.outer',
+				['ia']='@parameter.inner',
+				['af']='@function.outer',
+				['if']='@function.inner',
+				['ac']='@class.outer',
+				['ic']='@class.inner',
+			},
+		},
+		move={
+			enable=true,
+			set_jumps=true,
+			goto_next_start={
+				[']a']='@parameter.inner',
+				[']f']='@function.outer'
+			},
+			goto_next_end={
+				[']A']='@parameter.inner',
+				[']F']='@function.outer'
+			},
+			goto_previous_start={
+				['[a']='@parameter.inner',
+				['[f']='@function.outer'
+			},
+			goto_previous_end={
+				['[A']='@parameter.inner',
+				['[F']='@function.outer'
+			},
+		},
+	},
 }
 
 
