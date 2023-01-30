@@ -143,6 +143,7 @@ vim.g.vimwiki_list = {
 }
 map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
 
+
 -------------------------------------
 -- Goyo
 map('n', '<leader>gg', ':Goyo 120<CR>')

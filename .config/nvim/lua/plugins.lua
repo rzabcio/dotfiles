@@ -28,6 +28,7 @@ return require('packer').startup(function()
 	-- use 'hrsh7th/cmp-omni'
 	use 'hrsh7th/cmp-path'
 	use 'saadparwaiz1/cmp_luasnip'
+	use 'rafamadriz/friendly-snippets'
 	use {
 		'L3MON4D3/LuaSnip',
 		-- after = 'nvim-cmp',
@@ -61,6 +62,7 @@ return require('packer').startup(function()
 	use 'vimwiki/vimwiki'
 	use 'junegunn/goyo.vim'
 	use 'junegunn/limelight.vim'
+	use 'renerocksai/calendar-vim'
 
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'

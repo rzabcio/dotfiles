@@ -36,7 +36,7 @@ ls.add_snippets('groovy', {
 ls.add_snippets('go', {
 	s('iferr', {
 		t({'if err != nil {', '\t'}),
-		i(1),
+		i(1), t({'return nil, err'}),
 		t({'', '}', ''}),
 	}),
 	s('iferrnew', {
@@ -47,6 +47,11 @@ ls.add_snippets('go', {
 	}),
 	s('ifok', {
 		t({'if ok {', '\t'}),
+		i(1),
+		t({'', '}', ''}),
+	}),
+	s('ifnotok', {
+		t({'if !ok {', '\t'}),
 		i(1),
 		t({'', '}', ''}),
 	}),

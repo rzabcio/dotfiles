@@ -81,6 +81,7 @@ cmp.setup {
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-n>'] = cmp.mapping.select_next_item(),
 		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-o>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm {select=true},
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -127,9 +128,12 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- lsp.groovyls.setup{ cmd = { "java", "-jar", "/home/jglazik/.config/lsp-servers/groovy-language-server/build/libs/groovy-language-server-all.jar" }, }
 -- lsp.groovyls.setup{ cmd = { "/home/jglazik/.config/lsp-servers/groovy-language-server/groovy-language-server" }, }
-lsp.gopls.setup{}
+lsp.gopls.setup{
+	capabilities = capabilities,
+}
 -- lsp.lua.setup{}
 -- lsp.sumneko_lua.setup{}
 lsp.pylsp.setup{
