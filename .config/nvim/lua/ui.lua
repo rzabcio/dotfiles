@@ -107,6 +107,20 @@ require('telescope').setup {
 				-- even more opts
 			}
 		}
+	},
+	defaults = {
+		mappings = {
+			n = {
+				['<C-d>'] = require('telescope.actions').delete_buffer,
+				-- ['<C-v>'] = require('telescope.actions').select_vertical,
+				-- ['<C-b>'] = require('telescope.actions').git_switch_branch,
+			},
+			i = {
+				['<C-d>'] = require('telescope.actions').delete_buffer,
+				-- ['<C-v>'] = require('telescope.actions').select_vertical,
+				-- ['<C-b>'] = require('telescope.actions').git_switch_branch,
+			}
+		}
 	}
 }
 require("telescope").load_extension("file_browser")
@@ -122,16 +136,17 @@ map('n', '<leader>ft', ':TodoTelescope<CR>')
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>/', function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { previewer = false, }) end, { desc = '[/] Fuzzy search in current buffer'})
 vim.keymap.set('n', '<leader>H', require('telescope.builtin').live_grep, { desc = '[H] Fuzzy search in current buffer'})
-vim.keymap.set('n', '<leader>*', function() require('telescope.builtin').grep_string(require('telescope.themes').get_ivy { }) end, { desc = '[*] Fuzzy search current word'})
+vim.keymap.set('n', '<leader>*', function() require('telescope.builtin').grep_string(require('telescope.themes').get_cursor { }) end, { desc = '[*] Fuzzy search current word'})
 -- files/buffers
 vim.keymap.set('n', '<leader><space>', function() require('telescope.builtin').buffers(require('telescope.themes').get_ivy { }) end, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>o', function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown { previewer=false }) end, { desc = '[o] Find files' })
 vim.keymap.set('n', '<leader>O', require('telescope').extensions.file_browser.file_browser, { desc = '[O] File browser' })
 -- git
-vim.keymap.set('n', '<leader>gf', function() require('telescope.builtin').git_files(require('telescope.themes').get_dropdown { previewer=false }) end, { desc = '[gf] Git files' })
-vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status(require('telescope.themes').get_ivy { }) end, { desc = '[gs] Git status' })
-vim.keymap.set('n', '<leader>gC', function() require('telescope.builtin').git_commits(require('telescope.themes').get_ivy { }) end, { desc = '[gC] Git commits' })
-vim.keymap.set('n', '<leader>gc', function() require('telescope.builtin').git_bcommits(require('telescope.themes').get_ivy { }) end, { desc = '[gc] Git buffer commits' })
+vim.keymap.set('n', '<leader>go', function() require('telescope.builtin').git_files(require('telescope.themes').get_dropdown { previewer=false }) end, { desc = '[go] Git files' })
+-- vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status(require('telescope.themes').get_ivy { }) end, { desc = '[gs] Git status' })
+vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status(require('telescope.themes')) end, { desc = '[gs] Git status' })
+vim.keymap.set('n', '<leader>gC', function() require('telescope.builtin').git_commits(require('telescope.themes')) end, { desc = '[gC] Git commits' })
+vim.keymap.set('n', '<leader>gc', function() require('telescope.builtin').git_bcommits(require('telescope.themes').get_ivy { prompt_title='Git Commits for file' }) end, { desc = '[gc] Git buffer commits' })
 vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_branches(require('telescope.themes').get_ivy { }) end, { desc = '[gb] Git commits' })
 
 -------------------------------------
