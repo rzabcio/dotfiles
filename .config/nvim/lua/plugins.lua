@@ -19,6 +19,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'
 	use 'norcalli/nvim-colorizer.lua'
 	use 'folke/todo-comments.nvim'
+	use 'ThePrimeagen/harpoon'
 
 	-- cmp
 	use 'hrsh7th/nvim-cmp'
@@ -60,7 +61,7 @@ return require('packer').startup(function()
 	-- use 'godlygeek/tabular'
 	-- use 'preservim/vim-markdown'
 	use 'vimwiki/vimwiki'
-	use 'junegunn/goyo.vim'
+	use 'folke/zen-mode.nvim'
 	use 'junegunn/limelight.vim'
 	use 'renerocksai/calendar-vim'
 
@@ -82,7 +83,7 @@ return require('packer').startup(function()
 	use {
 		"mcchrish/zenbones.nvim",
 		requires = "rktjmp/lush.nvim"
-}
+	}
 
 	--- Go
 	use 'ray-x/go.nvim'

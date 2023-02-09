@@ -45,7 +45,7 @@ require('lualine').setup({
 	sections = {
 		lualine_a = {'mode'},
 		lualine_b = {'branch', 'diff', },
-		lualine_c = {'filename', 'fugitive'},
+		lualine_c = {{'filename', path=1,symbols={modified=' ●',}}, 'fugitive',  },
 		lualine_x = {'diagnostics', 'encoding', 'filetype'},
 		lualine_y = {'progress'},
 		lualine_z = {'location'}
@@ -59,28 +59,30 @@ require('lualine').setup({
 		lualine_z = {}
 	},
 	tabline = {
-		lualine_a = {
-			{
-				'buffers',
-				show_filename_only = false,
-				component_separators = { left = '|', right = '|' },
-				section_separators = { left = '', right = '' },
-				mode = 4,
-				symbols = {
-					alternate_file = '',
-					modified = ' ●',
-				},
-			},
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {'tabs'}
+	-- 	lualine_a = {
+	-- 		{
+	-- 			'buffers',
+	-- 			show_filename_only = false,
+	-- 			component_separators = { left = '|', right = '|' },
+	-- 			section_separators = { left = '', right = '' },
+	-- 			mode = 4,
+	-- 			symbols = {
+	-- 				alternate_file = '',
+	-- 				modified = ' ●',
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	lualine_b = {},
+	-- 	lualine_c = {},
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {'tabs'}
 	},
 	extensions = {
 		'toggleterm',
 		'fugitive',
+		'aerial',
+		'fzf',
 	}
 })
 
@@ -126,6 +128,7 @@ require('telescope').setup {
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("harpoon")
 
 map('n', '<leader>ff', ':Telescope<CR>')
 map('n', '<leader>fk', ':Telescope keymaps<CR>')
@@ -160,18 +163,65 @@ map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
 
 
 -------------------------------------
--- Goyo
-map('n', '<leader>gg', ':Goyo 120<CR>')
-vim.g.limelight_conceal_ctermfg = 240
-vim.g.limelight_conceal_guifg = 'DarkGray'
--- vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :Goyo 120')
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
--- vim.api.nvim_command('autocmd! User GoyoEnter Limelight')
--- vim.api.nvim_command('autocmd! User GoyoLeave Limelight!')
+-- Harpoon
+require('harpoon').setup()
+vim.keymap.set('n', '<leader>ho', ':Telescope harpoon marks<CR>', { desc = '[ho] Harpoon open' })
+vim.keymap.set('n', '<leader>ha', function() require('harpoon.mark').add_file() end, { desc = '[ha] Harpoon add file' })
+vim.keymap.set('n', '<leader>hr', function() require('harpoon.mark').rm_file() end, { desc = '[hr] Harpoon remove file' })
+vim.keymap.set('n', '<leader>hx', function() require('harpoon.mark').clear_all() end, { desc = '[hx] Harpoon remove all' })
+vim.keymap.set('n', '<leader>hq', function() require('harpoon.ui').toggle_quick_menu() end, { desc = '[hq] Harpoon quick menu' })
+vim.keymap.set('n', '<leader>n', function() require('harpoon.ui').nav_next() end, { desc = '[hn] Harpoon next mark' })
+vim.keymap.set('n', '<leader>p', function() require('harpoon.ui').nav_prev() end, { desc = '[hp] Harpoon previous mark' })
 
+-------------------------------------
 -- Colorizer
 require('colorizer').setup()
+
+------------------------------------
+-- ZenMode
+require("zen-mode").setup({
+		window = {
+			backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+			width = 120, -- width of the Zen window
+			height = 1, -- height of the Zen window
+			options = {
+				signcolumn = "no", -- disable signcolumn
+				number = false, -- disable number column
+				relativenumber = false, -- disable relative numbers
+				cursorline = false, -- disable cursorline
+				cursorcolumn = false, -- disable cursor column
+				-- foldcolumn = "0", -- disable fold column
+				list = false, -- disable whitespace characters
+			},
+		},
+		plugins = {
+			options = {
+				enabled = true,
+				ruler = false, -- disables the ruler text in the cmd line area
+				showcmd = false, -- disables the command in the last line of the screen
+			},
+			twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+			gitsigns = { enabled = false }, -- disables git signs
+			tmux = { enabled = false }, -- disables the tmux statusline
+			kitty = {
+				enabled = false,
+				font = "+4", -- font size increment
+			},
+		},
+		on_open = function(win)
+			vim.opt.number=true
+			vim.opt.relativenumber=true
+		end,
+		on_close = function()
+			vim.opt.number=true
+			vim.opt.relativenumber=true
+		end,
+})
+-- vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :ZenMode')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set number!')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set relativenumber!')
 
 ------------------------------------
 -- Nord (only on newer neovim versions)
