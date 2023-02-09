@@ -165,13 +165,13 @@ map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
 -------------------------------------
 -- Harpoon
 require('harpoon').setup()
-vim.keymap.set('n', '<leader>ho', ':Telescope harpoon marks<CR>', { desc = '[ho] Harpoon open' })
+vim.keymap.set('n', '<leader>ho', ':Telescope harpoon marks previewer=false theme=dropdown<CR>', { desc = '[ho] Harpoon in Telescope' })
 vim.keymap.set('n', '<leader>ha', function() require('harpoon.mark').add_file() end, { desc = '[ha] Harpoon add file' })
 vim.keymap.set('n', '<leader>hr', function() require('harpoon.mark').rm_file() end, { desc = '[hr] Harpoon remove file' })
 vim.keymap.set('n', '<leader>hx', function() require('harpoon.mark').clear_all() end, { desc = '[hx] Harpoon remove all' })
 vim.keymap.set('n', '<leader>hq', function() require('harpoon.ui').toggle_quick_menu() end, { desc = '[hq] Harpoon quick menu' })
-vim.keymap.set('n', '<leader>n', function() require('harpoon.ui').nav_next() end, { desc = '[hn] Harpoon next mark' })
-vim.keymap.set('n', '<leader>p', function() require('harpoon.ui').nav_prev() end, { desc = '[hp] Harpoon previous mark' })
+vim.keymap.set('n', '<leader>hh', function() require('harpoon.ui').nav_next() end, { desc = '[hh] Harpoon next mark' })
+vim.keymap.set('n', '<leader>hp', function() require('harpoon.ui').nav_prev() end, { desc = '[hp] Harpoon previous mark' })
 
 -------------------------------------
 -- Colorizer
