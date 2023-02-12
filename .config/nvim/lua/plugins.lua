@@ -51,6 +51,7 @@ return require('packer').startup(function()
 	use 'folke/trouble.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'stevearc/aerial.nvim'
+	use 'stevearc/dressing.nvim'
 
 	-- telescope
 	use 'nvim-telescope/telescope.nvim'
@@ -64,6 +65,7 @@ return require('packer').startup(function()
 	use 'folke/zen-mode.nvim'
 	use 'junegunn/limelight.vim'
 	use 'renerocksai/calendar-vim'
+	use 'phaazon/mind.nvim'
 
 	-- git plugins
 	use 'lewis6991/gitsigns.nvim'

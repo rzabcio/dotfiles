@@ -224,6 +224,10 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set number!')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set relativenumber!')
 
 ------------------------------------
+-- Mind
+require('mind').setup()
+
+------------------------------------
 -- Nord (only on newer neovim versions)
 if (vim.fn.has("nvim-0.8") == 1) then
 	vim.g.nord_contrast = false
