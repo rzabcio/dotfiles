@@ -214,3 +214,7 @@ alias wiki="cd ~/vimwiki; nvim -c VimwikiIndex"
 if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+if command -v thefuck &> /dev/null; then
+	eval $(thefuck --alias)
+fi
