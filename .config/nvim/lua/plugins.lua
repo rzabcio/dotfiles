@@ -74,8 +74,9 @@ return require('packer').startup(function()
 	use 'ThePrimeagen/git-worktree.nvim'
 
 	-- lang plugins
-	use 'stephpy/vim-yaml'
-	use 'pedrohdz/vim-yaml-folds'
+	-- use 'stephpy/vim-yaml'
+	-- use 'pedrohdz/vim-yaml-folds'
+	use 'cuducos/yaml.nvim'
 
 	--- color schemes
 	use 'shaunsingh/nord.nvim'
