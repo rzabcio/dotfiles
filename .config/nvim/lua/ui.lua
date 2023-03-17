@@ -228,7 +228,7 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set relativenumber!')
 require('mind').setup({
 	persistence = {
 		state_path = "~/vimwiki/default/.mind/mind.json",
-		data_dir = "~/vimwiki/default/",
+		data_dir = "~/vimwiki/default",
 	},
 	edit = {
 		data_header = "%s\n=======================================",
@@ -237,6 +237,8 @@ require('mind').setup({
 map('n', '<leader>m<leader>p', ':MindOpenSmartProject<CR>')
 map('n', '<leader>mm', ':MindOpenMain<CR>')
 map('n', '<leader>mp', ':MindOpenProject<CR>')
+map('n', '<leader>mr', ':MindOpenReloadState<CR>')
+map('n', '<leader>mc', ':MindClose<CR>')
 
 ------------------------------------
 -- Nord (only on newer neovim versions)
