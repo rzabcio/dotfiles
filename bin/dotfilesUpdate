@@ -4,6 +4,12 @@ DOTFILES=~/dotfiles
 cd $DOTFILES
 git pull
 
+# ensure bin symlinks
+ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
+ln -sf $DOTFILES/bin/wikisync ~/bin/wikisync
+ln -sf $DOTFILES/bin/proxyenable ~/bin/proxyenable
+ln -sf $DOTFILES/bin/proxydisable ~/bin/proxydisable
+
 # Vim
 vim +'PlugClean --sync' +qa
 vim +'PlugInstall --sync' +qa

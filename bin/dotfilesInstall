@@ -4,6 +4,8 @@ mkdir -p ~/bin
 mkdir -p ~/.config
 ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
 ln -sf $DOTFILES/bin/wikisync ~/bin/wikisync
+ln -sf $DOTFILES/bin/proxyenable ~/bin/proxyenable
+ln -sf $DOTFILES/bin/proxydisable ~/bin/proxydisable
 
 
 ### install packages

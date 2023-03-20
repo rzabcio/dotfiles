@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo sed -i -e "s/^\(http.\?_\)/#\1/" /etc/wgetrc
