@@ -205,7 +205,7 @@ alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
-alias wiki="cd ~/vimwiki; nvim -c MindOpenMain; wikisync"
+alias wiki="cd ~/vimwiki/default; nvim -c 'e week-current.md' -c MindOpenMain -c 'wincmd l'; (wikisync &) >/dev/null 2>&1"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

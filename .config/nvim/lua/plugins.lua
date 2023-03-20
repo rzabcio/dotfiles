@@ -72,6 +72,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-fugitive'
 	use 'junegunn/gv.vim'
 	use 'ThePrimeagen/git-worktree.nvim'
+	use 'kdheepak/lazygit.nvim'
 
 	-- lang plugins
 	-- use 'stephpy/vim-yaml'

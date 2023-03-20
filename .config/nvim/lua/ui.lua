@@ -36,7 +36,8 @@ require('lualine').setup({
 		icons_enabled = true,
 		-- theme = 'codedark',
 		theme = 'everforest',
-		component_separators = { left = '', right = '' },
+		-- component_separators = { left = '', right = '' },
+		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
 		disabled_filetypes = {},
 		always_divide_middle = true,
@@ -45,18 +46,18 @@ require('lualine').setup({
 	sections = {
 		lualine_a = {'mode'},
 		lualine_b = {'branch', 'diff', },
-		lualine_c = {{'filename', path=1,symbols={modified=' ●',}}, 'fugitive',  },
-		lualine_x = {'diagnostics', 'encoding', 'filetype'},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
+		lualine_c = {{'filename', path=1,symbols={modified='●',}}, 'fugitive',  },
+		lualine_x = {'diagnostics', },
+		lualine_y = {'filetype', 'location'},
+		lualine_z = {'hostname'}
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = {'filename'},
+		lualine_c = {{'filename', path=1,symbols={modified='●',}}, },
 		lualine_x = {'location'},
 		lualine_y = {},
-		lualine_z = {}
+		lualine_z = {'hostname'}
 	},
 	tabline = {
 	-- 	lualine_a = {
@@ -145,6 +146,7 @@ vim.keymap.set('n', '<leader><space>', function() require('telescope.builtin').b
 vim.keymap.set('n', '<leader>o', function() require('telescope.builtin').find_files(require('telescope.themes').get_dropdown { previewer=false }) end, { desc = '[o] Find files' })
 vim.keymap.set('n', '<leader>O', require('telescope').extensions.file_browser.file_browser, { desc = '[O] File browser' })
 -- git
+map('n', '<leader>gg', ':LazyGit<CR>')
 vim.keymap.set('n', '<leader>go', function() require('telescope.builtin').git_files(require('telescope.themes').get_dropdown { previewer=false }) end, { desc = '[go] Git files' })
 -- vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status(require('telescope.themes').get_ivy { }) end, { desc = '[gs] Git status' })
 vim.keymap.set('n', '<leader>gs', function() require('telescope.builtin').git_status(require('telescope.themes')) end, { desc = '[gs] Git status' })
