@@ -44,8 +44,8 @@ local function map(mode, lhs, rhs, opts)
 end
 vim.keymap.set('n', '<C-h>', ':bp<cr>')
 vim.keymap.set('n', '<C-l>', ':bn<cr>')
-vim.keymap.set('n', '<Space>p', ':bp<cr>')
-vim.keymap.set('n', '<Space>n', ':bn<cr>')
+-- vim.keymap.set('n', '<Space>p', ':bp<cr>')
+-- vim.keymap.set('n', '<Space>n', ':bn<cr>')
 vim.keymap.set('n', '<Tab>', '<C-w><C-w>')
 vim.keymap.set('i', 'jj', '<Esc>')
 

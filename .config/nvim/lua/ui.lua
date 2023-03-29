@@ -128,14 +128,13 @@ require('telescope').setup {
 }
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("git_worktree")
-require("telescope").load_extension("harpoon")
 
 map('n', '<leader>ff', ':Telescope<CR>')
 map('n', '<leader>fk', ':Telescope keymaps<CR>')
 map('n', '<leader>fh', ':Telescope help_tags<CR>')
 -- map('n', '<leader>ft', ':Telescope tags<CR>')
 map('n', '<leader>ft', ':TodoTelescope<CR>')
+vim.keymap.set('n', '<leader>:', function() require('telescope.builtin').command_history() end, { desc = '[:] Search command history' })
 -- text searchers
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>/', function() require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { previewer = false, }) end, { desc = '[/] Fuzzy search in current buffer'})
@@ -157,23 +156,18 @@ vim.keymap.set('n', '<leader>gb', function() require('telescope.builtin').git_br
 -------------------------------------
 -- vim wiki
 vim.g.vimwiki_list = {
-	{path='~/vimwiki/default', index='README', syntax='markdown', ext='.md', auto_toc=1},
+	{
+		path='~/vimwiki/default',
+		index='README',
+		syntax='markdown',
+		ext='.md',
+		auto_toc=1,
+		diary_frequency='weekly'
+	},
 	{path='~/vimwiki/gcp', index='README', syntax='markdown', ext='.md', auto_toc=1},
 	{path='~/vimwiki/k8s', index='README', syntax='markdown', ext='.md', auto_toc=1},
 }
 map('n', '<leader>t', ':VimwikiToggleListItem<CR>')
-
-
--------------------------------------
--- Harpoon
-require('harpoon').setup()
-vim.keymap.set('n', '<leader>ho', ':Telescope harpoon marks previewer=false theme=dropdown<CR>', { desc = '[ho] Harpoon in Telescope' })
-vim.keymap.set('n', '<leader>ha', function() require('harpoon.mark').add_file() end, { desc = '[ha] Harpoon add file' })
-vim.keymap.set('n', '<leader>hr', function() require('harpoon.mark').rm_file() end, { desc = '[hr] Harpoon remove file' })
-vim.keymap.set('n', '<leader>hx', function() require('harpoon.mark').clear_all() end, { desc = '[hx] Harpoon remove all' })
-vim.keymap.set('n', '<leader>hq', function() require('harpoon.ui').toggle_quick_menu() end, { desc = '[hq] Harpoon quick menu' })
-vim.keymap.set('n', '<leader>hh', function() require('harpoon.ui').nav_next() end, { desc = '[hh] Harpoon next mark' })
-vim.keymap.set('n', '<leader>hp', function() require('harpoon.ui').nav_prev() end, { desc = '[hp] Harpoon previous mark' })
 
 -------------------------------------
 -- Colorizer
@@ -224,23 +218,6 @@ vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set wrap')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set showbreak=↳ ')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set number!')
 vim.api.nvim_command('autocmd BufRead,BufNewFile *.md :set relativenumber!')
-
-------------------------------------
--- Mind
-require('mind').setup({
-	persistence = {
-		state_path = "~/vimwiki/default/.mind/mind.json",
-		data_dir = "~/vimwiki/default",
-	},
-	edit = {
-		data_header = "%s\n=======================================",
-	},
-})
-map('n', '<leader>m<leader>p', ':MindOpenSmartProject<CR>')
-map('n', '<leader>mm', ':MindOpenMain<CR>')
-map('n', '<leader>mp', ':MindOpenProject<CR>')
-map('n', '<leader>mr', ':MindOpenReloadState<CR>')
-map('n', '<leader>mc', ':MindClose<CR>')
 
 ------------------------------------
 -- Nord (only on newer neovim versions)
