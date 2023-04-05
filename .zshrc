@@ -206,7 +206,7 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxp load"
 # alias wiki="cd ~/vimwiki/default; nvim -c 'VimwikiMakeDiaryNote'; (wikisync &) >/dev/null 2>&1"
-alias wiki="cd ~/vimwiki/default; nvim README.md; sed -i -e 's/ \([A-Z][A-Z0-9]*-[0-9]*\)/ [\1](https:\/\/gojira.sygnity.pl\/browse\/\1)/g' diary/*; (wikisync &) >/dev/null 2>&1"
+alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; sed -i -e 's/ \([A-Z][A-Z0-9]*-[0-9]*\)/ [\1](https:\/\/gojira.sygnity.pl\/browse\/\1)/g' diary/*; (wikisync &) >/dev/null 2>&1"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
