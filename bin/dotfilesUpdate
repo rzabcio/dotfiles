@@ -15,10 +15,9 @@ vim +'PlugClean --sync' +qa
 vim +'PlugInstall --sync' +qa
 
 # NeoVim
-if [ -n "$(command -v nvim)" ]; then
-	nvim +'PackerSync' +qa
-	nvim +'PackerUpdate' +qa
-fi
+# if [ -n "$(command -v nvim)" ]; then
+# 	nvim -c "Lazy sync"
+# fi
 
 #WSL
 if [ -d "/mnt/c/Users/jglazik/" ]; then
