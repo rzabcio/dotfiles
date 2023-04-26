@@ -4,22 +4,25 @@ DOTFILES=~/dotfiles
 cd $DOTFILES
 git pull
 
-# ensure bin symlinks
+### ensure bin symlinks
 ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
 ln -sf $DOTFILES/bin/wikisync ~/bin/wikisync
 ln -sf $DOTFILES/bin/proxyenable ~/bin/proxyenable
 ln -sf $DOTFILES/bin/proxydisable ~/bin/proxydisable
 
-# Vim
+### Vim
 vim +'PlugClean --sync' +qa
 vim +'PlugInstall --sync' +qa
 
-# NeoVim
+### NeoVim
 # if [ -n "$(command -v nvim)" ]; then
+# 	# packer
+# 	nvim -c "PackerSync"
+# 	# lazy
 # 	nvim -c "Lazy sync"
 # fi
 
-#WSL
+### WSL
 if [ -d "/mnt/c/Users/jglazik/" ]; then
   cp $DOTFILES/.vimrc /mnt/c/Users/jglazik
 fi

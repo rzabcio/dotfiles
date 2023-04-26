@@ -204,7 +204,7 @@ alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -t"
-alias tl="tmuxp load"
+alias tl="tmuxifier load-session"
 # alias wiki="cd ~/vimwiki/default; nvim -c 'VimwikiMakeDiaryNote'; (wikisync &) >/dev/null 2>&1"
 alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; sed -i -e 's/ \([A-Z][A-Z0-9]*-[0-9]*\)/ [\1](https:\/\/gojira.sygnity.pl\/browse\/\1)/g' diary/*; (wikisync &) >/dev/null 2>&1"
 
@@ -218,4 +218,11 @@ fi
 
 if command -v thefuck &> /dev/null; then
 	eval $(thefuck --alias)
+fi
+
+### Tmuxifier https://github.com/jimeh/tmuxifier
+if [ -d "$HOME/.tmuxifier/bin" ]; then
+	export PATH=$HOME/.tmuxifier/bin:$PATH
+	eval "$(tmuxifier init -)"
+	export TMUXIFIER_LAYOUT_PATH=$HOME/.config/tmuxifier/layouts
 fi

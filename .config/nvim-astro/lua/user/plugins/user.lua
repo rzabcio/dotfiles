@@ -57,6 +57,13 @@ return {
       extra_groups = {}, -- table: additional groups that should be cleared
       exclude_groups = {}, -- table: groups you don't want to clear
     }
+  },
+  {
+    "mcchrish/zenbones.nvim",
+    event = {"BufRead","VeryLazy"},
+    init = function()
+
+    end,
   }
 }
 
