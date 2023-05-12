@@ -22,6 +22,18 @@ return {
     ["<leader>w["] = { "<cmd>VimwikiToggleListItem<cr>", desc = "[W]iki [t]odo" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["]c"] = {
+      function()
+        require("todo-comments").jump_next()
+      end,
+      desc = "Next todo comment"
+    },
+    ["[c"] = {
+      function()
+        require("todo-comments").jump_prev()
+      end,
+      desc = "Previous todo comment"
+    },
   },
   t = {
     -- setting a mapping to false will disable it
