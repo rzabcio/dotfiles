@@ -20,6 +20,8 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     ["<leader><leader>"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" },
     ["<leader>w["] = { "<cmd>VimwikiToggleListItem<cr>", desc = "[W]iki [t]odo" },
+    ["<leader>w<leader>]"] = { "<cmd>VimwikiMakeTomorrowDiaryNote<cr>", desc = "[W]iki -> next journal note" },
+    ["<leader>w<leader>["] = { "<cmd>VimwikiMakeYesterdayDiaryNote<cr>", desc = "[W]iki -> previous journal note" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["]c"] = {
