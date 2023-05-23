@@ -64,6 +64,11 @@ return {
     init = function()
 
     end,
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   }
 }
 

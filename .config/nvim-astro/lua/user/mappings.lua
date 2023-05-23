@@ -36,6 +36,12 @@ return {
       end,
       desc = "Previous todo comment"
     },
+    ["-"] = {
+      function()
+        require("oil").open()
+      end,
+      desc = "Open parent directory"
+    },
   },
   t = {
     -- setting a mapping to false will disable it
