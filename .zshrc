@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 hostname="$(hostname)"
 function choose_theme {
-	if [[ $hostname =~ 'sygnity|corpnet|cpd|gojira|mrfluence|r2bucket|bamboo' ]]; then
+	if [[ $hostname =~ 'sygnity|corpnet|cpd|c1-|gojira|mrfluence|r2bucket|bamboo' ]]; then
 		echo 'rzabcio'
 	else
 		# echo 'headline'
@@ -29,7 +29,7 @@ function choose_theme {
 ZSH_THEME="$(choose_theme)"
 
 function set_proxy {
-	if [[ $hostname =~ "gojira|mrfluence|signthis" ]]; then
+	if [[ $hostname =~ "gojira|mrfluence|signthis|c1-jira-lb" ]]; then
 		echo 'http://proxy-dmz.corpnet.inside:8080'
 	elif [[ $hostname =~ "sygnity|corpnet|cpd|r2bucket|bamboo" ]]; then
 		echo 'http://proxy.corpnet.inside:8080'
