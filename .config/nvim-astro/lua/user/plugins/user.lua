@@ -41,6 +41,13 @@ return {
           auto_toc=1,
           diary_frequency="weekly"
         },
+        {
+          path="~/vimwiki/rzabcio.github.io/",
+          index="index",
+          syntax="markdown",
+          ext=".md",
+          auto_toc=1
+        },
       }
     end,
   },
