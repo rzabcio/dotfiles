@@ -104,7 +104,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
 	ansible
 	brew
-	docker
 	fzf
 	fzf-tab
 	gcloud
