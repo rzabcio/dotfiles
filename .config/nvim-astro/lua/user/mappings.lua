@@ -11,7 +11,9 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -25,22 +27,16 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["]c"] = {
-      function()
-        require("todo-comments").jump_next()
-      end,
-      desc = "Next todo comment"
+      function() require("todo-comments").jump_next() end,
+      desc = "Next todo comment",
     },
     ["[c"] = {
-      function()
-        require("todo-comments").jump_prev()
-      end,
-      desc = "Previous todo comment"
+      function() require("todo-comments").jump_prev() end,
+      desc = "Previous todo comment",
     },
     ["-"] = {
-      function()
-        require("oil").open()
-      end,
-      desc = "Open parent directory"
+      function() require("oil").open() end,
+      desc = "Open parent directory",
     },
   },
   t = {
