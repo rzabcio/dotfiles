@@ -225,3 +225,15 @@ if [ -d "$HOME/.tmuxifier/bin" ]; then
 	eval "$(tmuxifier init -)"
 	export TMUXIFIER_LAYOUT_PATH=$HOME/.config/tmuxifier/layouts
 fi
+
+### Atlassian SDK
+if [ -d "/opt/atlassian-plugin-sdk/bin" ]; then
+	export PATH=/opt/atlassian-plugin-sdk/bin:$PATH
+fi
+
+## lad local envs
+function chpwd() {
+  if [ -r $PWD/.env ]; then
+    source $PWD/.env
+  fi
+}
