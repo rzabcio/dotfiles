@@ -231,6 +231,11 @@ if [ -d "/opt/atlassian-plugin-sdk/bin" ]; then
 	export PATH=/opt/atlassian-plugin-sdk/bin:$PATH
 fi
 
+### AWS completion
+if [ -f '/usr/bin/aws_completer' ]; then
+	complete -C '/usr/bin/aws_completer' aws
+fi
+
 ## lad local envs
 function chpwd() {
   if [ -r $PWD/.env ]; then
