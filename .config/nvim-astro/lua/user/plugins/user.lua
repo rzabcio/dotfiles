@@ -18,7 +18,7 @@ return {
     opts = {},
     event = "User AstroFile",
     keys = {
-      { "<leader>T", "<cmd>TodoTelescope<cr>", desc = "[T] Todos in Telescope" },
+      { "<leader>T", "<cmd>TodoTelescope<cr>", desc = "Show todos in Telescope" },
     },
   },
   {
@@ -77,5 +77,11 @@ return {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "jakewvincent/mkdnflow.nvim",
+    init = function()
+      require('mkdnflow').setup()
+    end,
   },
 }

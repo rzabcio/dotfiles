@@ -29,9 +29,7 @@ function choose_theme {
 ZSH_THEME="$(choose_theme)"
 
 function set_proxy {
-	if [[ $hostname =~ "gojira|mrfluence|signthis|c1-jira-lb" ]]; then
-		echo 'http://proxy-dmz.corpnet.inside:8080'
-	elif [[ $hostname =~ "sygnity|corpnet|cpd|r2bucket|bamboo" ]]; then
+	if [[ $hostname =~ "gojira|mrfluence|signthis|sygnity|corpnet|cpd|c1|r2bucket|bamboo" ]]; then
 		echo 'http://proxy.corpnet.inside:8080'
 	else
 		echo ''
