@@ -26,11 +26,11 @@ return {
     ["<leader>w<leader>["] = { "<cmd>VimwikiMakeYesterdayDiaryNote<cr>", desc = "[W]iki -> previous journal note" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-    ["]c"] = {
+    ["]v"] = {
       function() require("todo-comments").jump_next() end,
       desc = "Next todo comment",
     },
-    ["[c"] = {
+    ["[v"] = {
       function() require("todo-comments").jump_prev() end,
       desc = "Previous todo comment",
     },
