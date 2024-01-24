@@ -22,6 +22,16 @@ vim +'PlugInstall --sync' +qa
 # 	nvim -c "Lazy sync"
 # fi
 
+
+# oh-my-zsh
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+
+# oh-my-zsh - additional themes
+if [ -d ${ZSH_CUSTOM}/themes/powerlevel10k ]; then
+  git -C ${ZSH_CUSTOM}/themes/powerlevel10k pull
+fi
+
+
 ### WSL
 if [ -d "/mnt/c/Users/jglazik/" ]; then
   cp $DOTFILES/.vimrc /mnt/c/Users/jglazik
