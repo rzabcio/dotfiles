@@ -177,7 +177,7 @@ if command -v fzf &> /dev/null; then
 	export FZF_DEFAULT_COMMAND='fdfind --type f'
 	export FZF_DEFAULT_COMMAND='fd --type f -H'
 	alias fzfp="fzf --preview \"batcat --style=numbers --color=always --line-range :500 {}\""
-	bindkey -s '^e' '$EDITOR $(fzf)\n'
+	# bindkey -s '^e' '$EDITOR $(fzf)\n'
 fi
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=fg:-1,bg:-1,hl:#81a1c1
