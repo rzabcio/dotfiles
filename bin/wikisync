@@ -6,7 +6,6 @@ if [ -d ~/vimwiki/$WIKI_NAME ]; then
 	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
 	git -C ~/vimwiki/$WIKI_NAME pull
 	git -C ~/vimwiki/$WIKI_NAME push
-	git -C ~/vimwiki/$WIKI_NAME push r2b
 fi
 
 WIKI_NAME=gcp
