@@ -82,8 +82,11 @@ return {
     event = "User AstroFile",
     main = "ibl",
     opts = {
-      indent = { char = "▏" },
-      scope = { show_start = false, show_end = false },
+      -- indent = { char = "▏" },
+      -- scope = { show_start = false, show_end = false },
+      indent = { highlight = { "CursorColumn", "Whitespace" }, char = "", },
+      whitespace = { highlight = { "CursorColumn", "Whitespace" }, remove_blankline_trail = false, },
+      scope = { enabled = false },
       exclude = {
         buftypes = {
           "nofile",
