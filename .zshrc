@@ -126,6 +126,9 @@ zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|
 # if command -v tmuxp &> /dev/null; then
 # 	eval "$(_TMUXP_COMPLETE=source_zsh tmuxp)"
 # fi
+if command -v zoxide &> /dev/null; then
+	eval "$(zoxide init --cmd cd zsh)"
+fi
 if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc'; fi
@@ -204,6 +207,9 @@ alias tn="t new -t"
 alias tl="tmuxifier load-session"
 # alias wiki="cd ~/vimwiki/default; nvim -c 'VimwikiMakeDiaryNote'; (wikisync &) >/dev/null 2>&1"
 alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; sed -i -e 's/ \([A-Z][A-Z0-9]*-[0-9]*\)/ [\1](https:\/\/gojira.sygnity.pl\/browse\/\1)/g' diary/*; (wikisync &) >/dev/null 2>&1"
+if command -v bat &> /dev/null; then
+	alias cat="bat --plain"
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
