@@ -88,6 +88,10 @@ ln -sf $DOTFILES/.config/nvim ~/.config/nvim
 ln -sf $DOTFILES/.config/ranger ~/.config/ranger
 
 
+### Lazygit
+ln -sf $DOTFILES/.config/lazygit ~/.config/lazygit
+
+
 ### WSL
 WIN_HOME_DIR=/mnt/c/Users/jglazik
 if [ -d "$WIN_HOME_DIR" ]; then
