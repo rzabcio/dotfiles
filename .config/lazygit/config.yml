@@ -2,3 +2,9 @@
 gui:
   mouseEvents: false
   disableForcePushing: true
+  mainBranches:
+    - master
+    - main
+    - develop
+  commitPrefix:
+    pattern: "^\\w+\\/(\\w+-\\w+).*"
