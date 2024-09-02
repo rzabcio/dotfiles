@@ -89,7 +89,26 @@ return {
   {
     "jakewvincent/mkdnflow.nvim",
     init = function()
-      require('mkdnflow').setup()
+      require('mkdnflow').setup({
+        modules = {
+          yaml = false,
+        },
+        links = {
+          style = 'markdown',
+          name_is_source = false,
+          conceal = true,
+          context = 0,
+          implicit_extension = nil,
+          transform_implicit = false,
+          transform_explicit = function(text)
+            text = text:gsub(" ", "_")
+            text = text:lower()
+            -- text = os.date('%Y-%m-%d_')..text
+            return(text)
+          end,
+          create_on_follow_failure = true
+        },
+      })
     end,
   },
 }
