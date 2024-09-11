@@ -210,6 +210,8 @@ alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; s
 if command -v bat &> /dev/null; then
 	alias cat="bat --plain"
 fi
+alias gw="git worktree"
+alias gwls="git worktree list"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
