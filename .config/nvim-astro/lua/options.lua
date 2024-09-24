@@ -3,11 +3,11 @@ return {
   opt = {
     -- set to true or false etc.
     list = true,
-    listchars = 'tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣',
+    listchars = "tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣",
     mouse = "",
     number = true, -- sets vim.opt.number
     relativenumber = true, -- sets vim.opt.relativenumber
-    showbreak='↳ ', -- show break line
+    showbreak = "↳ ", -- show break line
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     spell = false, -- sets vim.opt.spell
     wrap = false, -- sets vim.opt.wrap
@@ -22,8 +22,8 @@ return {
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
   },
   wo = {
-    breakindent=true,-- Enable indentation at break line
-    breakindentopt='shift:4,min:40,sbr',
+    breakindent = true, -- Enable indentation at break line
+    breakindentopt = "shift:4,min:40,sbr",
   },
 }
 -- If you need more control, you can use the function()...end notation

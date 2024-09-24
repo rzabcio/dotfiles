@@ -8,12 +8,12 @@ return {
 
   -- == Examples of Adding Plugins ==
 
-  "andweeb/presence.nvim",
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
+  -- "andweeb/presence.nvim",
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function() require("lsp_signature").setup() end,
+  -- },
 
   -- == Examples of Overriding Plugins ==
 
@@ -40,7 +40,7 @@ return {
   },
 
   -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
+  -- { "max397574/better-escape.nvim", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -82,7 +82,6 @@ return {
       )
     end,
   },
-
   {
     "vimwiki/vimwiki",
     event = { "BufRead *.md", "VeryLazy" },
@@ -110,37 +109,36 @@ return {
   {
     "mcchrish/zenbones.nvim",
     event = { "BufRead", "VeryLazy" },
-    init = function()
-    end,
+    init = function() end,
   },
   {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "jakewvincent/mkdnflow.nvim",
-    init = function()
-      require('mkdnflow').setup({
-        modules = {
-          yaml = false,
-        },
-        links = {
-          style = 'markdown',
-          name_is_source = false,
-          conceal = true,
-          context = 0,
-          implicit_extension = nil,
-          transform_implicit = false,
-          transform_explicit = function(text)
-            text = text:gsub(" ", "_")
-            text = text:lower()
-            -- text = os.date('%Y-%m-%d_')..text
-            return(text)
-          end,
-          create_on_follow_failure = true
-        },
-      })
-    end,
-  },
+  -- {
+  --   "jakewvincent/mkdnflow.nvim",
+  --   init = function()
+  --     require("mkdnflow").setup {
+  --       modules = {
+  --         yaml = false,
+  --       },
+  --       links = {
+  --         style = "markdown",
+  --         name_is_source = false,
+  --         conceal = true,
+  --         context = 0,
+  --         implicit_extension = nil,
+  --         transform_implicit = false,
+  --         transform_explicit = function(text)
+  --           text = text:gsub(" ", "_")
+  --           text = text:lower()
+  --           -- text = os.date('%Y-%m-%d_')..text
+  --           return text
+  --         end,
+  --         create_on_follow_failure = true,
+  --       },
+  --     }
+  --   end,
+  -- },
 }
