@@ -9,3 +9,4 @@ nvim/nvim
 .config/ranger/ranger
 .config/nvim/plugin/packer_compiled.lua
 ../.config/nvim/plugin/packer_compiled.lua
+.config/nvim-astro_backup202409/**
