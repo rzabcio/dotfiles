@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -80,6 +80,67 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+  },
+
+  {
+    "vimwiki/vimwiki",
+    event = { "BufRead *.md", "VeryLazy" },
+    -- module = true,
+    init = function()
+      vim.g.vimwiki_list = {
+        {
+          path = "~/vimwiki/default",
+          index = "README",
+          syntax = "markdown",
+          ext = ".md",
+          auto_toc = 1,
+          diary_frequency = "weekly",
+        },
+        {
+          path = "~/vimwiki/rzabcio.github.io/",
+          index = "index",
+          syntax = "markdown",
+          ext = ".md",
+          auto_toc = 1,
+        },
+      }
+    end,
+  },
+  {
+    "mcchrish/zenbones.nvim",
+    event = { "BufRead", "VeryLazy" },
+    init = function()
+    end,
+  },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "jakewvincent/mkdnflow.nvim",
+    init = function()
+      require('mkdnflow').setup({
+        modules = {
+          yaml = false,
+        },
+        links = {
+          style = 'markdown',
+          name_is_source = false,
+          conceal = true,
+          context = 0,
+          implicit_extension = nil,
+          transform_implicit = false,
+          transform_explicit = function(text)
+            text = text:gsub(" ", "_")
+            text = text:lower()
+            -- text = os.date('%Y-%m-%d_')..text
+            return(text)
+          end,
+          create_on_follow_failure = true
+        },
+      })
     end,
   },
 }
