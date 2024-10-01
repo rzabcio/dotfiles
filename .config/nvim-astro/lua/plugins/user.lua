@@ -108,6 +108,7 @@ return {
   },
   {
     "mcchrish/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
     event = { "BufRead", "VeryLazy" },
     init = function() end,
   },
