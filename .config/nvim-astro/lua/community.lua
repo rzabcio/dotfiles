@@ -7,8 +7,13 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.colorscheme.everforest" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.codeium-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },

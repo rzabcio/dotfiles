@@ -32,12 +32,20 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        list = true,
+        listchars = "tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣",
+        mouse = "",
+        -- showbreak = "↳ ",  -- show break line
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
       },
+      -- wo = {
+      --   breakindent = true, -- Enable indentation at break line
+      --   breakindentopt = "shift:4,min:40,sbr",
+      -- },
     },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
@@ -51,6 +59,7 @@ return {
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
+        -- ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -59,13 +68,29 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader><Leader>"] = {
+          function()
+            require("telescope.builtin").buffers()
+          end,
+          desc = "Find buffers"
+        },
 
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
+        -- Vimwiki mappings
+        ["<Leader>w<Leader>]"] = { "<cmd>VimwikiMakeTomorrowDiaryNote<cr>", desc = "Vimwiki -> next journal note" },
+        ["<Leader>w<Leader>["] = { "<cmd>VimwikiMakeYesterdayDiaryNote<cr>", desc = "Vimwiki -> previous journal note" },
+
+        -- Oil mappings
+        ["-"] = {
+          function() require("oil").open() end,
+          desc = "Open parent directory",
+        },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      t = {
+        -- setting a mapping to false will disable it
+        -- ["<esc>"] = false,
       },
     },
   },
