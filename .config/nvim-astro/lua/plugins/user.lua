@@ -55,6 +55,7 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    enabled = false,
     config = function(plugin, opts)
       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom autopairs configuration such as custom rules
@@ -124,8 +125,8 @@ return {
     opts = {
       -- indent = { char = "▏" },
       -- scope = { show_start = false, show_end = false },
-      indent = { highlight = { "CursorColumn", "Whitespace" }, char = "", },
-      whitespace = { highlight = { "CursorColumn", "Whitespace" }, remove_blankline_trail = false, },
+      indent = { highlight = { "CursorColumn", "Whitespace" }, char = "" },
+      whitespace = { highlight = { "CursorColumn", "Whitespace" }, remove_blankline_trail = false },
       scope = { enabled = false },
       exclude = {
         buftypes = {
@@ -146,6 +147,11 @@ return {
         },
       },
     },
+  },
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function() require("nvim-surround").setup {} end,
   },
   -- {
   --   "jakewvincent/mkdnflow.nvim",
