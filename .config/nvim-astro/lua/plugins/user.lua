@@ -96,6 +96,7 @@ return {
           ext = ".md",
           auto_toc = 1,
           diary_frequency = "weekly",
+          -- ext2syntax = {'.md', 'vimwiki'}
         },
         {
           path = "~/vimwiki/rzabcio.github.io/",

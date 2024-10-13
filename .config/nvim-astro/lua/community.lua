@@ -14,12 +14,14 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
   { import = "astrocommunity.git.neogit" },
+  -- { import = "astrocommunity.note-taking.neorg" },
+  { import = "astrocommunity.note-taking.zk-nvim" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.scrolling.cinnamon-nvim" },
-  -- { import = "astrocommunity.note-taking.neorg" },
   -- import/override with your plugins folder
 }

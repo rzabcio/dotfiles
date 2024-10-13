@@ -199,6 +199,7 @@ export TERM=xterm-256color
 export LESS="-F -X $LESS"
 export HEADLINE_DO_GIT_STATUS_COUNTS='true'
 export BAT_THEME="Nord"
+export ZK_NOTEBOOK_DIR="$HOME/vimwiki/default"
 #alias tmux="TERM=screen-256color-bce tmux"
 alias t="tmux"
 alias ta="t a -t"
@@ -206,7 +207,7 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxifier load-session"
 # alias wiki="cd ~/vimwiki/default; nvim -c 'VimwikiMakeDiaryNote'; (wikisync &) >/dev/null 2>&1"
-alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; sed -i -e 's/ \([A-Z][A-Z0-9]+-[0-9]+\)/ [\1](https:\/\/gojira.sygnity.pl\/browse\/\1)/g' diary/*; (wikisync &) >/dev/null 2>&1"
+alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; if command -v zk &> /dev/null; then zk index &> /dev/null; fi; if (wikisync &) >/dev/null 2>&1"
 if command -v bat &> /dev/null; then
 	alias cat="bat --plain"
 fi
