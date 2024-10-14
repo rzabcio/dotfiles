@@ -207,7 +207,11 @@ alias tls="t ls"
 alias tn="t new -t"
 alias tl="tmuxifier load-session"
 # alias wiki="cd ~/vimwiki/default; nvim -c 'VimwikiMakeDiaryNote'; (wikisync &) >/dev/null 2>&1"
-alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; if command -v zk &> /dev/null; then zk index &> /dev/null; fi; if (wikisync &) >/dev/null 2>&1"
+# alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; (wikisync &) >/dev/null 2>&1"
+alias wiki="cd ~/vimwiki/default; nvim README.md; (wikisync &) >/dev/null 2>&1"
+zkdump() {
+	echo "* #dump $1" >> `ls diary/*20* | tail -n 1`
+}
 if command -v bat &> /dev/null; then
 	alias cat="bat --plain"
 fi
