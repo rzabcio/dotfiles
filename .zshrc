@@ -191,7 +191,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 ### AUTO SUGGEST SECTION
 # bindkey '^k' autosuggest-fetch
-bindkey '^k' autosuggest-accept
+bindkey '^;' autosuggest-accept
 
 
 ### exports/aliases

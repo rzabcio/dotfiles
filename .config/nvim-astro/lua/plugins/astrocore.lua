@@ -78,9 +78,9 @@ return {
         -- Vimwiki mappings
         -- ["<Leader>w<Leader>]"] = { "<cmd>VimwikiMakeTomorrowDiaryNote<cr>", desc = "Vimwiki -> next journal note" },
         -- ["<Leader>w<Leader>["] = { "<cmd>VimwikiMakeYesterdayDiaryNote<cr>", desc = "Vimwiki -> previous journal note" },
-        
         -- ZK mappings
         ["<Leader>kf"] = { "<cmd>ZkNotes<cr>", desc = "Zettelkasten find" },
+        ["<Leader>kw"] = { "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", desc = "Zettelkasten grep" },
         ["<Leader>kt"] = { "<cmd>ZkTags<cr>", desc = "Zettelkasten tags" },
         ["<Leader>kr"] = { "<cmd>ZkBacklinks<cr>", desc = "Zettelkasten backlinks" },
         ["<Leader>kl"] = { "<cmd>ZkLinks<cr>", desc = "Zettelkasten links" },
