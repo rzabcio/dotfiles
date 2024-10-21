@@ -79,11 +79,13 @@ return {
         -- ["<Leader>w<Leader>]"] = { "<cmd>VimwikiMakeTomorrowDiaryNote<cr>", desc = "Vimwiki -> next journal note" },
         -- ["<Leader>w<Leader>["] = { "<cmd>VimwikiMakeYesterdayDiaryNote<cr>", desc = "Vimwiki -> previous journal note" },
         -- ZK mappings
+        ["<Leader>kn"] = { "<cmd>ZkNew<cr>", desc = "Zettelkasten new note" },
         ["<Leader>kf"] = { "<cmd>ZkNotes<cr>", desc = "Zettelkasten find" },
         ["<Leader>kw"] = { "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", desc = "Zettelkasten grep" },
         ["<Leader>kt"] = { "<cmd>ZkTags<cr>", desc = "Zettelkasten tags" },
         ["<Leader>kr"] = { "<cmd>ZkBacklinks<cr>", desc = "Zettelkasten backlinks" },
         ["<Leader>kl"] = { "<cmd>ZkLinks<cr>", desc = "Zettelkasten links" },
+        ["<Leader>ko"] = { "<cmd>MkdnToggleToDo<cr>", desc = "MkdnFlow todo" },
 
         -- Oil mappings
         ["-"] = {
