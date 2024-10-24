@@ -1,17 +1,10 @@
 #!/bin/bash
 
-WIKI_NAME=default
-if [ -d ~/vimwiki/$WIKI_NAME ]; then
-	git -C ~/vimwiki/$WIKI_NAME add .
-	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
-	git -C ~/vimwiki/$WIKI_NAME pull
-	git -C ~/vimwiki/$WIKI_NAME push
-fi
-
-WIKI_NAME=miloszateam-vanguard
-if [ -d ~/vimwiki/$WIKI_NAME ]; then
-	git -C ~/vimwiki/$WIKI_NAME add .
-	git -C ~/vimwiki/$WIKI_NAME commit -m \"auto-update\"
-	git -C ~/vimwiki/$WIKI_NAME pull
-	git -C ~/vimwiki/$WIKI_NAME push
-fi
+for WIKI_DIR in ~/vimwiki/*; do
+	if [ -d "$WIKI_DIR" ] && [ -d "${WIKI_DIR}/.git" ]; then
+		git -C "$WIKI_DIR" add .
+		git -C "$WIKI_DIR" commit -m \"auto-update\"
+		git -C "$WIKI_DIR" pull
+		git -C "$WIKI_DIR" push
+	fi
+done
