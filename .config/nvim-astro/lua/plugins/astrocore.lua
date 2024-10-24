@@ -54,6 +54,10 @@ return {
       n = {
         -- second key is the lefthand side of the map
 
+        -- UI mappings
+        ["<Leader>uO"] = { "<cmd>set colorcolumn=81<cr>", desc = "Set colorcolumn to 81" },
+        ["<Leader>uP"] = { "<cmd>set colorcolumn=121<cr>", desc = "Set colorcolumn to 121" },
+
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -86,6 +90,24 @@ return {
         ["<Leader>kr"] = { "<cmd>ZkBacklinks<cr>", desc = "Zettelkasten backlinks" },
         ["<Leader>kl"] = { "<cmd>ZkLinks<cr>", desc = "Zettelkasten links" },
         ["<Leader>ko"] = { "<cmd>MkdnToggleToDo<cr>", desc = "MkdnFlow todo" },
+        ["<Leader>uZ"] = {
+          function()
+            require("zen-mode").toggle({
+              window = {
+                width = 81,
+              },
+              plugins = {
+                twilight = { enabled = true },
+                tmux = { enabled = true },
+                alacritty = {
+                  enabled = true,
+                  font = "20", -- font size
+                },
+              },
+            })
+          end,
+          desc = "ZenMode"
+        },
 
         -- Oil mappings
         ["-"] = {
