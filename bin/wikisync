@@ -10,7 +10,7 @@ sync_wiki() {
 
 for WIKI_DIR in ~/vimwiki/*; do
 	if [ -d "$WIKI_DIR" ] && [ -d "${WIKI_DIR}/.git" ]; then
-		echo "syncing $WIKI_DIR..."
+		echo "syncing wiki: ${WIKI_DIR##*/}"
 		sync_wiki "$WIKI_DIR" &
 	fi
 done
