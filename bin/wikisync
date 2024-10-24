@@ -1,10 +1,18 @@
 #!/bin/bash
 
+sync_wiki() {
+	git -C "$1" add . > /dev/null
+	git -C "$1" commit -m \"auto-update\" --quiet > /dev/null
+	git -C "$1" pull --quiet > /dev/null
+	git -C "$1" push --quiet > /dev/null
+}
+
+
 for WIKI_DIR in ~/vimwiki/*; do
 	if [ -d "$WIKI_DIR" ] && [ -d "${WIKI_DIR}/.git" ]; then
-		git -C "$WIKI_DIR" add .
-		git -C "$WIKI_DIR" commit -m \"auto-update\"
-		git -C "$WIKI_DIR" pull
-		git -C "$WIKI_DIR" push
+		echo "syncing $WIKI_DIR..."
+		sync_wiki "$WIKI_DIR" &
 	fi
 done
+
+wait
