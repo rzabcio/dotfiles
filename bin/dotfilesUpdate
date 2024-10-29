@@ -1,14 +1,13 @@
 #!/bin/bash
 DOTFILES=~/dotfiles
 
-cd $DOTFILES
+cd $DOTFILES || return
 git pull
 
-### ensure bin symlinks
-ln -sf $DOTFILES/bin/dotfilesUpdate ~/bin/dotfilesUpdate
-ln -sf $DOTFILES/bin/wikisync ~/bin/wikisync
-ln -sf $DOTFILES/bin/proxyenable ~/bin/proxyenable
-ln -sf $DOTFILES/bin/proxydisable ~/bin/proxydisable
+### bin symlinks
+for symlink in "$DOTFILES"/bin/*; do
+  ln -sf "$symlink" ~/bin
+done
 
 ### Vim
 vim +'PlugClean --sync' +qa
@@ -27,8 +26,8 @@ vim +'PlugInstall --sync' +qa
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
 # oh-my-zsh - additional themes
-if [ -d ${ZSH_CUSTOM}/themes/powerlevel10k ]; then
-  git -C ${ZSH_CUSTOM}/themes/powerlevel10k pull
+if [ -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
+  git -C "${ZSH_CUSTOM}/themes/powerlevel10k" pull
 fi
 
 
