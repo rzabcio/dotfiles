@@ -1,0 +1,29 @@
+#!/bin/bash
+current_m2_suffix=""
+if [ -L ~/.m2 ]; then
+    current_m2_suffix=$(readlink ~/.m2 | sed 's/.*\/.m2-//')
+fi
+
+## if no first argument or 'list'
+if [ -z "$1"  ] || [ "$1" = "list" ]; then
+    echo "list of ~/.m2-... dirs:"
+    for i in $(find ~ -maxdepth 1 -type d -name ".m2-*" | sed 's/.*\/.m2-/  /'); do
+        if [ "$i" = "$current_m2_suffix" ]; then
+            echo " * $i"
+        else
+            echo "   $i"
+        fi
+    done
+    exit 0
+fi
+## if dir does not exist
+if [ ! -d ~/.m2-$1 ]; then
+    echo "dir ~/.m2-$1 does not exist"
+    exit 1
+fi
+## remove existing symlink
+if [ -L ~/.m2 ]; then
+    rm ~/.m2
+fi
+## create new symmlink
+ln -s ~/.m2-$1 ~/.m2
