@@ -8,7 +8,12 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.eldritch-nvim" },
   { import = "astrocommunity.colorscheme.everforest" },
+  { import = "astrocommunity.colorscheme.melange-nvim" },
+  { import = "astrocommunity.colorscheme.nordic-nvim" },
+  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.completion.codeium-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
