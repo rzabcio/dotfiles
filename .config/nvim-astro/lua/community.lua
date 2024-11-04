@@ -8,11 +8,14 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.cyberdream-nvim" },
   { import = "astrocommunity.colorscheme.eldritch-nvim" },
   { import = "astrocommunity.colorscheme.everforest" },
+  { import = "astrocommunity.colorscheme.mellifluous-nvim" },
   { import = "astrocommunity.colorscheme.melange-nvim" },
+  { import = "astrocommunity.colorscheme.nightfox-nvim" },  -- no different MD headers
   { import = "astrocommunity.colorscheme.nordic-nvim" },
-  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
+  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },  -- no MD colors
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.completion.codeium-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" },
