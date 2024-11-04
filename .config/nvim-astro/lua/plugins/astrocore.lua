@@ -106,6 +106,14 @@ return {
                   font = "20", -- font size
                 },
               },
+              on_open = function()
+                -- vim.cmd [[colorscheme mellifluous]]
+                -- vim.cmd [[colorscheme melange]]
+                vim.cmd [[colorscheme cyberdream]]
+              end,
+              on_close = function()
+                vim.cmd [[colorscheme eldritch]]
+              end,
             })
           end,
           desc = "ZenMode"
