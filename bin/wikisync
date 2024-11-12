@@ -7,11 +7,20 @@ sync_wiki() {
 	git -C "$1" push --quiet > /dev/null
 }
 
+if [ $# -eq 0 ]; then
+  # list only dirs in ~/vimwiki
+  WIKIS=$(ls -d ~/vimwiki/*)
+else
+  WIKIS=$*
+fi
 
-for WIKI_DIR in ~/vimwiki/*; do
-	if [ -d "$WIKI_DIR" ] && [ -d "${WIKI_DIR}/.git" ]; then
-		echo "syncing wiki: ${WIKI_DIR##*/}"
-		sync_wiki "$WIKI_DIR" &
+for WIKI in $WIKIS; do
+  if [[ ! "$WIKI" =~ "^~/vimwiki/" ]] && [[ ! "$WIKI" =~ ^$HOME/vimwiki/ ]] ; then
+    WIKI="$HOME/vimwiki/$WIKI"
+  fi
+	if [ -d "$WIKI" ] && [ -d "${WIKI}/.git" ]; then
+		echo "syncing wiki: ${WIKI##*/}"
+		sync_wiki "$WIKI" &
 	fi
 done
 
