@@ -36,6 +36,7 @@ return {
         listchars = "tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣",
         mouse = "",
         -- showbreak = "↳ ",  -- show break line
+        guicursor = "n-v:block-blinkwait1000-blinkon500-blinkoff500,i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff200",  -- blinking cursos
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -100,6 +101,7 @@ return {
               },
               plugins = {
                 tmux = { enabled = true },
+                twilight = { enabled = false },
                 alacritty = {
                   enabled = true,
                   font = "20", -- font size
@@ -114,6 +116,12 @@ return {
             })
           end,
           desc = "ZenMode"
+        },
+        ["<Leader>uT"] = {
+          function()
+            require("twilight").toggle()
+          end,
+          desc = "Twilight"
         },
 
         -- Oil mappings
