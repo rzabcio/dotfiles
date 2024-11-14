@@ -99,7 +99,6 @@ return {
                 width = 81,
               },
               plugins = {
-                twilight = { enabled = true },
                 tmux = { enabled = true },
                 alacritty = {
                   enabled = true,
@@ -107,8 +106,6 @@ return {
                 },
               },
               on_open = function()
-                -- vim.cmd [[colorscheme mellifluous]]
-                -- vim.cmd [[colorscheme melange]]
                 vim.cmd [[colorscheme cyberdream]]
               end,
               on_close = function()
