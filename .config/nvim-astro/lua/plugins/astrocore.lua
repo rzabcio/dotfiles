@@ -108,10 +108,10 @@ return {
                 },
               },
               on_open = function()
-                vim.cmd [[colorscheme cyberdream]]
+                vim.cmd [[colorscheme bamboo]]
               end,
               on_close = function()
-                vim.cmd [[colorscheme eldritch]]
+                vim.cmd [[colorscheme neofusion]]
               end,
             })
           end,

@@ -7,16 +7,27 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.colorscheme.bamboo-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.cyberdream-nvim" },
+  -- { import = "astrocommunity.colorscheme.dracula-nvim" }, -- problems: tabs
   { import = "astrocommunity.colorscheme.eldritch-nvim" },
   { import = "astrocommunity.colorscheme.everforest" },
+  -- { import = "astrocommunity.colorscheme.fluoromachine-nvim" }, -- problems: MD headers
+  -- { import = "astrocommunity.colorscheme.horizon-nvim" },  -- problems: MD coolors
+  { import = "astrocommunity.colorscheme.hybrid-nvim" },  -- problems: MD coolors
+  -- { import = "astrocommunity.colorscheme.kanagawa-nvim" },  -- problems: tabs
+  -- { import = "astrocommunity.colorscheme.kanagawa-paper-nvim" },  -- problems: tabs
   { import = "astrocommunity.colorscheme.mellifluous-nvim" },
   { import = "astrocommunity.colorscheme.melange-nvim" },
-  { import = "astrocommunity.colorscheme.nightfox-nvim" },  -- no different MD headers
+  { import = "astrocommunity.colorscheme.neofusion-nvim" },  -- problems: MD colors/headers
+  -- { import = "astrocommunity.colorscheme.nightfox-nvim" },  -- problems: MD colors
   { import = "astrocommunity.colorscheme.nordic-nvim" },
-  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },  -- no MD colors
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  -- { import = "astrocommunity.colorscheme.oxocarbon-nvim" },  -- no MD headers
+  -- { import = "astrocommunity.colorscheme.solarized-osaka-nvim" },  -- problems: MD colors, tabs
+  { import = "astrocommunity.colorscheme.sonokai" },  -- no MD colors
+  { import = "astrocommunity.colorscheme.tokyodark-nvim" },  -- problems: MD colors/headers
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },  -- problems: MD headers
   { import = "astrocommunity.completion.codeium-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },

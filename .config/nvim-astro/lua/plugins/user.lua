@@ -177,6 +177,13 @@ return {
           end,
           create_on_follow_failure = true,
         },
+        to_do = {
+          symbols = {' ', 'o', 'X'},
+          update_parents = true,
+          not_started = ' ',
+          in_progress = 'o',
+          complete = 'X'
+        },
         perspective = {
           priority = 'current'
         },
