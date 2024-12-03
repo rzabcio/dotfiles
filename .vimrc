@@ -48,7 +48,7 @@ set backupdir=~/.vim/swapfiles
 set encoding=utf-8
 set fileencoding=utf-8
 set langmenu=en_US.UTF-8
-language messages en_US.UTF-8
+" language messages en_US.UTF-8
 
 """ Windows settings
 if has("win64") || has("win32") || has("win16")
