@@ -178,14 +178,14 @@ return {
           create_on_follow_failure = true,
         },
         to_do = {
-          symbols = {' ', 'o', 'X'},
+          symbols = { " ", "o", "X" },
           update_parents = true,
-          not_started = ' ',
-          in_progress = 'o',
-          complete = 'X'
+          not_started = " ",
+          in_progress = "o",
+          complete = "X",
         },
         perspective = {
-          priority = 'current'
+          priority = "current",
         },
       }
     end,
@@ -209,9 +209,22 @@ return {
         "method",
       },
       exclude = {}, -- exclude these filetypes
-    }
+    },
   },
   -- {
   --     "letieu/hacker.nvim"
   -- }
+  {
+    "hedyhli/markdown-toc.nvim",
+    opts = {
+      ft = "markdown", -- Lazy load on markdown filetype
+      cmd = { "Mtoc" }, -- Or, lazy load on "Mtoc" command
+      opts = {
+        toc_list = {
+          markers = '-',
+          cycle_markers = false,
+        },
+      },
+    },
+  },
 }
