@@ -102,6 +102,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
 	ansible
 	brew
+	direnv
 	fzf
 	fzf-tab
 	gcloud
@@ -248,8 +249,9 @@ if [ -f '/usr/bin/aws_completer' ]; then
 fi
 
 ## lad local envs
-function chpwd() {
-  if [ -r $PWD/.env ]; then
-    source $PWD/.env
-  fi
-}
+## -- use if no direnv
+# function chpwd() {
+#   if [ -r $PWD/.env ]; then
+#     source $PWD/.env
+#   fi
+# }
