@@ -216,6 +216,9 @@ zkdump() {
 if command -v bat &> /dev/null; then
 	alias cat="bat --plain"
 fi
+if command -v eza &> /dev/null; then
+	alias ls="eza --icons --group-directories-first"
+fi
 alias gw="git worktree"
 alias gwls="git worktree list"
 
