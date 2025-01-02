@@ -16,8 +16,8 @@ return {
   -- { import = "astrocommunity.colorscheme.fluoromachine-nvim" }, -- problems: MD headers
   -- { import = "astrocommunity.colorscheme.horizon-nvim" },  -- problems: MD coolors
   { import = "astrocommunity.colorscheme.hybrid-nvim" },  -- problems: MD coolors
-  -- { import = "astrocommunity.colorscheme.kanagawa-nvim" },  -- problems: tabs
-  -- { import = "astrocommunity.colorscheme.kanagawa-paper-nvim" },  -- problems: tabs
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },  -- problems: tabs
+  { import = "astrocommunity.colorscheme.kanagawa-paper-nvim" },  -- problems: tabs
   { import = "astrocommunity.colorscheme.mellifluous-nvim" },
   { import = "astrocommunity.colorscheme.melange-nvim" },
   { import = "astrocommunity.colorscheme.neofusion-nvim" },  -- problems: MD colors/headers
