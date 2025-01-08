@@ -92,6 +92,10 @@ ln -sf $DOTFILES/.config/ranger ~/.config/ranger
 ln -sf $DOTFILES/.config/lazygit ~/.config/lazygit
 
 
+### Lazydocker
+ln -sf $DOTFILES/.config/lazydocker ~/.config/lazydocker
+
+
 ### WSL
 WIN_HOME_DIR=/mnt/c/Users/jglazik
 if [ -d "$WIN_HOME_DIR" ]; then

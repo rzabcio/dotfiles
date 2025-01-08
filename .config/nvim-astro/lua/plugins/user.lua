@@ -178,11 +178,11 @@ return {
           create_on_follow_failure = true,
         },
         to_do = {
-          symbols = { " ", "o", "X" },
+          symbols = { " ", "o", "x" },
           update_parents = true,
           not_started = " ",
           in_progress = "o",
-          complete = "X",
+          complete = "x",
         },
         perspective = {
           priority = "current",
