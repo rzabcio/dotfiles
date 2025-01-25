@@ -235,4 +235,10 @@ return {
           -- Your configuration options here.
       },
   },
+  {
+      "nvzone/typr",
+      dependencies = "nvzone/volt",
+      opts = {},
+      cmd = { "Typr", "TyprStats" },
+  }
 }
