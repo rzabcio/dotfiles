@@ -71,7 +71,7 @@ vim +'PlugInstall --sync' +qa
 
 
 ### NeoVim
-ln -sf $DOTFILES/.config/nvim ~/.config/nvim
+ln -sn $DOTFILES/.config/nvim ~/.config/nvim
 # if [ -n "$(command -v nvim)" ]; then
 # 	# packer
 # 	if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
@@ -85,15 +85,15 @@ ln -sf $DOTFILES/.config/nvim ~/.config/nvim
 
 
 ### Ranger
-ln -sf $DOTFILES/.config/ranger ~/.config/ranger
+ln -sn $DOTFILES/.config/ranger ~/.config/ranger
 
 
 ### Lazygit
-ln -sf $DOTFILES/.config/lazygit ~/.config/lazygit
+ln -sn $DOTFILES/.config/lazygit ~/.config/lazygit
 
 
 ### Lazydocker
-ln -sf $DOTFILES/.config/lazydocker ~/.config/lazydocker
+ln -sn $DOTFILES/.config/lazydocker ~/.config/lazydocker
 
 
 ### WSL
@@ -105,4 +105,4 @@ if [ -d "$WIN_HOME_DIR" ]; then
 fi
 
 ### Tmuxifier
-ln -sf $DOTFILES/.config/tmuxifier ~/.config/tmuxifier
+ln -sn $DOTFILES/.config/tmuxifier ~/.config/tmuxifier
