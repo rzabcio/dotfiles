@@ -1,6 +1,5 @@
 """ plugin section
 call plug#begin('~/.vim/plugged')
-Plug 'wikitopian/hardmode'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -26,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'arcticicestudio/nord-vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 """ language specific plugins
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -75,15 +75,26 @@ endif
 """ key mappings
 "" source $VIMRUNTIME/mswin.vim	"windows keys
 let mapleader = " "
-nnoremap <Tab> <C-w><C-w>
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
+" nnoremap <Tab> <C-w><C-w>
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
 inoremap jj <Esc>
-nnoremap <leader>/ :BLines<CR>
-nnoremap <leader>o :Files<CR>
-nnoremap <leader>g :GFiles!?<CR>
-nnoremap <leader>H :Rg<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f/ :BLines<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles!?<CR>
+nnoremap <leader>fw :Rg<CR>
+nnoremap <leader>fb :Buffers<CR>
+" tmux navigator
+" let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_disable_when_zoomed = 1
+" nnoremap <silent> <C-h> :<C-U>TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-j> :<C-U>TmuxNavigateDown<cr>
+" nnoremap <silent> <C-k> :<C-U>TmuxNavigateUp<cr>
+" nnoremap <silent> <C-l> :<C-U>TmuxNavigateRight<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 """ basic settings
 set backspace=2         "???
@@ -134,9 +145,9 @@ au BufNewFile,BufRead *.groovy setf java
 
 """" Plugin settings ---------------------
 """ Gruvbox ccolor scheme
-" colorscheme desert                     "hack for dark gruvbox
-" colorscheme gruvbox
-colorscheme nord
+colorscheme desert                     "hack for dark gruvbox
+colorscheme gruvbox
+" colorscheme nord
 
 """ Lightline
 let g:lightline = {
@@ -184,11 +195,6 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 7, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 7, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
-
-""" Hard Mode
-" let g:HardMode_level = 'wannabe'
-" let g:HardMode_hardmodeMsg = 'Don''t use this!'
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 """ Flake8
 let g:PyFlakeOnWrite = 1
