@@ -110,6 +110,10 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+# tmux aliases
+alias ta="tmux a -t"
+alias tls="tmux ls"
+alias tn="tmux new -t"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
