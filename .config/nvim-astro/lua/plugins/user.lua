@@ -1,6 +1,7 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
 -- Here are some examples:
 
 ---@type LazySpec
@@ -8,35 +9,40 @@ return {
 
   -- == Examples of Adding Plugins ==
 
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function() require("lsp_signature").setup() end,
-  -- },
+  "andweeb/presence.nvim",
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require("lsp_signature").setup() end,
+  },
 
   -- == Examples of Overriding Plugins ==
 
-  -- customize alpha options
+  -- customize dashboard options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+      indent = {
+        enabled = false, -- disable, because we are using blanklint for colored indent columns
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
@@ -55,7 +61,6 @@ return {
 
   {
     "windwp/nvim-autopairs",
-    enabled = false,
     config = function(plugin, opts)
       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
       -- add more custom autopairs configuration such as custom rules
@@ -83,42 +88,7 @@ return {
       )
     end,
   },
-  -- {
-  --   "vimwiki/vimwiki",
-  --   event = { "BufRead *.md", "VeryLazy" },
-  --   -- module = true,
-  --   init = function()
-  --     vim.g.vimwiki_list = {
-  --       {
-  --         path = "~/vimwiki/default",
-  --         index = "README",
-  --         syntax = "markdown",
-  --         ext = ".md",
-  --         auto_toc = 1,
-  --         diary_frequency = "weekly",
-  --         -- ext2syntax = {'.md', 'vimwiki'}
-  --       },
-  --       {
-  --         path = "~/vimwiki/rzabcio.github.io/",
-  --         index = "index",
-  --         syntax = "markdown",
-  --         ext = ".md",
-  --         auto_toc = 1,
-  --       },
-  --     }
-  --   end,
-  -- },
-  {
-    "mcchrish/zenbones.nvim",
-    dependencies = "rktjmp/lush.nvim",
-    event = { "BufRead", "VeryLazy" },
-    init = function() end,
-  },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "User AstroFile",
@@ -149,96 +119,5 @@ return {
         },
       },
     },
-  },
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
-    config = function() require("nvim-surround").setup {} end,
-  },
-  {
-    "jakewvincent/mkdnflow.nvim",
-    init = function()
-      require("mkdnflow").setup {
-        modules = {
-          yaml = false,
-        },
-        links = {
-          style = "markdown",
-          name_is_source = false,
-          conceal = true,
-          context = 0,
-          implicit_extension = nil,
-          transform_implicit = false,
-          transform_explicit = function(text)
-            text = text:gsub(" ", "_")
-            text = text:lower()
-            -- text = os.date('%Y-%m-%d_')..text
-            return text
-          end,
-          create_on_follow_failure = true,
-        },
-        to_do = {
-          symbols = { " ", "o", "x" },
-          update_parents = true,
-          not_started = " ",
-          in_progress = "o",
-          complete = "x",
-        },
-        perspective = {
-          priority = "current",
-        },
-      }
-    end,
-  },
-  {
-    "folke/twilight.nvim",
-    opts = {
-      dimming = {
-        alpha = 0.25, -- amount of dimming
-        -- we try to get the foreground from the highlight groups or fallback color
-        color = { "Normal", "#ffffff" },
-        term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
-        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-      },
-      context = 5, -- amount of lines we will try to show around the current line
-      treesitter = true, -- use treesitter when available for the filetype
-      -- treesitter is used to automatically expand the visible text,
-      -- but you can further control the types of nodes that should always be fully expanded
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        "function",
-        "method",
-      },
-      exclude = {}, -- exclude these filetypes
-    },
-  },
-  -- {
-  --     "letieu/hacker.nvim"
-  -- }
-  {
-    "hedyhli/markdown-toc.nvim",
-    opts = {
-      ft = "markdown", -- Lazy load on markdown filetype
-      cmd = { "Mtoc" }, -- Or, lazy load on "Mtoc" command
-      opts = {
-        toc_list = {
-          markers = '-',
-          cycle_markers = false,
-        },
-      },
-    },
-  },
-  {
-    "0xstepit/flow.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-          -- Your configuration options here.
-      },
-  },
-  {
-      "nvzone/typr",
-      dependencies = "nvzone/volt",
-      opts = {},
-      cmd = { "Typr", "TyprStats" },
   }
 }
