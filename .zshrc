@@ -105,7 +105,7 @@ plugins=(
 	direnv
 	fzf
 	fzf-tab
-	gcloud
+	# gcloud
 	git
 	kubectl
 	pipenv
