@@ -33,10 +33,11 @@ return {
       filename = {
         [".foorc"] = "fooscript",
         [".groovy"] = "groovy",
-        ["Jenkinsfile"] = "groovy",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+        [".*Jenkinsfile"] = "groovy",
+        [".*Dockerfile"] = "dockerfile",
       },
     },
     -- vim options can be configured here
