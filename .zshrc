@@ -251,6 +251,11 @@ if [ -f '/usr/bin/aws_completer' ]; then
 	complete -C '/usr/bin/aws_completer' aws
 fi
 
+### Kubectl krew
+if [ -d "$HOME/.krew/bin" ]; then
+	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+
 ## lad local envs
 ## -- use if no direnv
 # function chpwd() {
