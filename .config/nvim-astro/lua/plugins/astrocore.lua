@@ -49,7 +49,8 @@ return {
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
         list = true,
-        listchars = "tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣",
+        -- listchars = "tab:  ‣,trail:␣,extends:→,precedes:←,nbsp:␣",
+        listchars = "tab:   ,trail:␣,extends:→,precedes:←,nbsp:␣",
         mouse = "",
         -- showbreak = "↳ ",  -- show break line
         guicursor = "n-v:block-blinkwait1000-blinkon500-blinkoff500,i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff200", -- blinking cursos
