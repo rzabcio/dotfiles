@@ -15,11 +15,15 @@ else
 fi
 
 for WIKI in $WIKIS; do
-  if [[ ! "$WIKI" =~ "^~/vimwiki/" ]] && [[ ! "$WIKI" =~ ^$HOME/vimwiki/ ]] ; then
+  if [[ "$WIKI" =~ ^$HOME/vimwiki/psi-docs ]]; then
+		echo "skipping wiki: ${WIKI##*/}"
+		continue
+  fi
+  if [[ ! "$WIKI" =~ "^~/vimwiki/" ]] && [[ ! "$WIKI" =~ ^$HOME/vimwiki/ ]]; then
     WIKI="$HOME/vimwiki/$WIKI"
   fi
 	if [ -d "$WIKI" ] && [ -d "${WIKI}/.git" ]; then
-		echo "syncing wiki: ${WIKI##*/}"
+		echo " syncing wiki: ${WIKI##*/}"
 		sync_wiki "$WIKI" &
 	fi
 done

@@ -105,7 +105,7 @@ plugins=(
 	direnv
 	fzf
 	fzf-tab
-	# gcloud
+	gcloud
 	git
 	kubectl
 	pipenv
@@ -130,8 +130,8 @@ zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|
 if command -v zoxide &> /dev/null; then
 	eval "$(zoxide init --cmd cd zsh)"
 fi
-if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc'; fi
 if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc'; fi
 
@@ -263,3 +263,7 @@ fi
 #     source $PWD/.env
 #   fi
 # }
+
+# The next line updates PATH for the Google Cloud SDK.
+
+# The next line enables shell command completion for gcloud.
