@@ -11,6 +11,7 @@ return {
         n = {
           ["<Leader>uO"] = { "<cmd>set colorcolumn=81<cr>", desc = "Set colorcolumn to 81" },
           ["<Leader>uP"] = { "<cmd>set colorcolumn=121<cr>", desc = "Set colorcolumn to 121" },
+          ["<Leader>ua"] = { "<cmd>Copilot! attach<cr>", desc = "Attach Copilot" },
           ["-"] = {
             function() require("oil").open() end,
             desc = "Open parent directory",
