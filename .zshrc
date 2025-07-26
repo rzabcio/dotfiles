@@ -107,6 +107,7 @@ plugins=(
 	fzf-tab
 	gcloud
 	git
+	jj
 	kubectl
 	pipenv
 	python
@@ -130,10 +131,18 @@ zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|
 if command -v zoxide &> /dev/null; then
 	eval "$(zoxide init --cmd cd zsh)"
 fi
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/path.bash.inc'; fi
-if [ -f '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc' ]; then . '/data/data/com.termux/files/usr/google-cloud-sdk/completion.bash.inc'; fi
+
+# Google Cloud
+if [ -d "$HOME/google-cloud-sdk" ]; then
+	export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+	. "$HOME/google-cloud-sdk/path.zsh.inc"
+	. "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+if [ -d '/data/data/com.termux/files/usr/google-cloud-sdk' ]; then
+	export PATH="/data/data/com.termux/files/usr/google-cloud-sdk/bin:$PATH"
+	. '/data/data/com.termux/files/usr/google-cloud-sdk/path.zsh.inc'
+	. '/data/data/com.termux/files/usr/google-cloud-sdk/completion.zsh.inc'
+fi
 
 eval "$(dircolors ~/.dircolors)";
 source $ZSH/oh-my-zsh.sh
@@ -256,6 +265,11 @@ if [ -d "$HOME/.krew/bin" ]; then
 	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
 
+### JJ completion
+if command -v jj &> /dev/null; then
+	eval "$(jj util completion zsh)"
+fi
+
 ## lad local envs
 ## -- use if no direnv
 # function chpwd() {
@@ -263,7 +277,3 @@ fi
 #     source $PWD/.env
 #   fi
 # }
-
-# The next line updates PATH for the Google Cloud SDK.
-
-# The next line enables shell command completion for gcloud.
