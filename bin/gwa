@@ -1,0 +1,12 @@
+#!/bin/bash
+
+repo_name=$(basename "$(git rev-parse --show-toplevel)")
+branch_name="$1"
+
+# create branch without switching
+git branch "$branch_name"
+git push -u origin "$branch_name"
+cd "$(git rev-parse --show-toplevel)" || exit 1
+worktree_path="../${repo_name}_${branch_name}"
+git worktree add "$worktree_path" "$branch_name"
+
