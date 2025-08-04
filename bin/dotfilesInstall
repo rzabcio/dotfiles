@@ -50,11 +50,22 @@ pkg_version() {
   fi
 }
 
-if [ -z "$(command -v zsh)" ]; then pkg_install zsh; fi
-if [ -z "$(command -v vim)" ]; then pkg_install vim; fi
-if [ -z "$(command -v tmux)" ]; then pkg_install tmux; fi
+# install some default packages
+packages=(
+  direnv
+  fzf
+  jq
+  lazygit
+  ripgrep
+  zsh
+)
+for package in "${packages[@]}"; do
+  if [ -z "$(command -v "$package")" ]; then
+    pkg_install "$package"
+  fi
+done
+# special cases (package != command)
 if [ -z "$(command -v fdfind)" ]; then pkg_install fd-find; fi
-
 
 ### oh-my-zsh install
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -137,4 +148,3 @@ if [ -d "$WIN_HOME_DIR" ]; then
   cp $DOTFILES/.vim/autoload/plug.vim $WIN_HOME_DIR/.vim/autoload/plug.vim
   cp $DOTFILES/.vimrc $WIN_HOME_DIR
 fi
-
