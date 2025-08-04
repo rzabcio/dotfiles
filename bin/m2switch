@@ -1,4 +1,5 @@
 #!/bin/bash
+
 current_m2_suffix=""
 if [ -L ~/.m2 ]; then
     current_m2_suffix=$(readlink ~/.m2 | sed 's/.*\/.m2-//')
@@ -17,7 +18,7 @@ if [ -z "$1"  ] || [ "$1" = "list" ]; then
     exit 0
 fi
 ## if dir does not exist
-if [ ! -d ~/.m2-$1 ]; then
+if [ ! -d "$HOME/.m2-$1" ]; then
     echo "dir ~/.m2-$1 does not exist"
     exit 1
 fi
@@ -26,4 +27,4 @@ if [ -L ~/.m2 ]; then
     rm ~/.m2
 fi
 ## create new symmlink
-ln -s ~/.m2-$1 ~/.m2
+ln -s "$HOME/.m2-$1" ~/.m2

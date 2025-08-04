@@ -74,19 +74,19 @@ fi
 
 # oh-my-zsh install
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-if [ ! -d ${ZSH_CUSTOM}/plugins/zsh-autosuggestions ]; then
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-autosuggestions" ]; then
+	git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
 fi
-if [ ! -d ${ZSH_CUSTOM}/plugins/fzf-tab ]; then
-	git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM}/plugins/fzf-tab
+if [ ! -d "${ZSH_CUSTOM}/plugins/fzf-tab" ]; then
+	git clone https://github.com/Aloxaf/fzf-tab "${ZSH_CUSTOM}/plugins/fzf-tab"
 fi
 
 # additional themes
-if [ ! -f ${ZSH_CUSTOM}/themes/headline.zsh-theme ]; then
-	wget https://raw.githubusercontent.com/moarram/headline/main/headline.zsh-theme -O ${ZSH_CUSTOM}/themes/headline.zsh-theme
+if [ ! -f "${ZSH_CUSTOM}/themes/headline.zsh-theme" ]; then
+	wget https://raw.githubusercontent.com/moarram/headline/main/headline.zsh-theme -O "${ZSH_CUSTOM}/themes/headline.zsh-theme"
 fi
-if [ ! -d ${ZSH_CUSTOM}/themes/powerlevel10k ]; then
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k
+if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}/themes/powerlevel10k"
 fi
 
 

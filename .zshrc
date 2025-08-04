@@ -1,7 +1,12 @@
+# shellcheck disable=SC1090,SC1091  # allow sourcing files that may not exist
+# shellcheck disable=SC2076  # not sure how to approach this, without quoting regex there is syntax error
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+# shellcheck disable=SC2296
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+	# shellcheck disable=SC2296,SC1090
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
@@ -26,17 +31,19 @@ function choose_theme {
 		echo 'powerlevel10k/powerlevel10k'
 	fi
 }
+# shellcheck disable=SC2034
 ZSH_THEME="$(choose_theme)"
 
 function set_proxy {
-	if [[ $hostname =~ "gojira|mrfluence|signthis|sygnity|corpnet|cpd|c1|r2bucket|bamboo" ]]; then
+	if [[ $hostname =~ 'gojira|mrfluence|signthis|sygnity|corpnet|cpd|c1|r2bucket|bamboo' ]]; then
 		echo 'http://proxy.corpnet.inside:8080'
 	else
 		echo ''
 	fi
 }
-export HTTP_PROXY="$(set_proxy)"
-export HTTPS_PROXY="$(set_proxy)"
+proxy="$(set_proxy)"
+export HTTP_PROXY="$proxy"
+export HTTPS_PROXY="$proxy"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,6 +88,7 @@ export DISABLE_AUTO_TITLE="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
+# shellcheck disable=SC2034  # var not used, because of oh-my-zsh
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
@@ -99,6 +107,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# shellcheck disable=SC2034  # var not used, because of oh-my-zsh
 plugins=(
 	ansible
 	brew
@@ -119,8 +128,11 @@ plugins=(
 ### fzf-tab
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-k:accept'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+# shellcheck disable=SC2016  # need to use single quotes for zstyle
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+# shellcheck disable=SC2016
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat ${(Q)realpath}'
+# shellcheck disable=SC2016
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
 	fzf-preview 'echo ${(P)word}'
 
@@ -145,7 +157,7 @@ if [ -d '/data/data/com.termux/files/usr/google-cloud-sdk' ]; then
 fi
 
 eval "$(dircolors ~/.dircolors)";
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -220,6 +232,7 @@ alias tl="tmuxifier load-session"
 # alias wiki="cd ~/vimwiki/default; ls diary/*20* | tail -1 | xargs nvim -c 'e'; (wikisync &) >/dev/null 2>&1"
 alias wiki="cd ~/vimwiki/default; nvim README.md; (wikisync &) >/dev/null 2>&1"
 zkdump() {
+	# shellcheck disable=SC2046,SC2006,SC2012  # not sure about this...
 	echo "* #dump $1" >> `ls diary/*20* | tail -n 1`
 }
 if command -v bat &> /dev/null; then
@@ -240,7 +253,7 @@ if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 fi
 
 if command -v thefuck &> /dev/null; then
-	eval $(thefuck --alias)
+	eval "$(thefuck --alias)"
 fi
 
 ### Tmuxifier https://github.com/jimeh/tmuxifier
