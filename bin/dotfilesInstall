@@ -9,17 +9,51 @@ for symlink in "$DOTFILES"/bin/*; do
 done
 
 ### install packages
-PCKMGR='sudo apt -yq install'
-if [ -n "$(command -v yum)" ]; then
-  PCKMGR='sudo yum -y install'
-fi
-if [ -n "$(command -v pacman)" ]; then
-  PCKMGR='sudo pacman -Sy --noconfirm'
-fi
-if [ ! -n "$(command -v zsh)" ]; then $PCKMGR zsh; fi
-if [ ! -n "$(command -v vim)" ]; then $PCKMGR vim; fi
-if [ ! -n "$(command -v tmux)" ]; then $PCKMGR tmux; fi
-if [ ! -n "$(command -v fdfind)" ]; then $PCKMGR fd-find; fi
+pkg_install() {
+  if [ -n "$(command -v apt)" ]; then
+    sudo apt update
+    sudo apt -yq install "$@"
+  elif [ -n "$(command -v yum)" ]; then
+    sudo yum -y install "$@"
+  elif [ -n "$(command -v pacman)" ]; then
+    sudo pacman -Sy --noconfirm "$@"
+  elif [ -n "$(command -v zypper)" ]; then
+    sudo zypper install -y "$@"
+  else
+    echo "No package manager found."
+  fi
+}
+pkg_uninstall() {
+  if [ -n "$(command -v apt)" ]; then
+    sudo apt -yq remove "$@"
+  elif [ -n "$(command -v yum)" ]; then
+    sudo yum -y remove "$@"
+  elif [ -n "$(command -v pacman)" ]; then
+    sudo pacman -R --noconfirm "$@"
+  elif [ -n "$(command -v zypper)" ]; then
+    sudo zypper remove "$@"
+  else
+    echo "No package manager found."
+  fi
+}
+pkg_version() {
+  if [ -n "$(command -v apt)" ]; then
+    apt-cache policy "$1" | grep -oP '(?<=Candidate: ).*'
+  elif [ -n "$(command -v yum)" ]; then
+    yum info "$1" | grep -oP '(?<=Version\s*:\s*).+'
+  elif [ -n "$(command -v pacman)" ]; then
+    pacman -Qi "$1" | grep -oP '(?<=Version\s*:\s*).+'
+  elif [ -n "$(command -v zypper)" ]; then
+    zypper info "$1" | grep -oP '(?<=Version\s*:\s*).+'
+  else
+    echo "No package manager found."
+  fi
+}
+
+if [ -z "$(command -v zsh)" ]; then pkg_install zsh; fi
+if [ -z "$(command -v vim)" ]; then pkg_install vim; fi
+if [ -z "$(command -v tmux)" ]; then pkg_install tmux; fi
+if [ -z "$(command -v fdfind)" ]; then pkg_install fd-find; fi
 
 
 ### oh-my-zsh install
@@ -50,6 +84,8 @@ if [ ! -d ~/.tmux/plugins ]; then
   mkdir -p ~/.tmux/plugins
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+### Tmuxifier
+ln -sn $DOTFILES/.config/tmuxifier ~/.config/tmuxifier
 
 ### Various
 ln -sf $DOTFILES/.bashrc ~/.bashrc
@@ -72,16 +108,14 @@ vim +'PlugInstall --sync' +qa
 
 ### NeoVim
 ln -sn $DOTFILES/.config/nvim ~/.config/nvim
-# if [ -n "$(command -v nvim)" ]; then
-# 	# packer
-# 	if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-# 		mkdir -p ~/.local/share/nvim/site/pack/packer/start
-# 		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-# 	fi
-# 	nvim -c 'PackerLoad' -c 'PackerInstall'
-# 	# lazy
-# 	nvim -c 'Lazy install'
-# fi
+# check if available version of neovim is larger than 0.10.0 -- install from tarball if not
+nvim_ver=$(pkg_version neovim)
+if [ -z "$nvim_ver" ] && [ "$(echo "$nvim_ver" | head -n 1 | cut -d ' ' -f 2 | cut -d '.' -f 2)" -gt 9 ]; then
+  pkg_install neovim
+else
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+  tar -C "$HOME/.local/" -xzf nvim-linux-x86_64.tar.gz --strip-components=1
+fi
 
 
 ### Ranger
@@ -104,5 +138,3 @@ if [ -d "$WIN_HOME_DIR" ]; then
   cp $DOTFILES/.vimrc $WIN_HOME_DIR
 fi
 
-### Tmuxifier
-ln -sn $DOTFILES/.config/tmuxifier ~/.config/tmuxifier
