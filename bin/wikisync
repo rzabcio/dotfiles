@@ -16,7 +16,7 @@ fi
 
 for WIKI in $WIKIS; do
   if [[ "$WIKI" =~ ^$HOME/vimwiki/psi-docs ]]; then
-		echo "skipping wiki: ${WIKI##*/}"
+		echo "skipping wiki: ${WIKI##*/} (do it manually: wikisync psi-docs)"
 		continue
   fi
   if [[ ! "$WIKI" =~ "^~/vimwiki/" ]] && [[ ! "$WIKI" =~ ^$HOME/vimwiki/ ]]; then
