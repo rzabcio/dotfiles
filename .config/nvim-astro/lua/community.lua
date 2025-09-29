@@ -19,13 +19,21 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.scrolling.cinnamon-nvim" },
   --  colorchemes:
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.eldritch-nvim" },
   { import = "astrocommunity.colorscheme.everforest" },
   { import = "astrocommunity.colorscheme.kanagawa-paper-nvim" }, -- problems: tabs
   { import = "astrocommunity.colorscheme.neofusion-nvim" }, -- problems: MD colors/headers
   -- tests
-  { import = "astrocommunity.colorscheme.cyberdream-nvim" }, -- problems: tabs, black text on black backgroud?
-  { import = "astrocommunity.colorscheme.palenight-nvim" }, -- problems: MD colors/headers
+  -- { import = "astrocommunity.colorscheme.cyberdream-nvim" }, -- problems: painful
+  -- { import = "astrocommunity.colorscheme.palenight-nvim" }, -- problems: tabs, MD colors/headers
+  -- { import = "astrocommunity.colorscheme.citruszest-nvim" }, -- problems: painful, tabs
+  -- { import = "astrocommunity.colorscheme.fluoromachine-nvim" }, -- problems: painful, no tabs
+  -- { import = "astrocommunity.colorscheme.helix-nvim" }, -- problems: MD colors/headers
+  -- { import = "astrocommunity.colorscheme.horizon-nvim" }, -- problems: MD colors/headers
+  -- { import = "astrocommunity.colorscheme.lackluster-nvim" }, -- problems: MD colors/headers
+  { import = "astrocommunity.colorscheme.vim-moonfly-colors" }, -- problems: MD colors/headers
+
 
   -- import/override with your plugins folder
 
