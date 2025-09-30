@@ -117,15 +117,16 @@ ln -sf $DOTFILES/.vim/autoload ~/.vim/autoload
 vim +'PlugInstall --sync' +qa
 
 
-### NeoVim
-ln -sn $DOTFILES/.config/nvim ~/.config/nvim
-# check if available version of neovim is larger than 0.10.0 -- install from tarball if not
-nvim_ver=$(pkg_version neovim)
-if [ -z "$nvim_ver" ] && [ "$(echo "$nvim_ver" | head -n 1 | cut -d ' ' -f 2 | cut -d '.' -f 2)" -gt 9 ]; then
-  pkg_install neovim
-else
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-  tar -C "$HOME/.local/" -xzf nvim-linux-x86_64.tar.gz --strip-components=1
+### NeoVim - only when symlink successfull (not already configured)
+if ln -sn $DOTFILES/.config/nvim ~/.config/nvim; then
+  # check if available version of neovim is larger than 0.10.0 -- install from tarball if not
+  nvim_ver=$(pkg_version neovim)
+  if [ -z "$nvim_ver" ] && [ "$(echo "$nvim_ver" | head -n 1 | cut -d ' ' -f 2 | cut -d '.' -f 2)" -gt 9 ]; then
+    pkg_install neovim
+  else
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    tar -C "$HOME/.local/" -xzf nvim-linux-x86_64.tar.gz --strip-components=1
+  fi
 fi
 
 
