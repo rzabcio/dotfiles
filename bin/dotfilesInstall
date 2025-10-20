@@ -57,6 +57,7 @@ packages=(
   jq
   lazygit
   ripgrep
+  wget
   zsh
 )
 for package in "${packages[@]}"; do
