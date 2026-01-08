@@ -112,6 +112,7 @@ plugins=(
 	ansible
 	brew
 	direnv
+	docker
 	fzf
 	fzf-tab
 	gcloud
