@@ -51,11 +51,30 @@ return {
           create_on_follow_failure = true,
         },
         to_do = {
-          symbols = { " ", "o", "x" },
-          update_parents = true,
-          not_started = " ",
-          in_progress = "o",
-          complete = "x",
+          highlight = false,
+          status_propagation = { up = true, down = true },
+          sort = {
+            on_status_change = false,
+            recursive = false,
+            cursor_behavior = { track = true },
+          },
+          statuses = {
+            {
+              name = 'not_started',
+              marker = ' ',
+              exclude_from_rotation = false,
+            },
+            {
+              name = 'in_progress',
+              marker = '-',
+              exclude_from_rotation = false,
+            },
+            {
+              name = 'complete',
+              marker = { 'X', 'x' },
+              exclude_from_rotation = false,
+            },
+          },
         },
         perspective = {
           priority = "current",
