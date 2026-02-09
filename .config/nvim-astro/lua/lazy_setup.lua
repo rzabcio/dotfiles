@@ -27,6 +27,7 @@ require("lazy").setup({
         "tohtml",
         "zipPlugin",
       },
+      reset = false, -- reset the rtp to $VIMRUNTIME and your config directory, preventing plugins from being loaded from the runtime path
     },
   },
 } --[[@as LazyConfig]])
