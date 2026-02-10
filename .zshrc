@@ -150,8 +150,11 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
 	export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 	. "$HOME/google-cloud-sdk/path.zsh.inc"
 	. "$HOME/google-cloud-sdk/completion.zsh.inc"
-fi
-if [ -d '/data/data/com.termux/files/usr/google-cloud-sdk' ]; then
+elif [ -d "$HOME/.local/share/google-cloud-sdk" ]; then
+	export PATH="$HOME/.local/share/google-cloud-sdk/bin:$PATH"
+	. "$HOME/.local/share/google-cloud-sdk/path.zsh.inc"
+	. "$HOME/.local/share/google-cloud-sdk/completion.zsh.inc"
+elif [ -d '/data/data/com.termux/files/usr/google-cloud-sdk' ]; then
 	export PATH="/data/data/com.termux/files/usr/google-cloud-sdk/bin:$PATH"
 	. '/data/data/com.termux/files/usr/google-cloud-sdk/path.zsh.inc'
 	. '/data/data/com.termux/files/usr/google-cloud-sdk/completion.zsh.inc'
@@ -277,6 +280,11 @@ fi
 ### Kubectl krew
 if [ -d "$HOME/.krew/bin" ]; then
 	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+
+### local Neovim binary
+if [ -d "$HOME/devtools/nvim/" ]; then
+	export PATH="${HOME}/devtools/nvim/bin:$PATH"
 fi
 
 ### JJ completion
