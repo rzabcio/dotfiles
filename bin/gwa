@@ -12,10 +12,18 @@
 repo_name=$(basename "$(git rev-parse --show-toplevel)")
 branch_name="$1"
 
-# create branch without switching
-git branch "$branch_name" &> /dev/null
-git push -u origin "$branch_name" &> /dev/null
 cd "$(git rev-parse --show-toplevel)" || exit 1
 worktree_path="../${repo_name}_${branch_name}"
-git worktree add "$worktree_path" "$branch_name" &> /dev/null
+
+# create branch without switching
+if git show-ref --verify --quiet "refs/heads/$branch_name" || \
+  git ls-remote --exit-code --heads origin "$branch_name" &>/dev/null; then
+  git worktree add "$worktree_path" "$branch_name" &>/dev/null
+else
+  # Branch does not exist, create, push, then add worktree
+  git branch "$branch_name" &> /dev/null
+  git push -u origin "$branch_name" &> /dev/null
+  git worktree add "$worktree_path" "$branch_name" &> /dev/null
+fi
+
 echo "$worktree_path"
