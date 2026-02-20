@@ -58,23 +58,23 @@ return {
             recursive = false,
             cursor_behavior = { track = true },
           },
-          statuses = {
-            {
-              name = 'not_started',
-              marker = ' ',
-              exclude_from_rotation = false,
-            },
-            {
-              name = 'in_progress',
-              marker = '-',
-              exclude_from_rotation = false,
-            },
-            {
-              name = 'complete',
-              marker = { 'X', 'x' },
-              exclude_from_rotation = false,
-            },
-          },
+          -- statuses = {
+          --   {
+          --     name = 'not_started',
+          --     marker = ' ',
+          --     exclude_from_rotation = false,
+          --   },
+          --   {
+          --     name = 'in_progress',
+          --     marker = '-',
+          --     exclude_from_rotation = false,
+          --   },
+          --   {
+          --     name = 'complete',
+          --     marker = { 'X', 'x' },
+          --     exclude_from_rotation = false,
+          --   },
+          -- },
         },
         perspective = {
           priority = "current",
