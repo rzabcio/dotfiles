@@ -1,10 +1,12 @@
 ---
 gui:
   mouseEvents: false
+git:
   disableForcePushing: true
   mainBranches:
     - master
     - main
     - develop
   commitPrefix:
-    pattern: "^\\w+\\/(\\w+-\\w+).*"
+    - pattern: "^\\w+\\/(\\w+-\\w+).*"
+      replace: '[$1]'
