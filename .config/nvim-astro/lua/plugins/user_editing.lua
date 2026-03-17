@@ -32,6 +32,14 @@ return {
     event = "VeryLazy",
     config = function() require("nvim-surround").setup {} end,
   },
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      filetypes = {
+        markdown = true,
+      },
+    },
+  },
   -- -- perplexity configuration - disabled, because it works pretty slowly
   -- {
   --   "frankroeder/parrot.nvim",
