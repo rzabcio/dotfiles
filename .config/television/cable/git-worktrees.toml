@@ -1,0 +1,29 @@
+[metadata]
+name = "git-worktrees"
+description = "List and switch between git worktrees"
+requirements = ["git", "awk", "tr"]
+
+[source]
+command = "git worktree list | awk '{print $3, $1}' | tr -d '[]'"
+# {0} is the branch, {1} is the path
+display = "{1}"
+
+[preview]
+command = "cd '{1}' && git log --oneline -10 --color=always && echo && git status --short"
+
+[keybindings]
+enter = "actions:cd"
+ctrl-d = "actions:remove"
+
+[actions.cd]
+description = "Change to the selected worktree"
+command = "cd '{1}' && $SHELL"
+mode = "execute"
+
+[actions.remove]
+description = "Remove the selected worktree"
+command = "git worktree remove '{1}'"
+mode = "execute"
+
+[ui.preview_panel]
+header = "{0}"
