@@ -8,6 +8,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.git.blame-nvim" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
   { import = "astrocommunity.note-taking.zk-nvim" },
@@ -16,6 +17,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.scrolling.cinnamon-nvim" },
