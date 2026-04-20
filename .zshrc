@@ -163,6 +163,10 @@ fi
 eval "$(dircolors ~/.dircolors)";
 source "$ZSH/oh-my-zsh.sh"
 
+if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
