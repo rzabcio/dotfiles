@@ -33,6 +33,15 @@ return {
     config = function() require("nvim-surround").setup {} end,
   },
   {
+    "arsham/indent-tools.nvim",
+    opts = {
+      normal = {
+        repeatable = false,
+      },
+    },
+    config = function(_, opts) require("indent-tools").config(opts) end,
+  },
+  {
     "zbirenbaum/copilot.lua",
     opts = {
       filetypes = {
