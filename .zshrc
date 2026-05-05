@@ -303,3 +303,8 @@ fi
 #     source $PWD/.env
 #   fi
 # }
+
+### locading private config
+if [ -f "$HOME/.zshrc.local" ]; then
+	source "$HOME/.zshrc.local"
+fi
