@@ -36,6 +36,8 @@ return {
   -- { import = "astrocommunity.colorscheme.horizon-nvim" }, -- problems: MD colors/headers
   -- { import = "astrocommunity.colorscheme.lackluster-nvim" }, -- problems: MD colors/headers
   { import = "astrocommunity.colorscheme.vim-moonfly-colors" }, -- problems: MD colors/headers
+  -- { import = "astrocommunity.colorscheme.alabaster" }, -- problems: MD colores/headers, blant colors
+  -- { import = "astrocommunity.colorscheme.darkloam" }, -- problems: MD colores/headers, blant colors
 
 
   -- import/override with your plugins folder
